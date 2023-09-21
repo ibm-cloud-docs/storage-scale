@@ -1,0 +1,55 @@
+toc:
+  properties:
+    subcollection: storage-scale
+    category: compute
+    audience: software
+    href: /docs/storage-scale
+    path: storage-scale
+    label: IBM Storage Scale
+  entries: 
+  - navgroup: 
+      id: learn
+      topics:
+      - getting-started.md
+      - about.md
+      - considerations-for-HPC-cluster-compute-types.md
+      - deployment-values.md
+      - storage-types.md
+      - release-notes.md
+  - navgroup: 
+      id: howto
+      topics:
+      - topicgroup: 
+          label: Setting up the CLI and API
+          topics: 
+          - setting-up-cli.md
+          - setting-up-api.md
+      - creating-workspace.md
+      - generating-plan.md
+      - applying-plan.md
+      - accessing-gui.md
+      - destroying-resources.md
+      - deleting-workspace.md
+      - retrieving-apply-plan-logs.md
+      - retrieving-action-logs.md
+      - updating-variables.md
+      - enabling-encryption.md
+  - navgroup:
+      id: reference
+      topics:
+      - topicgroup:
+           label: IBM Cloud Schematics CLI
+           topics: 
+           - include: ../schematics/cli-reference.md
+           - include: ../schematics/cli-version-release.md
+      - link:
+          label: IBM Cloud Schematics API
+          href: https://cloud.ibm.com/apidocs/schematics
+      - include: ../schematics/schematics-sdk.md
+  - navgroup:
+      id: help
+      topics: 
+      - faq.md
+      - troubleshooting.md
+      - getting-help.md
+
