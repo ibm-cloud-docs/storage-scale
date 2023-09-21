@@ -30,6 +30,9 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #storage-scale-sept2123}
 {: release-note}
 
+Rebranding
+:   This release contains the rebranded {{site.data.keyword.scale_full_notm}} documentation, formerly known as IBM Spectrum Scale.
+
 Encryption with GKLM
 :   You can now encrypt your {{site.data.keyword.scale_short}} cluster file system by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM). If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling encryption by using GKLM](/docs/storage-scale?topic=storage-scale-enable-encryption).
 
