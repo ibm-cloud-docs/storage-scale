@@ -34,6 +34,10 @@ toc:
       - retrieving-action-logs.md
       - updating-variables.md
       - enabling-encryption.md
+      - configure-ces-integration.md 
+      - config-ldap-ces.md 
+      - config-setup-symph-cluster.md
+      - vnic-info.md
   - navgroup:
       id: reference
       topics:
@@ -46,6 +50,7 @@ toc:
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
       - include: ../schematics/schematics-sdk.md
+      - data-transfer.md
   - navgroup:
       id: help
       topics: 

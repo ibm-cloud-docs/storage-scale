@@ -23,6 +23,26 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.scale_full}} that are grouped by date.
 {: shortdesc}
 
+## December 2023
+{: #storage-scale-sept23}
+
+### 11 December 2023
+{: #storage-scale-sept0423}
+{: release-note}
+
+Enabling CES Feature
+:  You can now enable CES feature to enable access to data stored in Storage Scale. By providing non-zero value to total_protocol_cluster_instances variable, you can enable CES feature. For more information about enabling CES and configuring these deployment values, see Enabling CES Feature.
+
+User Management
+:   LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster. By setting up the ldap_basedns deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES. For more information about LDAP integration and configuring these deployment values, see Configuring CES with LDAP
+
+Updated RHEL stock image version
+:   The RHEL stock image version was updated from RHEL 8.6 to RHEL 8.8.
+
+Updated Storage Scale software version
+:   The Storage Scale version used for configuration of the compute and storage clusters has been updated from version 5.1.8.1 to 5.1.9.0
+
+
 ## September 2023
 {: #storage-scale-sept23}
 
@@ -30,17 +50,14 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #storage-scale-sept2123}
 {: release-note}
 
-Rebranding
-:   This release contains the rebranded {{site.data.keyword.scale_full_notm}} documentation, formerly known as IBM Spectrum Scale.
-
 Encryption with GKLM
-:   You can now encrypt your {{site.data.keyword.scale_short}} cluster file system by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM). If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling encryption by using GKLM](/docs/storage-scale?topic=storage-scale-enable-encryption).
+:   You can now encrypt your {{site.data.keyword.scale_short}} cluster file system by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM). If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling encryption by using GKLM](/docs/storage-scale?topic=storage-scale-enable-encryption). 
 
 Parallel vNIC (Virtual Network Interface Controller)
 :   Create a secondary vNIC for higher VSI profiles to separate the data and storage traffic across different vNICs for higher bandwidth and better performance.
 
 Sapphire Rapids-based virtual server instance profile support
-:   The solution now supports deployment of compute and storage nodes on virtual server instance profiles that make use of 4th Generation Intel&reg; Xeon&reg; Scalable processors (code named Sapphire Rapids). Those profiles can be used with RHEL 7.9 and RHEL 8.6 VPC stock images and with the RHEL 8.6 custom images that are included with the solution. Use of the included RHEL 7.9 custom images is not supported by those profiles.
+:   The solution now supports deployment of compute nodes on virtual server instance profiles that make use of 4th Generation Intel&reg; Xeon&reg; Scalable processors (code named Sapphire Rapids). Those profiles can be used only with the RHEL 8.8 custom image.
 
 ## August 2023
 {: #hpc-scale-aug23}
@@ -50,7 +67,7 @@ Sapphire Rapids-based virtual server instance profile support
 {: release-note}
 
 Updated RHEL stock image version
-:   The RHEL stock image version was updated from RHEL 8.4 to RHEL 8.6.
+:   The RHEL stock image version was updated from RHEL 8.4 to RHEL 8.8.
 
 Updated {{site.data.keyword.scale_short}} software version
 :   The {{site.data.keyword.scale_short}} version used for configuration of the compute and storage clusters has been updated from version 5.1.4.1 to 5.1.8.1.

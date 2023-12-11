@@ -47,7 +47,7 @@ Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You might need
 
 You can create a custom image for your compute nodes or use the default image. But for bootstrap and storage nodes, only the default image is supported. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images). 
 
-{{site.data.keyword.cloud_notm}} provides pre-built images with RHEL to help you get started quickly. Depending on your choice of RHEL 7.9 or RHEL 8.6, you can select `hpcc-scale5181-rhel79` or `hpcc-scale5181-rhel86`. See the `compute_vsi_osimage_name` parameter in [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). In addition to the base operating system, the image includes the {{site.data.keyword.scale_short}} software packages that allow for the {{site.data.keyword.scale_short}} shared file system to be automatically mounted and ready for use after the creation and configuration of the cluster is complete.
+{{site.data.keyword.cloud_notm}} provides pre-built images with RHEL to help you get started quickly. Depending on your choice of RHEL 7.9 or RHEL 8.8, you can select `hpcc-scale5181-rhel79` or `hpcc-scale5181-rhel86`. See the `compute_vsi_osimage_name` parameter in [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). In addition to the base operating system, the image includes the {{site.data.keyword.scale_short}} software packages that allow for the {{site.data.keyword.scale_short}} shared file system to be automatically mounted and ready for use after the creation and configuration of the cluster is complete.
 
 ## Gather public IP address
 {: #gather-public-ip-address}

@@ -53,7 +53,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
 | `scale_encryption_enabled` | Set to "true" to enable encryption for the file system. | `true` |
-| `scale_encryption_vsi_osimage_name` | Name of the image that you would like to use to create the GKLM server for encryption. The solution supports only a RHEL 8.6 stock image. | `gklm-custom-image-name` |
+| `scale_encryption_vsi_osimage_name` | Name of the image that you would like to use to create the GKLM server for encryption. The solution supports only a RHEL 8.8 stock image. | `gklm-custom-image-name` |
 | `scale_encryption_vsi_profile` | Specify the virtual server instance profile type name used to create the storage nodes. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | `bx2-2x8` |
 | `scale_encryption_server_count` | The number of highly available encryption servers that are set up. You can choose between a minimum of two servers and a maximum of five servers. | `3` |
 | `scale_encryption_admin_password` | The admin password for the GKLM application, which needs to be configured by using specific guidelines and [policies](https://www.ibm.com/docs/en/sgklm/4.1.1?topic=manager-password-policy){: external}. | `xxxxxxx` |
