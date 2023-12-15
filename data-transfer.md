@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-14"
+lastupdated: "2023-12-15"
 
 keywords: 
 
@@ -41,7 +41,7 @@ The options are classified into four categories:
 3.	IBM Aspera
 4.	Collection of generic utilities
     a)	SCP
-    b)	RSYNC
+    b)	RSync
     c)	RClone
     d)	Ansible playbook
  
@@ -144,10 +144,10 @@ To learn more about IBM Storage Scale Active File Management (AFM), click [here]
 {: #collect-gen-util}
 
 Collection of generic utilities tools which are publicly available for data transfer
-*   SCP
-*   RSYNC
-*	RClone
-*   Ansible playbook
+*  SCP
+*  RSync
+*  RClone
+*  Ansible playbook
  
 ### SCP 
 {: #scp}
@@ -184,10 +184,10 @@ Only one SCP client session is supported at a time
 Open Source
 
 
-### RSYNC
+### RSync
 {: #rsync}
 
-Rsync was originally a file synchronization protocol under Linux, and as technology developed, it had other versions, such as Windows, AIX, and HPUX. The advantage of Rsync is that the operation is done under the full command line, there is a detailed log file, and it can support a variety of different circumstances for the update, such as backup-type updates and so on.
+RSync was originally a file synchronization protocol under Linux, and as technology developed, it had other versions, such as Windows, AIX, and HPUX. The advantage of RSync is that the operation is done under the full command line, there is a detailed log file, and it can support a variety of different circumstances for the update, such as backup-type updates and so on.
 
 The servers can be synchronized with each other; you can update the file from the server which decommissioned and you can also submit local files to the server. As long as you configure the parameters to be correct.
 
@@ -196,15 +196,15 @@ The servers can be synchronized with each other; you can update the file from th
 
 The Pros of this approach include:
 
-*   By default, it’s on every ‘nix system, so no messy installation is needed. rsync has not changed in a long time, so there is no need for feature and revision differences.
+*   By default, it’s on every ‘nix system, so no messy installation is needed. RSync has not changed in a long time, so there is no need for feature and revision differences.
 *   The file system at the destination server inspects and syncs; this is an important factor to consider for easier failovers.
-*   Failing over and back to use is simple because this is all done at the file system level. If a server is to fall out of sync or if there is a need to add another server into replication, a simple rsync command will catch things up.
+*   Failing over and back to use is simple because this is all done at the file system level. If a server is to fall out of sync or if there is a need to add another server into replication, a simple RSync command will catch things up.
 
 #### Cons
 {: #cons-rsync}
 
 *   Data will never be as up-to-date as rsync is copying from an existing data source, and DRBD synchronous mode is to write to all servers before deeming it a successful commit.
-*   We need to write checks for validation and monitoring, as Rsync does not provide any of that.
+*   We need to write checks for validation and monitoring, as RSync does not provide any of that.
 *   We need to figure out the exact flags and options. This is not a big con, as it’s a one-time tax to be paid. I’ll share mine if it helps anyone.
 
 #### Limitation
@@ -228,21 +228,21 @@ Open Source
 ### RClone
 {: #rclone}
 
-Rclone is a command-line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors' web storage interfaces. Over 40 cloud storage products support Rclone, including S3 object stores, business and consumer file storage services, as well as standard transfer protocols.
+RClone is a command-line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors' web storage interfaces. Over 40 cloud storage products support RClone, including S3 object stores, business and consumer file storage services, as well as standard transfer protocols.
 
-Rclone has powerful cloud equivalents to the Unix commands rsync, cp, mv, mount, ls, ncdu, tree, rm, and cat. Rclone's familiar syntax includes shell pipeline support and --dry-run protection. It is used at the command line, in scripts, or via its API.
+RClone has powerful cloud equivalents to the Unix commands rsync, cp, mv, mount, ls, ncdu, tree, rm, and cat. RClone's familiar syntax includes shell pipeline support and --dry-run protection. It is used at the command line, in scripts, or via its API.
  
-|Rsync Features	|RClone Features|
+|RSync Features	|RClone Features|
 |---------|--------|
-|Rsync is used for synchronization between two Linux/UNIX computers or servers.	|RClone is primarily used for backing up to cloud storage such as Google Drive or BackBlaze.|
+|RSync is used for synchronization between two Linux/UNIX computers or servers.	|RClone is primarily used for backing up to cloud storage such as Google Drive or BackBlaze.|
 |bi-directional sync A to B or B to A	|unidirectional sync from A to B|
 |support for copying links, devices, owners, groups, and permissions	|RClone stores each file you transfer as a native object on the remote cloud storage system.|
 |support for anonymous or authenticated rsync daemons (ideal for mirroring)	|RClone supports copy or sync commands.|
-{: caption="Rsync and RClone features"} 
+{: caption="RSync and RClone features"} 
 
 Steps to install and configure rclone: [click here](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-rclone)
 
-Rclone command list: Click [here](https://rclone.org/commands/)
+RClone command list: Click [here](https://rclone.org/commands/)
 
 #### Pros
 {: #pros-rclone}
@@ -266,9 +266,9 @@ The Cons of this approach include:
 #### Limitations
 {: #limits-rclone}
 
-*   Rclone doesn't currently preserve the timestamps of directories. This is because rclone only really considers objects when syncing.
+*   RClone doesn't currently preserve the timestamps of directories. This is because rclone only really considers objects when syncing.
 *   Currently rclone loads each directory/bucket entirely into memory before using it. Since each rclone object takes 0.5k-1k of memory this can take a very long time and use a large amount of memory.
-*   Bucket-based remotes (e.g. S3/GCS/Swift/B2) do not have a concept of directories. Rclone therefore cannot create directories in them which means that empty directories on a bucket-based remote will tend to disappear.
+*   Bucket-based remotes (e.g. S3/GCS/Swift/B2) do not have a concept of directories. RClone therefore cannot create directories in them which means that empty directories on a bucket-based remote will tend to disappear.
 
 #### Licensing
 {: #lic-rclone}
@@ -382,7 +382,7 @@ To learn more about the ansible.builtin.copy module, [click here](https://docs.a
 #### Ansible synchronize
 {: #ansible-synchronize}
 
-Synchronize is a wrapper around rsync to make common tasks in your playbooks quick and easy. It is run and originates on the local host where Ansible is being run. Of course, you could just use the command action to call rsync yourself, but you also must add a fair number of boilerplate options and host facts. Synchronize is not intended to provide access to the full power of Rsync, but it does make the most common invocations easier to implement. You still may need to call rsync directly via command or shell, depending on your use case.
+Synchronize is a wrapper around rsync to make common tasks in your playbooks quick and easy. It is run and originates on the local host where Ansible is being run. Of course, you could just use the command action to call rsync yourself, but you also must add a fair number of boilerplate options and host facts. Synchronize is not intended to provide access to the full power of RSync, but it does make the most common invocations easier to implement. You still may need to call rsync directly via command or shell, depending on your use case.
 
 ##### Pros
 {: #ansible-sync-pros}
@@ -392,7 +392,7 @@ Synchronize is a wrapper around rsync to make common tasks in your playbooks qui
 ##### Cons
 {: #ansible-sync-cons}
 
-*   rsync must be installed on both the local and remote hosts.
+*   RSync must be installed on both the local and remote hosts.
 *   Synchronize is limited to elevating permissions via passwordless sudo. This is because rsync itself is connecting to the remote machine, and rsync doesn’t give us a way to pass sudo credentials in.
  
 ##### Sample code
