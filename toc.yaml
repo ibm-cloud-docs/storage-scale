@@ -47,10 +47,10 @@ toc:
            - include: ../schematics/cli-reference.md
            - include: ../schematics/cli-version-release.md
       - link:
-          label: data-transfer.md
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
       - include: ../schematics/schematics-sdk.md
+      - data-transfer.md
   - navgroup:
       id: help
       topics: 
