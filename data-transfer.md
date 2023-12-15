@@ -30,7 +30,7 @@ subcollection: storage-scale
 ## Overview
 {: #overview}
 
-It is hard to choose a tool to complete a task when there are many tools available in the market, it gets even more challenging when it comes to data transfer between cloud locations or on-premises to the cloud or running jobs with data residing in different locations.
+It is difficult to choose a tool to complete a task when there are so many tools available in the market, it gets even more challenging when data transfer between cloud locations or on-premises to the cloud or running the jobs with data residing in different locations.
 
 There are several options available for data transfer in and out of the IBM cloud and how to run a job with data residing in different cloud locations. The pros and cons of each option are listed and also the tools suitable for job or use case.
  
@@ -69,16 +69,16 @@ If the files are not in the cache, the LSF data manager stages them and notifies
 ### Pros 
 {: #pros-data-mgr}
 
-The Pros of this approach include:
+The pros of this approach include:
 
 *	Able to run jobs with data resists in different locations.
 
 ### Cons
 {: #cons-data-mgr}
 
-The Cons of this approach include:
+The cons of this approach include:
 
-*	Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it's applications, if it's libraries and any other dependency, presumably those are already living in the cloud, but if it's the actual input data set or any reference data set that it might need, you have to point that out as part of your job submission.
+*	Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it is applications, libraries and any other dependency, presumably those are already living in the cloud, but if it is the actual input data set or any reference data set that it might need, you have to point that out as part of your job submission.
 
 ### Limitations
 {: #limit-data-mgr}
@@ -109,7 +109,7 @@ With AFM, you can implement a single namespace view across sites around the worl
 ### Pros 
 {: #pros-storage-scale}
 
-The Pros of this approach include:
+The pros of this approach include:
 
 *   Users can build a common namespace across locations and automate the flow of file data.
 *   Users can duplicate data for disaster recovery purposes without suffering from wide area network (WAN) latencies.
@@ -120,7 +120,7 @@ The Pros of this approach include:
 ### Cons
 {: #cons-storage-scale}
 
-The Cons of this approach include:
+The cons of this approach include:
 
 *  AFM does not offer any feature to check the consistency of files across source and destination. However, after files are replicated, you can use any third-party utility to check for consistency.
 
@@ -159,7 +159,7 @@ It is a secure and robust protocol that uses SSH to transfer files with authenti
 #### Pros
 {: #pros-scp}
 
-The Pros of this approach include:
+The pros of this approach include:
 
 *   SCP is known for its security and reliability.
 *   SCP provides strong authentication and encryption, which means only authorized users can access and transfer the files.
@@ -168,7 +168,7 @@ The Pros of this approach include:
 #### Cons
 {: #cons-scp}
 
-The Cons of this approach include:
+The cons of this approach include:
 
 *   SCP has its own complexity and overhead.
 *   SCP can be slower and more resource-intensive than TFTP, especially over long distances or congested networks. It also requires more configuration and maintenance on both the router and the server side, such as managing SSH keys and updating SSH software.
@@ -194,7 +194,7 @@ The servers can be synchronized with each other; you can update the file from th
 #### Pros
 {: #pros-rsync}
 
-The Pros of this approach include:
+The pros of this approach include:
 
 *   By default, it’s on every ‘nix system, so no messy installation is needed. RSync has not changed in a long time, so there is no need for feature and revision differences.
 *   The file system at the destination server inspects and syncs; this is an important factor to consider for easier failovers.
@@ -247,7 +247,7 @@ RClone command list: Click [here](https://rclone.org/commands/)
 #### Pros
 {: #pros-rclone}
 
-The Pros of this approach include:
+The pros of this approach include:
 
 *   Powerful command line interface (CLI) - Free and open-source - Works with over 40 cloud storage services
 *   RClone is primarily used for backing up to cloud storage such as Google Drive or BackBlaze.
@@ -257,7 +257,7 @@ The Pros of this approach include:
 #### Cons
 {: #cons-rclone}
 
-The Cons of this approach include:
+The cons of this approach include:
 
 *   Steep learning curve - No customer support - No cloud storage
 *   unidirectional sync from A to B
@@ -297,14 +297,14 @@ Ansible playbook can be used for data transfer and data sync operations and also
 ##### Pros
 {: #copy-pros}
 
-The Pros of this approach include:
+The pros of this approach include:
 
 *  Simple to code
 
 ##### Cons
 {: #copy-cons}
 
-The Cons of this approach include:
+The cons of this approach include:
 
 *  Variable interpolation in copied files is not present.
 *  The copy module recursively copy facility does not scale to lots (>hundreds) of files.
