@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-12-14"
 
 keywords: 
 
@@ -30,11 +30,11 @@ subcollection: storage-scale
 ## Overview
 {: #overview}
 
-It's hard to choose a tool to complete a task when there are many tools available on the market, It gets even more challenging when it comes to data transfers between cloud locations or on-premises to the cloud or running jobs with data residing in different locations.
+It is hard to choose a tool to complete a task when there are many tools available in the market, it gets even more challenging when it comes to data transfer between cloud locations or on-premises to the cloud or running jobs with data residing in different locations.
 
-There are several options available for data transfer in and out of the IBM cloud and how to run a job with data residing in different cloud locations. The Pros ndcons of each option are listed as well as  which tool is suitable for which job or use case.
+There are several options available for data transfer in and out of the IBM cloud and how to run a job with data residing in different cloud locations. The pros and cons of each option are listed and also the tools suitable for job or use case.
  
-The options are classified into four categories.
+The options are classified into four categories:
            
 1.	IBM Spectrum LSF Data Manager
 2.	Spectrum Scale AFM
@@ -139,46 +139,6 @@ To learn more about limitations, click [here](https://www.ibm.com/docs/en/storag
 *  No separate license is required for IBM Storage Scale AFM if you have an IBM Storage Scale Server License
 
 To learn more about IBM Storage Scale Active File Management (AFM), click [here](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=management-introduction-active-file-afm).
-
- 
-## IBM Aspera 
-{: #aspera}
-
-
-IBM Aspera takes a different approach to tackling the challenges of big data movement over global WANs. Rather than optimize or accelerate data transfer, Aspera eliminates underlying bottlenecks using a breakthrough transport technology, fully utilizing available network bandwidth to maximize speed and quickly scale up with no theoretical limit.
-Utilize high-speed transfers for data migration to, from, and between on-premises data centers and any major cloud.
-  
-### Pros 
-{: #pros-aspera}
-
-The Pros of this approach include:
-
-*   Securely transfer your data anywhere.
-*   Big data transport and sync: transfer, distribute, and sync huge files and data sets globally.
-*   Large-file sharing: Accelerate collaboration with teams around the world on big data and large files.
-*   Transfer management: automate, monitor, and control data transfers and workflows.
-*   Any bit-rate streaming: Deliver data of any size and virtually unlimited bit-rate video with near-zero latency.
-*   Hybrid cloud workflows: build highly scalable workflows running on-premises, in the cloud, or both.
-*   Secure asset exchange: Use blockchain technology to add additional security to digital asset movement.
- 
-### Cons
-{: #cons-aspera}
-
-The Cons of this approach include:
-
-*   Required separate license to use it.
- 
-### Limitation
-{: #limit-aspera}
-
-*   Required separate license to use it.
-
-### Licensing
-{: #license-aspera}
-
-*   Plans: free trial, standard, advanced, enterprise, and pay-as-you-go. More information on pricing
- 
-To learn more about IBM Aspera, click [here](https://www.ibm.com/products/aspera).
  
 ## Collection of generic utilities
 {: #collect-gen-util}
