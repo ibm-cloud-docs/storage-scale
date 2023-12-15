@@ -50,6 +50,7 @@ toc:
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
       - include: ../schematics/schematics-sdk.md
+          label: data-transfer.md
   - navgroup:
       id: help
       topics: 
