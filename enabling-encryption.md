@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-09-05"
+  years: 2023, 2024
+lastupdated: "2024-03-20"
 
 keywords: 
 
@@ -87,19 +87,19 @@ The storage and compute clusters have access to the encrypted file system, and a
 2. List the key server that was added to the cluster by running the following command:
 
     ```text
-    mmkeyserver server show
+    mmkeyserv server show
     ```
     {: codeblock}
 
 3. List the key components, for example tenant or client, by running the following commands:
 
     ```text
-    mmkeyserver tenant show
+    mmkeyserv tenant show
     ```
     {: codeblock}
 
     ```text
-    mmmkeyserver client show
+    mmkeyserv client show
     ```
     {: codeblock}
 
@@ -120,5 +120,15 @@ The storage and compute clusters have access to the encrypted file system, and a
 
 To learn more about encryption for {{site.data.keyword.scale_short}} or different encryption use cases, see [Encryption](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=administering-encryption){: external}.
 
+## Accessing the GKLM dashboard
+{: #access-GKLM}
 
+1. Open a new command line terminal.
+2. Run the following commands from the local machine:
 
+    ```
+    ssh -L 9443:localhost:9443 -J ubuntu@<bastion_host_IP> vpcuser@<first_GKLM_server>
+    ```
+    {: codeblock}
+
+3. Open the browser on the local machine, and run https://localhost:9443/.

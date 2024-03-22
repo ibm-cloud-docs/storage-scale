@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-09-05"
+  years: 2022, 2023, 2024
+lastupdated: "2024-03-20"
 
 keywords: 
 
@@ -186,6 +186,18 @@ Anything above IBM Storage Scale 5.1.5 supports the Multi-Rail over TCP (MROT) f
 ## What version of OS does Scale support?
 {: #os-version-supported}
 
-With Storage Scale, you can use custom or stock images based on RHEL 7.9 or RHEL 8.8. For compute nodes, both RHEL 7.9 or 8.6 can be used. For storage nodes, only RHEL 8.8 is supported.
+With Storage Scale, you can use custom or stock images based on RHEL 7.9 or RHEL 8.8. For compute nodes, both RHEL 7.9 or 8.8 can be used. For storage nodes, only RHEL 8.8 is supported.
 
+## Why does the 'mmlsconfg' command displays 5.1.9.0 in 'minReleaseLevel' parameter?
+{: #version-command}
 
+After executing the 'mmlsconfg' command, the 'minReleaseLevel' parameter displays **5.1.9.0**. This is due to the fact that version 5.1.9.2 includes 'minReleaseLevel' set to 5.1.9.0. For verification of the actual version, run the `mmdiag --version` command.
+
+```
+[root@scale-3-strg-001 ~]# mmdiag --version
+
+=== mmdiag: version ===
+Current GPFS build: "5.1.9.2 ".
+Built on Jan 24 2024 at 13:45:43
+Running 2 hours 35 minutes 24 secs, pid 17580
+```

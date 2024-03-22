@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2022, 2023
+  years: 2022, 2023, 2024
 
-lastupdated: "2023-09-21"
+lastupdated: "2024-03-22"
 
 keywords: IBM Storage Scale release notes
 
@@ -17,11 +17,21 @@ content-type: release-note
 {:external: target="_blank" .external}
 {:release-note: data-hd-content-type='release-note'}
 
-# Release notes for IBM Storage Scale
+# Release notes
 {: #release-notes}
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.scale_full}} that are grouped by date.
 {: shortdesc}
+
+## March 2024
+{: #storage-scale-mar24}
+
+### 22 March 2024
+{: #storage-scale-mar0324}
+{: release-note}
+
+Updated Storage Scale software version
+:  The Storage Scale version used for configuration of the compute and storage clusters has been updated from version 5.1.9.0 to 5.1.9.2
 
 ## December 2023
 {: #storage-scale-sept23}

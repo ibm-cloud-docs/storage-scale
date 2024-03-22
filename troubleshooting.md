@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-09-05"
+  years: 2022, 2023, 2024
+lastupdated: "2024-03-22"
 
 keywords: 
 
@@ -419,5 +419,51 @@ Terraform attempts to create the custom resolver environment and waits for the c
 After a failed deployment, clean up all resources. During a subsequent attempt, use a new cluster prefix to avoid any name collisions with resources from the previous failed attempt. If the issue continues to occur, open an issue with {{site.data.keyword.cloud_notm}} Support.
 {: tsResolve}
 
+## Why does the CES nodes within the storage cluster on Baremetal encounter the  “nfs_sensors_not_configured” issue?
+{: #troubleshoot-topic-23}
+{: troubleshoot}
+{: support}
 
+When NFS sensor details on Baremetal with CES-enabled cluster does not update properly, then we see the "nfs_sensors_not_configured" error.
+{: tsSymptoms}
 
+Specifically, on the Baremetal with CES-enabled cluster, if the required NFS sensors are not configured properly on CES nodes, then “nfs_sensors_not_configured” issue occurs.
+{: tsCauses}
+
+Follow the steps below to address the "nfs_sensors_not_configured" issue by configuring NFS sensors as outlined in the documentation provided at https://www.ibm.com/docs/en/storage-scale-system/6.1.9?topic=gui-configure-nfs-sensors:
+{: tsResolve}
+
+1. Use the following content to define the NFS sensor configuration:
+
+```
+content='sensors={
+name = "NFSIO"
+period = 10
+proxyCmd = "/opt/IBM/zimon/GaneshaProxy"
+restrict = "cesNodes"
+type = "Generic"
+}'
+```
+{: screen}
+
+2. Add the content to the sensor configuration file:
+`echo "$content" > /var/lib/mmfs/gui/tmp/sensorDMP.txt`
+3. Add the sensor configuration using the `mmperfmon` command:
+`mmperfmon config add --sensors /var/lib/mmfs/gui/tmp/sensorDMP.txt`
+4. Refresh the NFS health status specifically for CES nodes:
+`/usr/lpp/mmfs/bin/mmhealth node show nfs --refresh -N cesNodes`
+
+## Why do we see the `rkmconf_filenotfound_err` error on the compute nodes?
+{: #troubleshoot-topic-23}
+{: troubleshoot}
+{: support}
+
+During the deployment of Scale cluster with encryption enabled, the following error message might occur in the compute node:
+`rkmconf_filenotfound_err`
+{: tsSymptoms}
+
+In the simplified setup, the `mmkeyserv` command manages its own `RKM.conf` file and updates it automatically. But sometimes, if the configuration file does not exist or the content is not valid then `rkmconf_filenotfound_err` error occurs in the compute nodes.
+{: tsCauses}
+
+Check if the `/var/mmfs/etc/RKM.conf` file exists (regular setup only), or the file system encryption is enabled by using the simplified setup. The event can be manually cleared by using the mmhealth event resolve `rkmconf_filenotfound_err command`. For more information, see [Encryption events](https://www.ibm.com/docs/en/storage-scale/5.1.9?topic=events-encryption).
+{: tsResolve}

@@ -55,7 +55,7 @@ To enable the CES feature on a Storage Scale cluster, the following variables ne
 |`total_protocol_cluster_instances`|	protocol nodes	|`2`  |
 |`custom_file_shares`	|Mount points and sizes in GB of file shares that can be used to customize shared file storage layout. Provide the details for up to 5 shares.	|`[{ mount_path = "/mnt/binaries", size = 100 }, { mount_path = "/mnt/data", size = 100 }]`|
 |`total_client_cluster_instances`	|Client cluster node count	|`2`  |
-|`client_vsi_osimage_name`	|Image name to use for provisioning the client cluster instances.	| `ibm-redhat-8-8-minimal-amd64-2`  |
+|`client_vsi_osimage_name`	|Image name to use for provisioning the client cluster instances.	| `ibm-redhat-8-8-minimal-amd64-3`  |
 |`client_vsi_profile`	|The virtual server instance profile type name to be used to create the client cluster nodes. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui).|`cx2-2x4` |
 |`vpc_client_cluster_dns_domain`	|IBM Cloud DNS domain name to be used for client cluster.	|`clientscale.com`|
 |`client_cluster_key_pair`	|Name of the SSH key configured in your IBM Cloud account that is used to establish a connection to the Client cluster nodes. Make sure that the SSH key is present in the same resource group and region where the cluster is provisioned. If you do not have an SSH key in your IBM Cloud account, create one by using the SSH keys instructions.|`["my-ssh-key1", "my-ssh-key2"]` |
