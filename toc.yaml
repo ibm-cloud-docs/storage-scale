@@ -6,8 +6,8 @@ toc:
     href: /docs/storage-scale
     path: storage-scale
     label: IBM Storage Scale
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - getting-started.md
@@ -16,12 +16,12 @@ toc:
       - deployment-values.md
       - storage-types.md
       - release-notes.md
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
-      - topicgroup: 
+      - topicgroup:
           label: Setting up the CLI and API
-          topics: 
+          topics:
           - setting-up-cli.md
           - setting-up-api.md
       - creating-workspace.md
@@ -34,23 +34,20 @@ toc:
       - retrieving-action-logs.md
       - updating-variables.md
       - enabling-encryption.md
-      - configure-ces-integration.md 
-      - config-ldap-ces.md 
+      - configure-ces-integration.md
+      - config-ldap-ces.md
       - config-setup-symph-cluster.md
       - vnic-info.md
   - navgroup:
       id: reference
       topics:
-      - topicgroup:
       - link:
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
-      - include: ../schematics/schematics-sdk.md
       - data-transfer.md
   - navgroup:
       id: help
-      topics: 
+      topics:
       - faq.md
       - troubleshooting.md
       - getting-help.md
-
