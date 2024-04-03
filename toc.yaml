@@ -41,9 +41,21 @@ toc:
   - navgroup:
       id: reference
       topics:
+      - topicgroup:
+           label: IBM Cloud Schematics CLI
+           topics:
+            - link:
+                label: IBM Cloud Schematics CLI
+                href: https://cloud.ibm.com/docs/schematics?topic=schematics-schematics-cli-reference
+            - include: ../schematics/cli-reference.md
+            - link:
+                label: CLI version history
+                href: https://cloud.ibm.com/docs/schematics?topic=schematics-cli_version-releases
+            - include: ../schematics/cli-version-release.md
       - link:
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
+      - include: ../schematics/schematics-sdk.md
       - data-transfer.md
   - navgroup:
       id: help
