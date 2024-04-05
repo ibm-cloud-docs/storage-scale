@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023
-lastupdated: "2023-09-12"
+  years: 2022, 2023, 2024
+lastupdated: "2024-04-01"
 
 keywords: 
 
@@ -63,23 +63,34 @@ Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the
 Usually, the first instance in the individual Scale clusters is running the the Scale GUI service.
 {: note}
 
-## Setting up access
+## Setting up the access
 {: #setting-up-access}
 
+This automation always uses the same IP address, so there might be issues in the `~/.ssh/known_hosts` file. If you encounter problems with this file, then remove the unwanted entries from that file and make sure to get a clean SSH, otherwise the GUI access does not work.
+{: note}
+
+### Accessing the storage GUI
+{: #accessing-storage-gui}
+
 1. Open a new command line terminal.
-2. Run the following commands from the local machine:
+2. Run the following command to access the storage cluster:
 
-    ```
-    eval `ssh-agent`
-    ssh-add -k <id_rsa private key of a specific cluster (compute/storage)>
-    ssh -A -L 22443:<GUI_node_IP>:443 -N ubuntu@<bastion_host_IP>
-    ```
-    {: codeblock}
+  `ssh -A -L 22443:<STORAGE_NODE_IP_ADDRESS>:443 -N ubuntu@<BASTION_HOST_IP>`
+  where `BASTION_HOST_IP` needs to be replaced with the bastion IP address that you identified, and `STORAGE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `-strg-001`, which you gathered earlier.
 
-    Provide the `id_rsa` key for the SSH key that is passed from either the `compute_cluster_key_pair` or `storage_cluster_key_pair` deployment value. For more information, see [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
-    {: note}
+3. Open the browser on your local machine, and run https://localhost:22443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
-3. Open the browser on the local machine, and run https://localhost:22443. 
+4. Enter your login credentials that you set up when you created your workspace to access the Storage Scale GUI.
 
+### Accessing the compute GUI
+{: accessing-compute-gui}
 
+1. Open a new command line terminal.
+2. Run the following command to access the compute cluster:
 
+  `ssh -A -L 22443:<COMPUTE_NODE_IP_ADDRESS>:443 -N ubuntu@<BASTION_HOST_IP>`
+  where `BASTION_HOST_IP` needs to be replaced with the bastion IP address that you identified, and `COMPUTE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `-comp-001`, which you gathered earlier.
+
+3. Open the browser on your local machine, and run https://localhost:22443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
+
+4. Enter your login credentials that you set up when you created your workspace to access the Compute GUI.

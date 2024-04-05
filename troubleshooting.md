@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-03-22"
+lastupdated: "2024-03-28"
 
 keywords: 
 
@@ -465,5 +465,5 @@ During the deployment of Scale cluster with encryption enabled, the following er
 In the simplified setup, the `mmkeyserv` command manages its own `RKM.conf` file and updates it automatically. But sometimes, if the configuration file does not exist or the content is not valid then `rkmconf_filenotfound_err` error occurs in the compute nodes.
 {: tsCauses}
 
-Check if the `/var/mmfs/etc/RKM.conf` file exists (regular setup only), or the file system encryption is enabled by using the simplified setup. The event can be manually cleared by using the mmhealth event resolve `rkmconf_filenotfound_err command`. For more information, see [Encryption events](https://www.ibm.com/docs/en/storage-scale/5.1.9?topic=events-encryption).
+Check if the `/var/mmfs/etc/RKM.conf` file exists (regular setup only), or the file system encryption is enabled by using the simplified setup. The event can be manually cleared by using the `mmhealth event resolve rkmconf_filenotfound_err` command. For more information, see [Encryption events](https://www.ibm.com/docs/en/storage-scale/5.1.9?topic=events-encryption).
 {: tsResolve}

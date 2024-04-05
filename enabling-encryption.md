@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-03-20"
+lastupdated: "2024-04-02"
 
 keywords: 
 
@@ -132,3 +132,4 @@ To learn more about encryption for {{site.data.keyword.scale_short}} or differen
     {: codeblock}
 
 3. Open the browser on the local machine, and run https://localhost:9443/.
+4. Enter the username **SKLMAdmin** and the password that you set up when you created your workspace to access the GKLM GUI.
