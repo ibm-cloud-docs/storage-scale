@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-04-01"
+lastupdated: "2024-04-08"
 
 keywords: 
 
@@ -75,7 +75,7 @@ This automation always uses the same IP address, so there might be issues in the
 1. Open a new command line terminal.
 2. Run the following command to access the storage cluster:
 
-  `ssh -A -L 22443:<STORAGE_NODE_IP_ADDRESS>:443 -N ubuntu@<BASTION_HOST_IP>`
+  `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<STORAGE_NODE_IP_ADDRESS>`
   where `BASTION_HOST_IP` needs to be replaced with the bastion IP address that you identified, and `STORAGE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `-strg-001`, which you gathered earlier.
 
 3. Open the browser on your local machine, and run https://localhost:22443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
@@ -88,7 +88,7 @@ This automation always uses the same IP address, so there might be issues in the
 1. Open a new command line terminal.
 2. Run the following command to access the compute cluster:
 
-  `ssh -A -L 22443:<COMPUTE_NODE_IP_ADDRESS>:443 -N ubuntu@<BASTION_HOST_IP>`
+  `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<COMPUTE_NODE_IP_ADDRESS>`
   where `BASTION_HOST_IP` needs to be replaced with the bastion IP address that you identified, and `COMPUTE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `-comp-001`, which you gathered earlier.
 
 3. Open the browser on your local machine, and run https://localhost:22443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
