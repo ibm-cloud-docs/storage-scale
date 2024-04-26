@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2023, 2024
 
-lastupdated: "2024-03-22"
+lastupdated: "2024-04-26"
 
 keywords: IBM Storage Scale release notes
 
@@ -22,6 +22,18 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.scale_full}} that are grouped by date.
 {: shortdesc}
+
+## April 2024
+{: #storage-scale-apr24}
+
+### 26 April 2024
+{: #storage-scale-apr0426}
+{: release-note}
+
+**Enhancements**
+* Introducing single CES hostname that will be mapped to all the CES IP addresses to distribute the workload.
+* LDAP user integration with password based authentication.
+* Minor encryption, NFS, and security fixes.
 
 ## March 2024
 {: #storage-scale-mar24}
