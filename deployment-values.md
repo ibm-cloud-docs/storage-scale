@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-04-26"
+lastupdated: "2024-05-02"
 
 keywords: 
 
@@ -57,7 +57,7 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `protocol_vsi_profile` | The virtual server instance profile type name to be used to create the protocol cluster nodes. For more information, see Instance Profiles.	| No | cx2-32x64   |
 | `remote_cidr_blocks` | Comma-separated list of IP addresses that can access the {{site.data.keyword.scale_short}} cluster bastion node through SSH. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, 169.45.117.34). To fetch the IP address of the device, use https://ipv4.icanhazip.com/. | Yes | None |
 | `resource_group` | Resource group name from your {{site.data.keyword.cloud_notm}} account where the VPC resources should be deployed. For more information, see [Managing resource groups](/docs/account?topic=account-rgs). | No | Default |
-| `resource_prefix` | Prefix that is used to name the {{site.data.keyword.cloud_notm}} resources that are provisioned to build the {{site.data.keyword.scale_short}} cluster. Make sure that the prefix is unique since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. | No | spectrum-scale |
+| `resource_prefix` | Prefix that is used to name the {{site.data.keyword.cloud_notm}} resources that are provisioned to build the {{site.data.keyword.scale_short}} cluster. Make sure that the prefix is unique since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. | No | storage-scale |
 | `scale_encryption_enabled` | Set to "true" if you want to enable encryption for the file system. For more information, see [Enabling encryption by using GKLM](/docs/hpc-spectrum-scale?topic=hpc-spectrum-scale-enable-encryption). | No | false |
 | `scale_encryption_vsi_osimage_name` | Name of the image that you would like to use to create the GKLM server for encryption. The solution supports only a RHEL 8.8 stock image.  | No | `hpcc-scale-gklm-v4-2-0-3` |
 | `scale_encryption_vsi_profile` | Specify the virtual server instance profile type name used to create the storage nodes. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | Yes, if `scale_encryption_enabled` is set to "true". | bx2-2x8 |
