@@ -73,11 +73,12 @@ After you've successfully generated a plan, you can begin [Applying a plan](/doc
 1. To generate a plan by using {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_generate_plan.py`.
 2. Copy and paste the [Generate a plan using {{site.data.keyword.bpshort}} Python API](/docs/storage-scale?topic=storage-scale-generate-plan&interface=api#example-request-generate) example request to your Python file.
 3. Change the following parameters as part of the request:
-  * Replace your {{site.data.keyword.cloud_notm}} API key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
-  * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
+   * Replace your {{site.data.keyword.cloud_notm}} API key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
+   * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
 4. Inside the `schematics_service.plan_workspace_command` function, provide the following parameters:
-  * Provide the workspace ID that you created in the [Create a workspace](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=api) task or from the {{site.data.keyword.cloud_notm}} console for {{site.data.keyword.bpshort}}, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
-  * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
+
+   * Provide the workspace ID that you created in the [Create a workspace](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=api) task or from the {{site.data.keyword.cloud_notm}} console for {{site.data.keyword.bpshort}}, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
+   * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
   
     ```
     export IBMCLOUD_API_KEY =”<ibm-cloud-api-key>”

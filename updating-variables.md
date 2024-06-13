@@ -28,7 +28,7 @@ subcollection: storage-scale
 2. Copy and paste the `schematics_variables_update.py` and `schematics_env_class.py` Python example code requests to the respective Python files.
 3. Copy and paste the [`config.json` template file](/docs/storage-scale?topic=storage-scale-update-variables&interface=api#template-file) to a JSON file, for example `config.json`.
 4. Change the following parameters as part of the request:
-  * Provide the `workspace ID w_id` generated in both the following functions: `schematic_obj.get_workspace(w_id="<w_id>)` and `schematic_obj.update_variables(w_id="<wi_id>")`.
+   * Provide the `workspace ID w_id` generated in both the following functions: `schematic_obj.get_workspace(w_id="<w_id>)` and `schematic_obj.update_variables(w_id="<wi_id>")`.
 5. Make sure to update the required parameters in the `config.json` file. For more information, see [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
 6. Run the Python script by using python3 to update the variables in the {{site.data.keyword.bpshort}} workspace in the {{site.data.keyword.cloud_notm}}.
 

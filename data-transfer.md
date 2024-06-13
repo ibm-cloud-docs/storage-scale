@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-12-15"
+lastupdated: "2023-12-14"
 
 keywords: 
 
@@ -30,7 +30,7 @@ subcollection: storage-scale
 ## Overview
 {: #overview}
 
-It is difficult to choose a tool to complete a task when there are so many tools available in the market, it gets even more challenging when data transfer between cloud locations or on-premises to the cloud or running the jobs with data residing in different locations.
+It is hard to choose a tool to complete a task when there are many tools available in the market, it gets even more challenging when it comes to data transfer between cloud locations or on-premises to the cloud or running jobs with data residing in different locations.
 
 There are several options available for data transfer in and out of the IBM cloud and how to run a job with data residing in different cloud locations. The pros and cons of each option are listed and also the tools suitable for job or use case.
  
@@ -41,7 +41,7 @@ The options are classified into four categories:
 3.	IBM Aspera
 4.	Collection of generic utilities
     a)	SCP
-    b)	RSync
+    b)	RSYNC
     c)	RClone
     d)	Ansible playbook
  
@@ -69,16 +69,16 @@ If the files are not in the cache, the LSF data manager stages them and notifies
 ### Pros 
 {: #pros-data-mgr}
 
-The pros of this approach include:
+The Pros of this approach include:
 
 *	Able to run jobs with data resists in different locations.
 
 ### Cons
 {: #cons-data-mgr}
 
-The cons of this approach include:
+The Cons of this approach include:
 
-*	Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it is applications, libraries and any other dependency, presumably those are already living in the cloud, but if it is the actual input data set or any reference data set that it might need, you have to point that out as part of your job submission.
+*	Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it's applications, if it's libraries and any other dependency, presumably those are already living in the cloud, but if it's the actual input data set or any reference data set that it might need, you have to point that out as part of your job submission.
 
 ### Limitations
 {: #limit-data-mgr}
@@ -109,7 +109,7 @@ With AFM, you can implement a single namespace view across sites around the worl
 ### Pros 
 {: #pros-storage-scale}
 
-The pros of this approach include:
+The Pros of this approach include:
 
 *   Users can build a common namespace across locations and automate the flow of file data.
 *   Users can duplicate data for disaster recovery purposes without suffering from wide area network (WAN) latencies.
@@ -120,7 +120,7 @@ The pros of this approach include:
 ### Cons
 {: #cons-storage-scale}
 
-The cons of this approach include:
+The Cons of this approach include:
 
 *  AFM does not offer any feature to check the consistency of files across source and destination. However, after files are replicated, you can use any third-party utility to check for consistency.
 
@@ -144,10 +144,10 @@ To learn more about IBM Storage Scale Active File Management (AFM), click [here]
 {: #collect-gen-util}
 
 Collection of generic utilities tools which are publicly available for data transfer
-*  SCP
-*  RSync
-*  RClone
-*  Ansible playbook
+*   SCP
+*   RSYNC
+*	RClone
+*   Ansible playbook
  
 ### SCP 
 {: #scp}
@@ -159,7 +159,7 @@ It is a secure and robust protocol that uses SSH to transfer files with authenti
 #### Pros
 {: #pros-scp}
 
-The pros of this approach include:
+The Pros of this approach include:
 
 *   SCP is known for its security and reliability.
 *   SCP provides strong authentication and encryption, which means only authorized users can access and transfer the files.
@@ -168,7 +168,7 @@ The pros of this approach include:
 #### Cons
 {: #cons-scp}
 
-The cons of this approach include:
+The Cons of this approach include:
 
 *   SCP has its own complexity and overhead.
 *   SCP can be slower and more resource-intensive than TFTP, especially over long distances or congested networks. It also requires more configuration and maintenance on both the router and the server side, such as managing SSH keys and updating SSH software.
@@ -184,27 +184,27 @@ Only one SCP client session is supported at a time
 Open Source
 
 
-### RSync
+### RSYNC
 {: #rsync}
 
-RSync was originally a file synchronization protocol under Linux, and as technology developed, it had other versions, such as Windows, AIX, and HPUX. The advantage of RSync is that the operation is done under the full command line, there is a detailed log file, and it can support a variety of different circumstances for the update, such as backup-type updates and so on.
+Rsync was originally a file synchronization protocol under Linux, and as technology developed, it had other versions, such as Windows, AIX, and HPUX. The advantage of Rsync is that the operation is done under the full command line, there is a detailed log file, and it can support a variety of different circumstances for the update, such as backup-type updates and so on.
 
 The servers can be synchronized with each other; you can update the file from the server which decommissioned and you can also submit local files to the server. As long as you configure the parameters to be correct.
 
 #### Pros
 {: #pros-rsync}
 
-The pros of this approach include:
+The Pros of this approach include:
 
-*   By default, it’s on every ‘nix system, so no messy installation is needed. RSync has not changed in a long time, so there is no need for feature and revision differences.
+*   By default, it’s on every ‘nix system, so no messy installation is needed. rsync has not changed in a long time, so there is no need for feature and revision differences.
 *   The file system at the destination server inspects and syncs; this is an important factor to consider for easier failovers.
-*   Failing over and back to use is simple because this is all done at the file system level. If a server is to fall out of sync or if there is a need to add another server into replication, a simple RSync command will catch things up.
+*   Failing over and back to use is simple because this is all done at the file system level. If a server is to fall out of sync or if there is a need to add another server into replication, a simple rsync command will catch things up.
 
 #### Cons
 {: #cons-rsync}
 
 *   Data will never be as up-to-date as rsync is copying from an existing data source, and DRBD synchronous mode is to write to all servers before deeming it a successful commit.
-*   We need to write checks for validation and monitoring, as RSync does not provide any of that.
+*   We need to write checks for validation and monitoring, as Rsync does not provide any of that.
 *   We need to figure out the exact flags and options. This is not a big con, as it’s a one-time tax to be paid. I’ll share mine if it helps anyone.
 
 #### Limitation
@@ -228,26 +228,26 @@ Open Source
 ### RClone
 {: #rclone}
 
-RClone is a command-line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors' web storage interfaces. Over 40 cloud storage products support RClone, including S3 object stores, business and consumer file storage services, as well as standard transfer protocols.
+Rclone is a command-line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors' web storage interfaces. Over 40 cloud storage products support Rclone, including S3 object stores, business and consumer file storage services, as well as standard transfer protocols.
 
-RClone has powerful cloud equivalents to the Unix commands rsync, cp, mv, mount, ls, ncdu, tree, rm, and cat. RClone's familiar syntax includes shell pipeline support and --dry-run protection. It is used at the command line, in scripts, or via its API.
+Rclone has powerful cloud equivalents to the Unix commands rsync, cp, mv, mount, ls, ncdu, tree, rm, and cat. Rclone's familiar syntax includes shell pipeline support and --dry-run protection. It is used at the command line, in scripts, or via its API.
  
-|RSync Features	|RClone Features|
+|Rsync Features	|RClone Features|
 |---------|--------|
-|RSync is used for synchronization between two Linux/UNIX computers or servers.	|RClone is primarily used for backing up to cloud storage such as Google Drive or BackBlaze.|
+|Rsync is used for synchronization between two Linux/UNIX computers or servers.	|RClone is primarily used for backing up to cloud storage such as Google Drive or BackBlaze.|
 |bi-directional sync A to B or B to A	|unidirectional sync from A to B|
 |support for copying links, devices, owners, groups, and permissions	|RClone stores each file you transfer as a native object on the remote cloud storage system.|
 |support for anonymous or authenticated rsync daemons (ideal for mirroring)	|RClone supports copy or sync commands.|
-{: caption="RSync and RClone features"} 
+{: caption="Rsync and RClone features"} 
 
 Steps to install and configure rclone: [click here](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-rclone)
 
-RClone command list: Click [here](https://rclone.org/commands/)
+Rclone command list: Click [here](https://rclone.org/commands/)
 
 #### Pros
 {: #pros-rclone}
 
-The pros of this approach include:
+The Pros of this approach include:
 
 *   Powerful command line interface (CLI) - Free and open-source - Works with over 40 cloud storage services
 *   RClone is primarily used for backing up to cloud storage such as Google Drive or BackBlaze.
@@ -257,7 +257,7 @@ The pros of this approach include:
 #### Cons
 {: #cons-rclone}
 
-The cons of this approach include:
+The Cons of this approach include:
 
 *   Steep learning curve - No customer support - No cloud storage
 *   unidirectional sync from A to B
@@ -266,9 +266,9 @@ The cons of this approach include:
 #### Limitations
 {: #limits-rclone}
 
-*   RClone doesn't currently preserve the timestamps of directories. This is because rclone only really considers objects when syncing.
+*   Rclone doesn't currently preserve the timestamps of directories. This is because rclone only really considers objects when syncing.
 *   Currently rclone loads each directory/bucket entirely into memory before using it. Since each rclone object takes 0.5k-1k of memory this can take a very long time and use a large amount of memory.
-*   Bucket-based remotes (e.g. S3/GCS/Swift/B2) do not have a concept of directories. RClone therefore cannot create directories in them which means that empty directories on a bucket-based remote will tend to disappear.
+*   Bucket-based remotes (e.g. S3/GCS/Swift/B2) do not have a concept of directories. Rclone therefore cannot create directories in them which means that empty directories on a bucket-based remote will tend to disappear.
 
 #### Licensing
 {: #lic-rclone}
@@ -297,14 +297,14 @@ Ansible playbook can be used for data transfer and data sync operations and also
 ##### Pros
 {: #copy-pros}
 
-The pros of this approach include:
+The Pros of this approach include:
 
 *  Simple to code
 
 ##### Cons
 {: #copy-cons}
 
-The cons of this approach include:
+The Cons of this approach include:
 
 *  Variable interpolation in copied files is not present.
 *  The copy module recursively copy facility does not scale to lots (>hundreds) of files.
@@ -382,7 +382,7 @@ To learn more about the ansible.builtin.copy module, [click here](https://docs.a
 #### Ansible synchronize
 {: #ansible-synchronize}
 
-Synchronize is a wrapper around rsync to make common tasks in your playbooks quick and easy. It is run and originates on the local host where Ansible is being run. Of course, you could just use the command action to call rsync yourself, but you also must add a fair number of boilerplate options and host facts. Synchronize is not intended to provide access to the full power of RSync, but it does make the most common invocations easier to implement. You still may need to call rsync directly via command or shell, depending on your use case.
+Synchronize is a wrapper around rsync to make common tasks in your playbooks quick and easy. It is run and originates on the local host where Ansible is being run. Of course, you could just use the command action to call rsync yourself, but you also must add a fair number of boilerplate options and host facts. Synchronize is not intended to provide access to the full power of Rsync, but it does make the most common invocations easier to implement. You still may need to call rsync directly via command or shell, depending on your use case.
 
 ##### Pros
 {: #ansible-sync-pros}
@@ -392,7 +392,7 @@ Synchronize is a wrapper around rsync to make common tasks in your playbooks qui
 ##### Cons
 {: #ansible-sync-cons}
 
-*   RSync must be installed on both the local and remote hosts.
+*   rsync must be installed on both the local and remote hosts.
 *   Synchronize is limited to elevating permissions via passwordless sudo. This is because rsync itself is connecting to the remote machine, and rsync doesn’t give us a way to pass sudo credentials in.
  
 ##### Sample code
