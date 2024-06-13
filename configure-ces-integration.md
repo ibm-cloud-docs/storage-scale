@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-10-05"
+  years: 2023, 2024
+lastupdated: "2024-06-12"
 
 keywords: 
 
@@ -29,6 +29,10 @@ Cluster Export Services (CES) is a key component of the IBM Storage Scale archit
 
 CES is designed to offer versatile access methods. This flexibility allows organizations to support a wide range of applications and use cases.
 
+Enabling colocation will designate the subset of Storage server as protocol nodes. If disabled, the protocol nodes will be created on a dedicated virtual server irrespective of storage type.
+
+The colocation feature avoids the need to provision extra virtual servers and improves the performance. It is also supported on Bare Metal servers.
+
 ![Architecture diagram.](images/scale-ces.png){: caption="Figure 1.  CES node on Storage Scale" caption-side="bottom"}
 
 ## Before you begin
@@ -39,8 +43,6 @@ Before you begin, review the following information:
 1.	Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
 
 2.	Learn more about cluster export service by using the link, [how CES works](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication#beforeyoubegin-config-ces)
-
-
 
 ## Configuring CES deployment
 {: #procedureconfig-ces-deploy}
@@ -59,6 +61,7 @@ To enable the CES feature on a Storage Scale cluster, the following variables ne
 |`client_vsi_profile`	|The virtual server instance profile type name to be used to create the client cluster nodes. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui).|`cx2-2x4` |
 |`vpc_client_cluster_dns_domain`	|IBM Cloud DNS domain name to be used for client cluster.	|`clientscale.com`|
 |`client_cluster_key_pair`	|Name of the SSH key configured in your IBM Cloud account that is used to establish a connection to the Client cluster nodes. Make sure that the SSH key is present in the same resource group and region where the cluster is provisioned. If you do not have an SSH key in your IBM Cloud account, create one by using the SSH keys instructions.|`["my-ssh-key1", "my-ssh-key2"]` |
+|`colocate_protocol_cluster_instances`|Enable this to use storage instances as protocol instances	|false |
 {: caption='CES Variables'}
 
 The successful scale deployment with the CES feature enabled consists of different clusters:

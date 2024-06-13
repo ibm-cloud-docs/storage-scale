@@ -28,6 +28,7 @@ toc:
       - generating-plan.md
       - applying-plan.md
       - accessing-gui.md
+      - boot-drive-encryption.md
       - destroying-resources.md
       - deleting-workspace.md
       - retrieving-apply-plan-logs.md

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-04-30"
+lastupdated: "2024-06-13"
 
 keywords: 
 
@@ -38,29 +38,12 @@ Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the
 * If you encounter slowness in loading or accessing the GUI, clear the browser's cache.
 * You cannot open both the compute and storage GUIs on the same port 22443. Use a different port or close one of the GUIs so you can access the other GUI cluster.
 
-## Fetching `GUI_node_IP`
-{: #fetching-gui-node-IP}
+## Identifying Scale Management Node
+{: #identify-scale-mgmt-node}
 
-1. Log in to the individual Scale clusters (either compute or storage).
-2. Run the following command:
+Scale GUI daemon runs on a separate virtual server instance for each cluster (compute and storage) named as Scale Management node. This node can easily be identified with `<resource_prefix>-mgmt-001-<domain_name>`.
 
-    ```
-    mmlsnodeclass GUI_MGMT_SERVERS
-    ```
-    {: pre}
-
-    **Example output:**
-    ```
-    [root@scale-comp-001 ~]# mmlsnodeclass GUI_MGMT_SERVERS
-    Node Class Name    Members
-    -----------------  --------------------------------
-    GUI_MGMT_SERVERS   scale-comp-001.scl.com
-    ```
-    {: screen}
-
-3. All of the Scale instances that are listed in the "Members" column are running the Scale GUI service.
-
-Usually, the first instance in the individual Scale clusters is running the the Scale GUI service.
+Currently, we only support single Scale Management node per cluster.
 {: note}
 
 ## Setting up the access
@@ -75,8 +58,7 @@ This automation always uses the same IP address, so there might be issues in the
 1. Open a new command line terminal.
 2. Run the following command to access the storage cluster:
 
-  `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<STORAGE_NODE_IP_ADDRESS>`
-  where `BASTION_HOST_IP` needs to be replaced with the bastion IP address that you identified, and `STORAGE_NODE_IP_ADDRESS` needs to be replaced with the storage IP address associated with `-strg-001`, which you gathered earlier.
+  `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
 
 3. Open the browser on your local machine, and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
@@ -88,8 +70,7 @@ This automation always uses the same IP address, so there might be issues in the
 1. Open a new command line terminal.
 2. Run the following command to access the compute cluster:
 
-  `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<COMPUTE_NODE_IP_ADDRESS>`
-  where `BASTION_HOST_IP` needs to be replaced with the bastion IP address that you identified, and `COMPUTE_NODE_IP_ADDRESS` needs to be replaced with the compute IP address associated with `-comp-001`, which you gathered earlier.
+  `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
 
 3. Open the browser on your local machine, and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 

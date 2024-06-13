@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-03-20"
+lastupdated: "2024-06-13"
 
 keywords: 
 
@@ -68,7 +68,7 @@ For more information, see [Deployment values](/docs/storage-scale?topic=storage-
 
 The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation. For more information, see [Storage types](/docs/storage-scale?topic=storage-scale-storage-types).
 
-Parallel vNIC is not supported on the persistent storage type.
+Parallel vNIC is not supported on the persistent storage type and it is only supported with a custom image.
 {: note}
 
 ## Why are there two different resource group parameters that can be specified in the IBM Cloud catalog tile?

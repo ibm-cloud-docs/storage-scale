@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023, 2024
-lastupdated: "2024-03-20"
+lastupdated: "2024-06-13"
 
 keywords: 
 
@@ -52,17 +52,17 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | ---- | ----------------- | ---------- | ---------- |
 | **Storage cluster nodes** | Virtual server instances | Bare metal servers | Virtual server instances |
 | **Compute cluster nodes** | Virtual server instances | Virtual server instances | Virtual server instances |
-| **Protocol nodes** | Virtual server instances | Virtual server instances | Virtual server instances |
+| **Protocol nodes** | Virtual server instances | Conditional  \n colocation = true (BMS)  \n colocation = false (VSI) | Virtual server instances |
 | **Client nodes** | Virtual server instances | Virtual server instances | Virtual server instances |
-| **Storage cluster node count** | Min 3  \n Max 18 | Min 3  \n Max 10 | Min 3  \n Max 18 |
+| **Storage cluster node count** | Min 2  \n Max 64 | Min 2  \n Max 32 | Min 2  \n Max 64 |
 | **Compute cluster node count** | Min 3  \n Max 64 | Min 3  \n Max 64 | Min 3  \n Max 64 |
-| **Protocol nodes** | Min 2  \n Max 16 | Min 2  \n Max 16 | Min 2  \n Max 16 |
-| **Client nodes** | Min 2  \n Max 64 | Min 2  \n Max 64 | Min 2  \n Max 64 |
-| **Storage cluster OS support** | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (stock image) | RHEL 8.8  \n (custom image) |
-| **Compute cluster OS support** | RHEL 7.9, 8.8  \n (custom or stock images) | RHEL 7.9, 8.8  \n (custom or stock images) | RHEL 7.9, 8.8  \n (custom or stock images) |
+| **Protocol nodes** | Min 2  \n Max 32 | Min 2  \n Max 32 | Min 2  \n Max 32 |
+| **Client nodes** | Min 2  \n Max 2000 | Min 2  \n Max 2000 | Min 2  \n Max 2000 |
+| **Storage cluster OS support** | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom image) |
+| **Compute cluster OS support** | RHEL 8.8  \n (custom or stock images) | RHEL  8.8  \n (custom or stock images) | RHEL 8.8  \n (custom) |
 | **Protocol nodes** | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) |
-| **Client nodes** | RHEL 8.8  \n (stock image) | RHEL 8.8  \n (stock image) | RHEL 8.8  \n (stock image) |
-| **Storage Scale edition and version** | Storage Scale Data Management Edition v5.1.9.2 | Storage Scale Data Management Edition v5.1.9.2 | Storage Scale Developer Edition v5.1.9.2 |
+| **Client nodes** | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) |
+| **Storage Scale edition and version** | Storage Scale Data Management Edition v5.2.0.1 | Storage Scale Data Management Edition v5.2.0.1 | Storage Scale Developer Edition v5.2.0.1 |
 | **IBM Customer Number required?** | Yes | Yes | No |
 | **Customer support available?** | Yes | Yes | No |
 {: row-headers}
