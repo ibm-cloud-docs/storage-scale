@@ -32,10 +32,10 @@ After the cluster setup is done, you can monitor the resources and status of the
 
 Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the following considerations and requirements:
 
-* The initial setup must be done from your local machine.
-* Provide the SSH key path from the local machine that's used to configure the compute and storage nodes.
-* It's recommended to use the Safari browser to access the GUI.
-* If you encounter slowness in loading or accessing the GUI, clear the browser's cache.
+* The initial setup must be done from your local system.
+* Provide the SSH key path from the local system that is used to configure the compute and storage nodes.
+* It is recommended to use the Safari browser to access the GUI.
+* If you encounter slowness in loading or accessing the GUI, clear the browsers cache.
 * You cannot open both the compute and storage GUIs on the same port 22443. Use a different port or close one of the GUIs so you can access the other GUI cluster.
 
 ## Identifying Scale Management Node
@@ -43,13 +43,13 @@ Before you begin accessing the {{site.data.keyword.scale_short}} GUI, review the
 
 Scale GUI daemon runs on a separate virtual server instance for each cluster (compute and storage) named as Scale Management node. This node can easily be identified with `<resource_prefix>-mgmt-001-<domain_name>`.
 
-Currently, we only support single Scale Management node per cluster.
+Currently, single Scale Management node per cluster is only supported.
 {: note}
 
 ## Setting up the access
 {: #setting-up-access}
 
-This automation always uses the same IP address, so there might be issues in the `~/.ssh/known_hosts` file. If you encounter problems with this file, then remove the unwanted entries from that file and make sure to get a clean SSH, otherwise the GUI access does not work.
+This automation always uses the same IP address, so there can be issues in the `~/.ssh/known_hosts` file. If you encounter problems with this file, then remove the unwanted entries from that file and make sure to get a clean SSH, otherwise the GUI access does not work.
 {: note}
 
 ### Accessing the storage GUI
@@ -60,7 +60,7 @@ This automation always uses the same IP address, so there might be issues in the
 
   `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
 
-3. Open the browser on your local machine, and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
+3. Open the browser on your local system, and run https://localhost:21443. You get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
 4. Enter your login credentials that you set up when you created your workspace to access the Storage Scale GUI.
 
@@ -72,6 +72,6 @@ This automation always uses the same IP address, so there might be issues in the
 
   `ssh -L 21443:localhost:443 -J ubuntu@<BASTION_HOST_IP> vpcuser@<MANAGEMENT_NODE_IP_ADDRESS>`
 
-3. Open the browser on your local machine, and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
+3. Open the browser on your local system, and run https://localhost:21443. You will get an SSL self-assigned certificate warning in the browser, when you access this URL for the first time.
 
 4. Enter your login credentials that you set up when you created your workspace to access the Compute GUI.

@@ -26,37 +26,37 @@ subcollection: storage-scale
 # Configuring CES from any scale node
 {: #ces-config-any-node}
 
-You can integrate Scale with CES services and enable LDAP based authentication for NFS services on CES Scale Nodes. The information includes assumptions, a step-by-step guide, and detailed explanations for each configuration. By utilizing LDAP-based authentication with an external LDAP server, organizations can enhance security and centralize user management for NFS shares and configuration steps to enable LDAP-based authentication and provides instructions for setting up an OpenLDAP server on a Linux system.
+You can integrate Scale with CES services and enable LDAP-based authentication for NFS services on CES Scale Nodes. The information includes assumptions, a step-by-step guide, and detailed explanations for each configuration. By using LDAP-based authentication with an external LDAP server, organizations can enhance security and centralize user management for NFS shares and configuration steps to enable LDAP-based authentication and provides instructions for setting up an OpenLDAP server on a Linux system.
 
 ## Procedure
 {: #procedure-config-ces-any-node}
 
-1.  Setting up Cluster Export Services Shared root file system:
-    For example. create CesSharedRoot using this command
+1.  Setting up Cluster Export Services Shared root file system.
+    For example, create CesSharedRoot using this command:
 
 	`mmchconfig cesSharedRoot=/gpfsfs1`
 
-    The CES shared root (cesSharedRoot) is needed to store CES shared configuration data, for protocol recovery, and for other protocol-specific purposes. It is part of the cluster export configuration and is shared between the protocols. Every CES node requires access to the path configured as shared root. The “mmchconfig” command is used to configure this directory as part of setting up a CES cluster as mentioned in the above example.	
+    The CES shared root (cesSharedRoot) is needed to store CES shared configuration data, for protocol recovery, and for other protocol-specific purposes. It is part of the cluster export configuration and is shared between the protocols. Every CES node requires access to the path configured as a shared root. The “mmchconfig” command is used to configure this directory as part of setting up a CES cluster as mentioned in the example.	
 2.  Confirm the CES shared root configuration:
 
      `mmlsconfig`
 
-3.  Configure the cluster Export Services on each of the Scale Nodes which are going to handle protocol exports.  For example:	
+3.  Configure the cluster Export Services on each of the Scale Nodes, which are going to handle protocol exports. For example:	
 
     `mmchnode --ces-enable -N storage-scale-storage-5[,storage-scale-storage-6]`
     
-    In this step, configuration of CES nodes must be done before you configure any protocols.  Nodes that participate in the handling of protocol exports must be configured as CES nodes
-4.  Check the status of CES nodes: 
+    In this step, configuration of CES nodes must be done before you configure any protocols. Nodes that participate in the handling of protocol exports must be configured as CES nodes
+4.  Check the status of CES nodes:
 
     `mces` 
 
-5.  Assign CES IP addresses to protocol nodes using the `mmces` address add command.
+5.  Assign CES IP addresses to protocol nodes by using the `mmces` address add command.
 
-    Protocol services are made available through Cluster Export Services (CES) protocol service IP addresses. These addresses are separate from the IP addresses that are used internally by the cluster. To configure the CES protocol ip addresses following commands need to be executed:
+    Protocol services are made available through Cluster Export Services (CES) protocol service IP addresses. These addresses are separate from the IP addresses that are used internally by the cluster. To configure the CES protocol IP addresses following commands need to be run:
 
     `mmces address add --ces-node storage-scale-storage-5 --ces-ip 10.241.2.6 mmces address add --ces-node storage-scale-storage-6 --ces-ip 10.241.2.7`
 
-    In this scenario the CES IP address is an alias IP address, this ip address can failover across to the other nodes in the event of failure of the owner node. 
+    In this scenario, the CES IP address is an alias IP address. This IP address can failover across the other nodes in the event of failure of the owner node. 
     {: note}
 
 6.  Verify the CES cluster status:
@@ -69,7 +69,7 @@ You can integrate Scale with CES services and enable LDAP based authentication f
     `
 8.  List the CES services in verbose mode:
     `mmces service list --verbose -a`
-    Two directories (ces and ha) will be automatically created in the fs1 filesystem; do not delete them.
+    Two directories (ces and ha) are automatically created in the fs1 file system, do not delete them.
     {: note}
 
 9.  Add Routes to Reach CES Interface Base IP:
@@ -80,9 +80,9 @@ You can integrate Scale with CES services and enable LDAP based authentication f
 
 10. NFS Mount (From Any Scale Node)
     Configure the NFS mount:
-    1.  Create an independent fileset named lsf within fs1 for CES data.
+    1.  Create an independent file set named lsf within fs1 for CES data.
         `mmcrfileset fs1 lsf --inode-space new`
-    2.  Link the lsf fileset to the /gpfs/fs1/lsf directory:
+    2.  Link the lsf file set to the /gpfs/fs1/lsf directory:
         `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf`
     3.  Define quotas for the fileset as required.
     4.  Configure user authentication for file access:
@@ -129,11 +129,11 @@ You can integrate Scale with CES services and enable LDAP based authentication f
     	USER_ID_ATTRIB: Specifies the LDAP attribute for user IDs (uid).
         •	KERBEROS_SERVER and KERBEROS_REALM: Kerberos authentication is not configured (none).
         ```
-11. Create an NFS export to allow specified IP ranges to access the fileset:
+11. Create an NFS export to allow specified IP ranges to access the file set:
     a.  `mmnfs export add /gpfs/fs1/lsf --client "10.241.0.0/24(Access_Type=RW,SQUASH=no_root_squash)`
     b.  `mmnfs export list`
    
-12. Create NFS Mount Point to prepare the Scale client (LSF) node for NFS mounting.
+12. Create an NFS mount point to prepare the Scale client (LSF) node for NFS mounting.
     
     `mkdir /mnt/lsf`
 
