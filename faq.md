@@ -181,7 +181,7 @@ The solution is integrated with the {{site.data.keyword.cloud_notm}} cataided th
 ## What version of scale supports MROT configuration?
 {: #support-mrot-versions}
 
-Anything above IBM Storage Scale 5.1.5 supports the Multi-Rail over TCP (MROT) feature.
+Anything above {{site.data.keyword.scale_full_notm}} 5.1.5 supports the Multi-Rail over TCP (MROT) feature.
 
 ## What version of OS does Scale support?
 {: #os-version-supported}

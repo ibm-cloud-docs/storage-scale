@@ -32,7 +32,7 @@ subcollection: storage-scale
 
 It is hard to choose a tool to complete a task when there are many tools available in the market, it gets even more challenging when it comes to data transfer between cloud locations or on-premises to the cloud or running jobs with data residing in different locations.
 
-There are several options available for data transfer in and out of the IBM cloud and how to run a job with data residing in different cloud locations. The pros and cons of each option are listed and also the tools suitable for job or use case.
+There are several options available for data transfer in and out of the {{site.data.keyword.cloud_notm}} and how to run a job with data residing in different cloud locations. The pros and cons of each option are listed and also the tools suitable for job or use case.
  
 The options are classified into four categories:
            

@@ -25,14 +25,14 @@ subcollection: storage-scale
 # Enabling OpenLDAP service
 {: #enable-openldap}
 
-This document gives you the brief overview about Open Lightweight Directory Access Protocol (OpenLDAP) and the integration of OpenLDAP with IBM Storage Scale cluster.
+This document gives you the brief overview about Open Lightweight Directory Access Protocol (OpenLDAP) and the integration of OpenLDAP with {{site.data.keyword.scale_full_notm}} cluster.
 
 ## About OpenLDAP with IBM Storage Scale
 {: #about-openldap}
 
 OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 
-Integrating OpenLDAP with your IBM Storage Scale cluster enables centralized user management, improved security, and simplified user authentication. The integration also allows you to use existing authentication credentials, reducing the need to remember multiple login credentials. Overall, the architecture provides a robust and efficient solution for user authentication and directory management in distributed computing environments.
+Integrating OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster enables centralized user management, improved security, and simplified user authentication. The integration also allows you to use existing authentication credentials, reducing the need to remember multiple login credentials. Overall, the architecture provides a robust and efficient solution for user authentication and directory management in distributed computing environments.
 
 OpenLDAP server can be installed and configured on a Linux&reg; system; for example, an Ubuntu 22.04 as the host is supported.
 {: shortdesc}
@@ -40,15 +40,15 @@ OpenLDAP server can be installed and configured on a Linux&reg; system; for exam
 ## Integrating an existing OpenLDAP server with your IBM Storage Scale cluster
 {: #integrating-openldap}
 
-You can enable OpenLDAP with your IBM Storage Scale cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connects it to IBM Storage Scale cluster. If you have an existing LDAP server, you can provide LDAP information during the IBM Storage Scale cluster deployment.
+You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connects it to {{site.data.keyword.scale_full_notm}} cluster. If you have an existing LDAP server, you can provide LDAP information during the {{site.data.keyword.scale_full_notm}} cluster deployment.
 {: shortdesc}
 
-If you have an existing OpenLDAP server, you can use that with your IBM Storage Scale cluster. Before you deploy the IBM Storage Scale cluster with the LDAP input values, complete the following LDAP requirements:
+If you have an existing OpenLDAP server, you can use that with your {{site.data.keyword.scale_full_notm}} cluster. Before you deploy the {{site.data.keyword.scale_full_notm}} cluster with the LDAP input values, complete the following LDAP requirements:
 1. OpenLDAP version 2.4 or later is installed and configured.
-2. The OpenLDAP server can communicate with the IBM Storage Scale cluster nodes over the network; configure the network settings on both the OpenLDAP server and the IBM Storage Scale cluster nodes.
-3. The OpenLDAP server and the IBM Storage Scale cluster nodes can communicate over port 389.
+2. The OpenLDAP server can communicate with the {{site.data.keyword.scale_full_notm}} cluster nodes over the network; configure the network settings on both the OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes.
+3. The OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes can communicate over port 389.
 
-Also, always allow access to the CIDR ranges for the VPC that the IBM Storage Scale cluster deployment creates. Make sure that the security groups for the existing LDAP server are allowlisted with the VPC CIDR range of newly created VPC. This way, the new VPC can connect to the existing your existing OpenLDAP server and that all management and login nodes can access your LDAP server.
+Also, always allow access to the CIDR ranges for the VPC that the {{site.data.keyword.scale_full_notm}} cluster deployment creates. Make sure that the security groups for the existing LDAP server are allowlisted with the VPC CIDR range of newly created VPC. This way, the new VPC can connect to the existing your existing OpenLDAP server and that all management and login nodes can access your LDAP server.
 
 If the security groups of the LDAP server are updated with the VPC CIDR ranges, you see a message similar to this:
 
@@ -75,7 +75,7 @@ However, if the connection to the existing LDAP server is not established, you s
 ## Checking OpenLDAP status
 {: #checking-openldap-status}
 
-After IBM Storage Scale cluster deployment, Schematic logs show essential information in the output section. From here, you can check your LDAP server status:
+After {{site.data.keyword.scale_full_notm}} cluster deployment, Schematic logs show essential information in the output section. From here, you can check your LDAP server status:
 
 1. Connect to your OpenLDAP server through SSH by using the `ssh_to_ldap_node` command from the {{site.data.keyword.bpshort}} log output.
 
@@ -105,9 +105,9 @@ After IBM Storage Scale cluster deployment, Schematic logs show essential inform
 ## Creating an LDAP user
 {: #create-ldap-user}
 
-If you do not have an existing LDAP server, the deployment process created one for you and connected it to IBM Storage Scale cluster during deployment. Create a LDAP user for your IBM Storage Scale cluster. Use it to run Storage Scale commands and submit the jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
+If you do not have an existing LDAP server, the deployment process created one for you and connected it to {{site.data.keyword.scale_full_notm}} cluster during deployment. Create a LDAP user for your {{site.data.keyword.scale_full_notm}} cluster. Use it to run Storage Scale commands and submit the jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
 
-If you have an existing LDAP server with the LDAP information provided during the IBM Storage Scale cluster deployment, then you need not create a new LDAP user.
+If you have an existing LDAP server with the LDAP information provided during the {{site.data.keyword.scale_full_notm}} cluster deployment, then you need not create a new LDAP user.
 {: shortdesc}
 
 ### Before you begin
@@ -192,7 +192,7 @@ export NEW_LDAP_USER_PASSWORD="Test@1234"
     ```
     {: codeblock}
 
-To accommodate many LDAP users (where each user has an individual IP address), update the security group for the IBM Storage Scale cluster systematically. Moreover, instead of manually adding each user's IP address, a more scalable approach involves allowing CIDR ranges for the respective users. This way, as new LDAP users are created, their entire IP range is authorized, simplifying the management of security configurations. Consider implementing automation to streamline the process and ensure the security group remains up-to-date with the dynamic nature of LDAP user IPs. Regular reviews and documentation maintenance are essential to adapt to changes in user access and uphold security protocols effectively.
+To accommodate many LDAP users (where each user has an individual IP address), update the security group for the {{site.data.keyword.scale_full_notm}} cluster systematically. Moreover, instead of manually adding each user's IP address, a more scalable approach involves allowing CIDR ranges for the respective users. This way, as new LDAP users are created, their entire IP range is authorized, simplifying the management of security configurations. Consider implementing automation to streamline the process and ensure the security group remains up-to-date with the dynamic nature of LDAP user IPs. Regular reviews and documentation maintenance are essential to adapt to changes in user access and uphold security protocols effectively.
 {: note}
 
 ## Configuring CES with LDAP deployment values
@@ -220,7 +220,7 @@ Make sure to complete the steps for [Getting started with IBM Storage Scale](/do
 |`ldap_admin_password`	|Password that is used for performing administrative operations for LDAP. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.	|`xxxxxx`  |
 |`ldap_user_name`	|Custom LDAP user for performing cluster operations. Note: Username must be at least 4 character, (any combination of lowercase and uppercase letters).	|`scaleuser`|
 |`ldap_user_password`	|LDAP user password that is used for performing operations on the cluster. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.|`xxxxxx`|
-|`enable_ldap`|Set this option to true to enable LDAP for IBM Cloud HPC, with the default value set to false.||
+|`enable_ldap`|Set this option to true to enable LDAP for {{site.data.keyword.cloud_notm}} HPC, with the default value set to false.||
 {: caption='LDAP variables'}
 
 ### Verifying authentication

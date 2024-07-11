@@ -397,7 +397,7 @@ Additional Input includes:
     Explanation: Configure routes on all protocol nodes to reach the CES interface base IP addresses.
     Example: ip route add 10.241.0.0/24 via 10.241.2.1 dev eth1
     Add Routes to Reach CES Endpoints:
-    Explanation: Set up routes to reach CES endpoints from base IPs using IBM Cloud CLI commands.
+    Explanation: Set up routes to reach CES endpoints from base IPs using {{site.data.keyword.cloud_notm}} CLI commands.
     Example: ibmcloud is vpc-routing-table-route-create <vpc_id> <rt_id> --zone <zone> --destination <ces_ip> --next-hop <base_ip_of_ces_interface> --action deliver --name <ces-ip> -q
 
 10. NFS Mount (From Any Scale Node)
@@ -469,13 +469,13 @@ Additional Input includes:
 
 •	Ensure a healthy Scale cluster with the ability to move CES IP addresses across protocol nodes.
 
-1.  Installing the IBMCloud CLI tool for managing IBM Cloud resources.
+1.  Installing the IBMCloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources.
     `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`
 
-2.  Install VPC Infrastructure Plugin for IBM Cloud CLI.
+2.  Install VPC Infrastructure Plugin for {{site.data.keyword.cloud_notm}} CLI.
     `ibmcloud plugin install is`
 
-3.  Update mmcesExtendedIpMgmt script with the required IBM Cloud environment variables for IP management.
+3.  Update mmcesExtendedIpMgmt script with the required {{site.data.keyword.cloud_notm}} environment variables for IP management.
     •	export IC_API_KEY=<ibmcloud_apikey>
     •	export IC_REGION=<region>
     •	export IC_ZONE=<zone>

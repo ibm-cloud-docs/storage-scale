@@ -31,7 +31,7 @@ subcollection: storage-scale
 
 Establish a robust authentication system using Active Directory while ensuring seamless file access, particularly through the NFS protocol. 
 The procedure covers how to :
-* Configure IBM Storage Scale Nodes to directly integrate with Active Directory, enabling user authentication and access control.
+* Configure {{site.data.keyword.scale_full_notm}} Nodes to directly integrate with Active Directory, enabling user authentication and access control.
 * Enabling RFC2307 attributes within Active Directory. This is crucial for mapping user and group identifiers between AD and the UNIX environment.
 
 ## General prerequisites
@@ -50,7 +50,7 @@ Before proceeding with the configuration process, ensure these prerequisites are
 ## Network prerequisites
 {: #network-prereq}
 
-Before proceeding with the configuration of IBM Storage Scale to utilize Active Directory and connecting RHEL systems to AD, ensure the following network prerequisites are met:
+Before proceeding with the configuration of {{site.data.keyword.scale_full_notm}} to utilize Active Directory and connecting RHEL systems to AD, ensure the following network prerequisites are met:
 
 1.	**Network connectivity:** You need stable and reliable network connectivity between the Windows Server 2019 machine (where Active Directory and DNS will be installed) and the RHEL systems that will be joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
 

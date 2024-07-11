@@ -49,7 +49,7 @@ Before you configure, be sure that these prerequisites are met:
 ## Network prerequisites
 {: #network-prereq}
 
-Before you proceed with the configuration of IBM Storage Scale to utilize Active Directory and connecting RHEL systems to AD, ensure that the following network prerequisites are met:
+Before you proceed with the configuration of {{site.data.keyword.scale_full_notm}} to utilize Active Directory and connecting RHEL systems to AD, ensure that the following network prerequisites are met:
 
 1.	**Network connectivity:** You need stable and reliable network connectivity between the Windows Server 2019 machine (where Active Directory and DNS will be installed) and the RHEL systems that will be joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
 

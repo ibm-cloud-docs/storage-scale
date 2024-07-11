@@ -45,7 +45,7 @@ Parallel vNIC feature is not supported for persistent storage type.
 ## Benefits
 {: #benefits}
 
-Parallel virtual network interface cards (vNICs) are beneficial for IBM Storage Scale.
+Parallel virtual network interface cards (vNICs) are beneficial for {{site.data.keyword.scale_full_notm}}.
 
 ### Parallelism and Load Balancing
 {: #parallel-load-balance}
@@ -76,7 +76,7 @@ Separation of Traffic Types: One vNIC can be used for specific types of traffic 
 
 IBM Storgae Scale 5.1.5 introduces the Multi-Rail over TCP (MROT) feature. This functionality allows the concurrent use of multiple subnets to communicate with a specified destination. It also permits the simultaneous utilization of multiple physical network interfaces without the need for bonding configuration.
 
-MROT configuration occurs only when both the storage and compute cluster VSI profiles have a bandwidth equal to or greater than 64 Gbps, and the secondary vNIC is up and running. Learn more about MROT at IBM Storage Scale Documentation.
+MROT configuration occurs only when both the storage and compute cluster VSI profiles have a bandwidth equal to or greater than 64 Gbps, and the secondary vNIC is up and running. Learn more about MROT at {{site.data.keyword.scale_full_notm}} Documentation.
 
 ### Verification
 {: #mrot-verification}

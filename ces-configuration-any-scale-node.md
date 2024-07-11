@@ -75,7 +75,7 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
 9.  Add Routes to Reach CES Interface Base IP:
     a.  Configure routes on all protocol nodes to reach the CES interface base IP addresses.
         `ip route add 10.241.0.0/24 via 10.241.2.1 dev eth1`
-    b.  Set up routes to reach CES endpoints from base IPs using IBM Cloud CLI commands.
+    b.  Set up routes to reach CES endpoints from base IPs using {{site.data.keyword.cloud_notm}} CLI commands.
         `ibmcloud is vpc-routing-table-route-create <vpc_id> <rt_id> --zone <zone> --destination <ces_ip> --next-hop <base_ip_of_ces_interface> --action deliver --name <ces-ip> -qa`
 
 10. NFS Mount (From Any Scale Node)

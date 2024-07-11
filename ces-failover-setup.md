@@ -35,18 +35,18 @@ subcollection: storage-scale
 {: #procedure-ces-failover}
 
 
-1.  Install the IBMCloud CLI tool for managing IBM Cloud resources.
+1.  Install the IBMCloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources.
 
     ```
     curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
     ```
 
-2.  Install the VPC Infrastructure plug-in for IBM Cloud CLI.
+2.  Install the VPC Infrastructure plug-in for {{site.data.keyword.cloud_notm}} CLI.
 
     ```ibmcloud plugin install is
     ```
 
-3.  Update the mmcesExtendedIpMgmt script with the required IBM Cloud environment variables for IP management.
+3.  Update the mmcesExtendedIpMgmt script with the required {{site.data.keyword.cloud_notm}} environment variables for IP management.
     •	export IC_API_KEY=<ibmcloud_apikey>
     •	export IC_REGION=<region>
     •	export IC_ZONE=<zone>
