@@ -22,20 +22,20 @@ subcollection: storage-scale
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Integrate Scale with CES and enable LDAP fot NFS on Scale nodes 
+# Integrate Scale with CES and enable LDAP for NFS on Scale nodes 
 {: #scale-cem-intro}
 
-You can integrate Scale with CES services and enable LDAP based authentication for NFS services on CES Scale Nodes. The information includes assumptions, a step-by-step guide, and detailed explanations for each configuration. By utilizing LDAP-based authentication with an external LDAP server, organizations can enhance security and centralize user management for NFS shares and configuration steps to enable LDAP-based authentication and provides instructions for setting up an OpenLDAP server on a Linux system.
+You can integrate Scale with CES services and enable LDAP-based authentication for NFS services on CES Scale Nodes. The information includes assumptions, a step-by-step guide, and detailed explanations for each configuration. By utilizing LDAP-based authentication with an external LDAP server, organizations can enhance security and centralize user management for NFS shares and configuration steps. This enables the LDAP-based authentication and provide instructions for setting up an OpenLDAP server on a Linux system.
 
 ## Step 1 - Configuration for OpenLDAP Server setup
 {: #configure-ldap-server}
 
-Ensure that the LDAP server is properly configured with the required schemas installed to handle authentication and ID mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
+Ensure that the LDAP server is properly configured with the required schemas that are installed to handle authentication and ID-mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
 
 ### Configuring an OpenLDAP Server
 {: #configure-openldap-server}
 
-OpenLDAP is an open-source implementation of the Lightweight Directory Access Protocol (LDAP) that can be used to store and manage information about users, groups, and other objects in a network. This document provides step-by-step instructions for configuring an OpenLDAP server on a Linux system.
+OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that can be used to store and manage information about users, groups, and other objects in a network. This document provides step-by-step instructions for configuring an OpenLDAP server on a Linux system.
 
 ### Before you begin - OpenLDAP Server
 {: #beforeyoubegin-openldap}
@@ -46,7 +46,7 @@ You should have access to a Linux system with root privileges. You should also h
 {: #proc-config-openldap}
 
 
-Use these steps to configuire an OpenLDAP server:
+Use these steps to configure an OpenLDAP server:
 
 1.	Install the OpenLDAP server and client packages
 
@@ -69,22 +69,22 @@ Use these steps to configuire an OpenLDAP server:
     systemctl start slapd systemctl enable slapd 
     ```
 
-4.	Generate an admin password by running the slappasswd command. You are  prompted to enter a password. For example:
+4.	Generate an admin password by running the slappasswd command. You are prompted to enter a password. For example:
 
     ```
     Code:
     slappasswd 
     ```
     
-    You will see an output that looks something like this:
+    You see an output that looks something like this:
 
     ```Code:
     {SSHA}FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4 
     ```
-    The password hash that is generated (in this case,   {SSHA}         FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4) as you will need it later.
+    The password hash that is generated (in this case, {SSHA}         FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4) as you need it later.
     {: note} 
 
-5.	Create a file named chrootpw.ldif and add the following lines to it:
+5.	Create a file that is named `chrootpw.ldif` and add the following lines to it:
 
     ```
     Code:
@@ -112,7 +112,7 @@ Use these steps to configuire an OpenLDAP server:
     slappasswd 
     ```
 
-    You will see an output that looks something like this:
+    You see an output that looks something like this:
 
 
     ```
@@ -122,7 +122,7 @@ Use these steps to configuire an OpenLDAP server:
     
     Make note of the password hash that is generated (in this case, {SSHA}TVW9z6WLIBC3EXtFHFWnb2EVlK7EZQ3b) as you need it in the next step.
 
-8.	Add the manager password and enable the manager account by creating a file named chdomain.ldif and adding these lines to it:
+8.	Add the manager password and enable the manager account by creating a file that is named `chdomain.ldif` and adding these lines to it:
 
     ```
     # DC should be your domain
@@ -191,7 +191,7 @@ Use these steps to configuire an OpenLDAP server:
     Code: 
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f basedomain.ldif
     ``````
-12.	Create a file named ldapuser.ldif using vi editor and add the these lines to it and replace to required own domain name for "dc=***,dc=***" section.
+12.	Create a file named ldapuser.ldif using vi editor and add these lines to it and replace to required own domain name for "dc=***,dc=***" section.
 
     ```
     dn: uid=Scaleusr01,ou=People,dc=ibmscale,dc=com
@@ -221,7 +221,7 @@ Use these steps to configuire an OpenLDAP server:
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f ldapuser.ldif
     ```
 
-14.	Verify whether users have been created as mentioned in the above steps: 
+14.	Verify whether users have been created as mentioned in the preceding steps:
 
     ```
     ldapsearch -x -LLL -b "ou=People,dc=ibmscale,dc=com" "(objectClass=posixAccount)" uid cn
@@ -229,14 +229,14 @@ Use these steps to configuire an OpenLDAP server:
 
     The OpenLDAP server is now configured and ready to use. You can add more users and groups by creating additional LDIF files and using the ldapadd command to import them into the directory.
 
-## Step 2 -  Creating a User group in OLDAP directory for users accessing the Scale cluster
+## Step 2 -  Creating a User group in the OLDAP directory for users accessing the Scale cluster
 {: #creating-user-group-oldap-dir}
 
-Create a user group in the OLDAP directory which will consists of users who are supposed to get access to the Scale cluster.
+Create a user group in the OLDAP directory which will consist of users who are supposed to get access to the Scale cluster.
 You use the `ldapadd` command to add an LDIF entry for the group 
 to the LDAP directory. 
 
-1.  For example, to create groups called `developers` and `testers`, you create an LDIF file with these contents:
+1.  For example, to create groups that are called `developers` and `testers`, you create an LDIF file with these contents:
 
     ```
     # create an organizational unit for groups
@@ -261,7 +261,7 @@ to the LDAP directory.
     description: Scaleconsumer group
     ```
 
-    In this example, the first entry creates an organizational unit called "groups". The next two entries create groups called "developers" and "testers" respectively.
+    In this example, the first entry creates an organizational unit called "groups". The next two entries create groups that are called "developers" and "testers" respectively.
 
     Each group entry specifies the objectClass "top" and "posixGroup" to define the group's schema. The gidNumber attribute specifies the group's unique identifier, while the cn attribute specifies the group's common name. Finally, the description attribute provides a brief description of the group.
 
@@ -311,12 +311,12 @@ to the LDAP directory.
 
 This output shows that there are two group entries, " ScaleAdmin" and " Scaleconsumer ", both under the ou=groups,dc=ibmscale,dc=com organizational unit.
 
-Later, one can use he `ldapmodify` command to add exiting users to these groups.  In the above `ldapsearch` output, two users are seen as the member of each of the groups.
+Later, one can use the `ldapmodify` command to add exiting users to these groups.  In the above `ldapsearch` output, two users are seen as the member of each of the groups.
 
 ## Step 3 -  Configuration for CES integration and LDAP Authentication
 {: #config-ces-integration}
 
-Before configuring IBM Spectrum Scale with Cluster Export Services (CES) integration and enabling LDAP authentication for NFS services, it's essential to follow a series steps. Below are the summarized high-level actions to guide you through this process:
+Before configuring IBM Spectrum Scale with Cluster Export Services (CES) integration and enabling LDAP authentication for NFS services, it's essential to follow a series step. Following are the summarized high-level actions to guide you through this process:
 
 ### Before you begin
 {: #beforeyoubegin-ces-integration}
@@ -351,8 +351,8 @@ Additional Input includes:
         Reserve private IPs in the protocol subnet, matching the count of protocol nodes.
 
 2.  DNS Configuration
-    a.  Create DNS Zone (e.g., scaleces.com)
-        Need to Set up a DNS zone to manage DNS records for CES.
+    a.  Create DNS Zone (for example, scaleces.com)
+        Need to set up a DNS zone to manage DNS records for CES.
     b.  Add VPC as Permitted Network
         Allow the VPC to access DNS records within the configured zone.
     c.  Add A and PTR Records
@@ -364,10 +364,10 @@ Additional Input includes:
 1.  Setting up Cluster Export Services Shared root file system:
     In this step we created a CesSharedRoot using the following command
 		`mmchconfig cesSharedRoot=/gpfs/fs1`
-    The CES shared root (cesSharedRoot) is needed for storing CES shared configuration data, for protocol recovery, and for other protocol-specific purposes. It is part of the cluster export configuration and is shared between the protocols. Every CES node requires access to the path configured as shared root. The “mmchconfig” command is used to configure this directory as part of setting up a CES cluster as mentioned in the above example.	
+    The CES shared root (cesSharedRoot) is needed for storing CES shared configuration data, for protocol recovery, and for other protocol-specific purposes. It is part of the cluster export configuration and is shared between the protocols. Every CES node requires access to the path configured as a shared root. The “mmchconfig” command is used to configure this directory as part of setting up a CES cluster as mentioned in the preceding example.	
 2.  Verify CES Shared Root Configuration:
     Confirm the CES shared root configuration using the mmlsconfig command.
-3.  Configure the cluster Export Services on each of the Scale Nodes which are going to handle protocol exports:	
+3.  Configure the cluster Export Services on each of the Scale Nodes, which are going to handle protocol exports:	
 
     `mmchnode --ces-enable -N storage-scale-storage-5[,storage-scale-storage-6]`
 
@@ -376,7 +376,7 @@ Additional Input includes:
 4.  Check the status of CES nodes using the mmces node list command.
 5.  Assign CES IP addresses to protocol nodes using the mmces address add command.
 
-    Protocol services are made available through Cluster Export Services (CES) protocol service IP addresses. These addresses are separate from the IP addresses that are used internally by the cluster. To configure the CES protocol ip addresses following commands need to be executed:
+    Protocol services are made available through Cluster Export Services (CES) protocol service IP addresses. These addresses are separate from the IP addresses that are used internally by the cluster. To configure the CES protocol IP addresses, the following commands need to be run:
 
     `mmces address add --ces-node storage-scale-storage-5 --ces-ip 10.241.2.6 mmces address add --ces-node storage-scale-storage-6 --ces-ip 10.241.2.7`
 
@@ -390,7 +390,7 @@ Additional Input includes:
     `mmces service enable NFS`
 8.  List the CES services in verbose mode use the following command:
     `mmces service list --verbose -a`
-    Two directories (ces and ha) are automatically created in the fs1 filesystem; do not delete them.
+    Two directories (ces and ha) are automatically created in the fs1 file system; do not delete them.
     {: note}
 
 9.  Route Addition at OS & RT Level:
@@ -402,13 +402,13 @@ Additional Input includes:
 
 10. NFS Mount (From Any Scale Node)
     Configure the NFS mount:
-    a.  Create an independent fileset named lsf within fs1 for CES data.
+    a.  Create an independent file set named lsf within fs1 for CES data.
          `mmcrfileset fs1 lsf --inode-space new``
     b.  Link the lsf fileset to the /gpfs/fs1/lsf directory.
          `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf``
     c.  Set Fileset-Level Quota (TODO) - Define quotas for the fileset as required.
     d.  Configure user authentication for file access. Create the authentication service: 
-        'mmuserauth service create --type ldap --data-access-method file --servers 149.81.12.196 --base-dn dc=ibmscale,dc=com --user-name cn=manager,dc=ibmscale,dc=com --netbios-name ess'
+        'mmuserauth services create --type ldap --data-access-method file --servers 149.81.12.196 --base-dn dc=ibmscale,dc=com --user-name cn=manager,dc=ibmscale,dc=com --netbios-name ess'
 
         To verify if the LDAP authentication is setup correctly, following command needs to be run, below examples also displays the output:
 
@@ -482,12 +482,12 @@ Additional Input includes:
     •	export IC_RG=<resource_group>
     •	export IC_VPC=<vpc_id>
     •	export IC_RT=<route_table_id>
-    The script code is mentioned below:
+    The script code is mentioned:
 
     Copy mmcesExtendedIpMgmt:
     Copy the mmcesExtendedIpMgmt script to /var/mmfs/etc/mmcesExtendedIpMgmt.
     
-4.  Ensure the script has executable permissions.
+4.  Ensure that the script has executable permissions.
 
     `chmod +x /var/mmfs/etc/mmcesExtendedIpMgmt`
 

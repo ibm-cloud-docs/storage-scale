@@ -29,13 +29,13 @@ subcollection: hpc-spectrum-scale
 
 A vNIC (Virtual Network Interface Controller) is a virtual representation of a physical network interface card. In cloud environments, vNICs are associated with virtual machines (VMs) and serve as the primary means of communication between the VM and the underlying network infrastructure. Each VM typically has one or more vNICs that enable it to send and receive data over the network. For more information, see: https://cloud.ibm.com/docs/vpc?topic=vpc-using-instance-vnics.
 
-As per parallel vNIC support for each node of a compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface will be activated. This functionality is supported on both compute and storage profiles. For more details about VSI profile, see: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui.
+As per parallel vNIC support for each node of a compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface is activated. This functionality is supported on both compute and storage profiles. For more details about the VSI profile, see: https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui.
 
-If the profile of compute nodes has a Bandwidth of 64 Gbps or more, a secondary network interface will be activated only on the compute cluster, and scale will be configured on the secondary network interface.
+If the profile of compute nodes has a Bandwidth of 64 Gbps or more, a secondary network interface is activated only on the compute cluster, and scale will be configured on the secondary network interface.
 
 Compute vNICs are connected to two different subnets, providing network segmentation and isolation between application traffic and storage traffic. This setup enhances security and efficiency by keeping these types of traffic separate and ensuring that each subnet serves its dedicated purpose. The primary interface of the compute cluster is dedicated to application communication. The secondary interface is utilized for scale communication as scale is configured on the secondary interface.
 
-Similarly, if the profile of storage nodes has a Bandwidth of 64 Gbps or more, a secondary network interface will be activated only on the storage cluster, and scale will be configured on the primary network interface. Storage vNICs are connected to the same subnets, handling scaled traffic. Both primary and secondary interfaces are dedicated to scale communication. Communication occurs between the primary and secondary interfaces of the storage cluster to the secondary interface of the compute cluster.
+Similarly, if the profile of storage nodes has a Bandwidth of 64 Gbps or more, a secondary network interface is activated only on the storage cluster, and scale will be configured on the primary network interface. Storage vNICs are connected to the same subnets, handling scaled traffic. Both primary and secondary interfaces are dedicated to scale communication. Communication occurs between the primary and secondary interfaces of the storage cluster to the secondary interface of the compute cluster.
 
 Parallel vNIC feature is not supported for persistent storage type.
 {: note}
@@ -50,7 +50,7 @@ Parallel virtual network interface cards (vNICs) are beneficial for {{site.data.
 ### Parallelism and Load Balancing
 {: #parallel-load-balance}
 
-Load Distribution: With two vNICs, network traffic gets distributed between them, effectively balancing the load. This is particularly beneficial in scenarios where there is a high volume of network traffic.
+Load Distribution: With two vNICs, network traffic gets distributed between them, effectively balancing the load. This is beneficial in scenarios where there is a high volume of network traffic.
 
 Parallel Processing: Multiple vNICs can handle network tasks in parallel, allowing for more efficient use of available bandwidth. This is similar to the concept of parallel processing in computing.
 
@@ -69,12 +69,12 @@ Increased Aggregate Bandwidth: By using two vNICs, there is an essential increas
 ### Traffic Isolation
 {: #traffic-isolation}
 
-Separation of Traffic Types: One vNIC can be used for specific types of traffic (e.g., storage traffic), and the other for different types (e.g., application traffic). This separation can prevent congestion on a single network path and improve overall performance.
+Separation of Traffic Types: One vNIC can be used for specific types of traffic (for example, storage traffic), and the other for different types (for example, application traffic). This separation can prevent congestion on a single network path and improve overall performance.
 
 ## MROT
 {: #mrot}
 
-IBM Storgae Scale 5.1.5 introduces the Multi-Rail over TCP (MROT) feature. This functionality allows the concurrent use of multiple subnets to communicate with a specified destination. It also permits the simultaneous utilization of multiple physical network interfaces without the need for bonding configuration.
+IBM Storage Scale 5.1.5 introduces the Multi-Rail over TCP (MROT) feature. This functionality allows the concurrent use of multiple subnets to communicate with a specified destination. It also permits the simultaneous utilization of multiple physical network interfaces without the need for bonding configuration.
 
 MROT configuration occurs only when both the storage and compute cluster VSI profiles have a bandwidth equal to or greater than 64 Gbps, and the secondary vNIC is up and running. Learn more about MROT at {{site.data.keyword.scale_full_notm}} Documentation.
 
@@ -152,9 +152,9 @@ On the Compute cluster:
 #### On Storage Cluster
 {: #on-storage-cluster}
 
-The logical subnet is visible under my address list. In the results below, you can find the destination hostnames of nodes and their corresponding destination IPs under the columns "hostname" and "idx."
+The logical subnet is visible under my address list. In the results, you can find the destination hostnames of nodes and their corresponding destination IPs under the columns "hostname" and "idx."
 
-For the storage cluster, scaling is configured on both primary and secondary IPs; hence, both primary and secondary IPs are visible in the results. For detailed information on each node, refer to the "Connection Details" section. The IpPair Table will display the source IP and destination IP.
+For the storage cluster, scaling is configured on both primary and secondary IPs; hence, both primary and secondary IPs are visible in the results. For detailed information on each node, refer to the "Connection Details" section. The IpPair Table displays the source IP and destination IP.
 {: note}
 
 ```

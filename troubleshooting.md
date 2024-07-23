@@ -94,7 +94,7 @@ Schematics isn't able to provision the cluster, and you are seeing the following
 Resource names must be unique. If a resource exists with the same name, you might get a similar error.
 {: tsCauses}
 
-Since the resource names need to be unique, check which resource is generating the error. From the UI and CLI, you can fetch  the details of that specific resource. If that resource is owned by you, update the resource name so it's unique. If the resource is owned by another user, navigate to your {{site.data.keyword.bpshort}} workspace and destroy all of the resources. Change the cluster prefix name, and provision the cluster again through {{site.data.keyword.bpshort}}.
+Since the resource names need to be unique, check which resource is generating the error. From the UI and CLI, you can fetch the details of that specific resource. If that resource is owned by you, update the resource name so it's unique. If the resource is owned by another user, navigate to your {{site.data.keyword.bpshort}} workspace and destroy all of the resources. Change the cluster prefix name, and provision the cluster again through {{site.data.keyword.bpshort}}.
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to provision the cluster while using a custom image?
@@ -164,7 +164,7 @@ You need to check whether the provided resource group name is available in the s
 You are receiving the following error when you try to either generate or apply a plan to your workspace: `Apply failed due to "Error: [ERROR] No image found with name hpcc-spectrumscalecontroller513-06may2021-rhel84-v6."`
 {: tsSymptoms}
 
-Either during generating or applying a plan, Terraform tries to validate if the provide image name and its image ID is present in the `image_map.tf` file. If Terraform finds the correct image details, it provisions the instances, but if the correct image details can't be found, Terraform tries to fetch the image details from {{site.data.keyword.cloud_notm}} through `data_source`. 
+Either during generating or applying a plan, Terraform tries to validate if the provided image name and its image ID are present in the `image_map.tf` file. If Terraform finds the correct image details, it provisions the instances, but if the correct image details can't be found, Terraform tries to fetch the image details from {{site.data.keyword.cloud_notm}} through `data_source`. 
 
 Even if the provided image is not present in the cloud from that specific region, you still might receive the error.
 {: tsCauses}
@@ -180,7 +180,7 @@ You need to check whether the provided image name has any spaces and if that ima
 You are receiving the following error when you try to apply a plan to your workspace: `Apply failed due to "code : cannot_start_capacity : message : Can't start instance because resource capacity is unavailable."`
 {: tsSymtoms}
 
-During the apply plan process, Terraform initiates the virtual server instance provisioning process based on the selected deployment values. If there is a resource capacity issue or a quota issue from the region where you are trying to deploy, the resources won't provision as expected.
+During the apply plan process, Terraform initiates the virtual server instance provisioning process based on the selected deployment values. If there is a resource capacity issue or a quota issue from the region where you are trying to deploy, the resources won't be provision as expected.
 {: tsCauses}
 
 You need to talk to the administrator of the account to increase the quota for the specific region, or you can try to clean up all of the unwanted resources that are associated with the cloud infrastructure. If you clean up unwanted resources, you might free up space for the deployment to process.
@@ -205,7 +205,7 @@ You need to provide a valid {{site.data.keyword.IBM_notm}} Customer Number that 
 {: troubleshoot}
 {: support}
 
-You aren't able to SSH to the nodes from a local machine after a successful cluster deployment.
+You aren't able to SSH to the nodes from a local system after a successful cluster deployment.
 {: tsSymptoms}
 
 After a successful cluster deployment, you won't be able to SSH to the nodes due to the following issues:
@@ -215,13 +215,13 @@ After a successful cluster deployment, you won't be able to SSH to the nodes due
 {: tsCauses}
 
 You can try the following procedures to help troubleshoot the SSH issue:
-1. Ensure that you have the correct IP address to establish SSH connection. Refresh the UI to fetch the latest IP address details.
+1. Ensure that you have the correct IP address to establish an SSH connection. Refresh the UI to fetch the latest IP address details.
 2. Check whether the SSH connection works for the bastion host (for example, `ssh ubuntu@<bastion-IP-address>). If the connection is successful, then you can troubleshoot the SSH issue for the other nodes.
-3. Open the security group of the bastion host and check if TCP port 22 with source range is open from the user machine.
+3. Open the security group of the bastion host and check if TCP port 22 with source range is open from the user system.
 4. Use https://ipv4.icanhazip.com/ to fetch the current IP address and validate whether there is a different, updated IP address on the security group of the source address range.
 5. Open the security group of the bootstrap, compute, and storage nodes to see the bastion node security group source details to access SSH to connect to the other nodes.
-6. Make sure that the public SSH key that's used in the region matches the `id_rsa.pub` content from the local machine. Use the commands `cd .ssh` and `cat id_rsa.pub` to check.
-7. Ensure that there are no duplicate `id_rsa.pub` files present in the `.ssh` folder in the local machine.
+6. Make sure that the public SSH key that's used in the region matches the `id_rsa.pub` content from the local system. Use the commands `cd .ssh` and `cat id_rsa.pub` to check.
+7. Ensure that there are no duplicate `id_rsa.pub` files present in the `.ssh` folder in the local system.
 {: tsResolve}
 
 ## What is the `subnet_not_in_address_prefix` error or invalid CIDR format error during the VPC and subnet creation?
@@ -277,7 +277,7 @@ Contact your administrator to provide the required set of permissions on the tru
 After the cluster setup is done and you run the command `mmhealth node show` or `mmhealth cluster show` to validate the health of the node, the PERFMON node is in a failed state.
 {: tsSymptoms}
 
-The PERFMON node makes use of one of the `pmsensors` for the setup, and the `pmsensors` service might not come up as expected.
+The PERFMON node uses one of the `pmsensors` for the setup, and the `pmsensors` service might not come up as expected.
 {: tsCauses}
 
 Run the following commands to see the specific logs to fix the issue:
@@ -419,7 +419,7 @@ Terraform attempts to create the custom resolver environment and waits for the c
 After a failed deployment, clean up all resources. During a subsequent attempt, use a new cluster prefix to avoid any name collisions with resources from the previous failed attempt. If the issue continues to occur, open an issue with {{site.data.keyword.cloud_notm}} Support.
 {: tsResolve}
 
-## Why does the CES nodes within the storage cluster on Baremetal encounter the  “nfs_sensors_not_configured” issue?
+## Why does the CES nodes within the storage cluster on Baremetal encounter the “nfs_sensors_not_configured” issue?
 {: #troubleshoot-topic-23}
 {: troubleshoot}
 {: support}
@@ -430,7 +430,7 @@ When NFS sensor details on Baremetal with CES-enabled cluster does not update pr
 Specifically, on the Baremetal with CES-enabled cluster, if the required NFS sensors are not configured properly on CES nodes, then “nfs_sensors_not_configured” issue occurs.
 {: tsCauses}
 
-Follow the steps below to address the "nfs_sensors_not_configured" issue by configuring NFS sensors as outlined in the documentation provided at https://www.ibm.com/docs/en/storage-scale-system/6.1.9?topic=gui-configure-nfs-sensors:
+The following steps address the "nfs_sensors_not_configured" issue by configuring NFS sensors as outlined in the documentation provided at https://www.ibm.com/docs/en/storage-scale-system/6.1.9?topic=gui-configure-nfs-sensors:
 {: tsResolve}
 
 1. Use the following content to define the NFS sensor configuration:
@@ -458,7 +458,7 @@ type = "Generic"
 {: troubleshoot}
 {: support}
 
-During the deployment of Scale cluster with encryption enabled, the following error message might occur in the compute node:
+During the deployment of a Scale cluster with encryption enabled, the following error message might occur in the compute node:
 `rkmconf_filenotfound_err`
 {: tsSymptoms}
 
