@@ -20,7 +20,7 @@ content-type: release-note
 # Release notes
 {: #release-notes}
 
-In this release notes, you learn about the latest updates to {{site.data.keyword.scale_full}} that are grouped by date.
+In this release notes, you learn about the updates to {{site.data.keyword.scale_full}} that are added by the latest release date.
 {: shortdesc}
 
 ## June 2024
@@ -39,7 +39,7 @@ Enabling Boot drive Encryption Feature for Bare Metal
 :  Enable the boot drive encryption feature for IBM Bare Metal servers on VPC to use the local disk drive for boot. Boot drive encryption encrypts the drive using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
 
 Updated Storage Scale software version
-:  The Storage Scale version used for the configuration of the compute and storage clusters has been updated from version 5.1.9.2 to 5.2.0.1.
+:  The Storage Scale version that is used for the configuration of the compute and storage clusters has been updated from version 5.1.9.2 to 5.2.0.1.
 
 ## April 2024
 {: #storage-scale-apr24}
@@ -61,7 +61,7 @@ Updated Storage Scale software version
 {: release-note}
 
 Updated Storage Scale software version
-:  The Storage Scale version used for configuration of the compute and storage clusters has been updated from version 5.1.9.0 to 5.1.9.2
+:  The Storage Scale version that is used for configuration of the compute and storage clusters has been updated from version 5.1.9.0 to 5.1.9.2
 
 ## December 2023
 {: #storage-scale-sept23}
@@ -71,7 +71,7 @@ Updated Storage Scale software version
 {: release-note}
 
 Enabling CES Feature
-:  You can now enable the CES feature to enable access to data stored in Storage Scale. By providing a non-zero value to total_protocol_cluster_instances variable, you can enable the CES feature. For more information about enabling CES and configuring these deployment values, see Enabling CES Feature.
+:  You can now enable the CES feature to enable access to data stored in Storage Scale. By providing a nonzero value to the `total_protocol_cluster_instances` variable, you can enable the CES feature. For more information about enabling CES and configuring these deployment values, see Enabling CES Feature.
 
 User Management
 :   LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster. By setting up the ldap_basedns deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES. For more information about LDAP integration and configuring these deployment values, see Configuring CES with LDAP.
@@ -109,7 +109,7 @@ Updated RHEL stock image version
 :   The RHEL stock image version was updated from RHEL 8.4 to RHEL 8.8.
 
 Updated {{site.data.keyword.scale_short}} software version
-:   The {{site.data.keyword.scale_short}} version used for configuration of the compute and storage clusters has been updated from version 5.1.4.1 to 5.1.8.1.
+:   The {{site.data.keyword.scale_short}} version that is used for configuration of the compute and storage clusters has been updated from version 5.1.4.1 to 5.1.8.1.
 
 ## March 2023
 {: #storage-scale-mar23}
