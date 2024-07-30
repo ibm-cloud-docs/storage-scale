@@ -45,9 +45,9 @@ Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You might need
 {: #create-custom-image}
 {: step}
 
-You can create a custom image for compute, storage and client nodes or use the default image. But for bootstrap, GKLM (if encryption is enabled) and LDAP (if LDAP is enabled), only the default image is supported. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
+You can create a custom image for compute, storage, and client nodes or use the default image. But for bootstrap, GKLM (if encryption is enabled) and LDAP (if LDAP is enabled), only the default image is supported. For more information, see [Planning for custom images](/docs/vpc?topic=vpc-planning-custom-images).
 
-For parallel vNIC and CES feature, only default images for storage is supported.
+For parallel vNIC and CES feature, only default images for storage are supported.
 {: note}
 
 {{site.data.keyword.cloud_notm}} provides pre-built images with RHEL to help you get started quickly. See the `storage_vsi_osimage_name storage_bare_metal_osimage_name` and `compute_vsi_osimage_name` parameter in [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). In addition to the base operating system, the image includes the {{site.data.keyword.scale_short}} software packages that allow for the {{site.data.keyword.scale_short}} shared file system to be automatically mounted and ready for use after the creation and configuration of the cluster is complete.
@@ -74,7 +74,7 @@ You need to decide whether you want to enable encryption for your file system. T
 {: #enable-parallel}
 {: step}
 
-As per parallel vNIC support for each node of compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface will be activated.
+As per parallel vNIC support for each node of the compute and storage cluster, a secondary vNIC comes up based on the bandwidth of a profile. According to the parallel vNIC functionality, if a VSI profile has a Bandwidth Cap (Gbps) of 64 Gbps or more, then a secondary network interface is activated.
 
 If CES is enabled, parallel vNIC functionality cannot be used.
 {: note}

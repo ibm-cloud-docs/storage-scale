@@ -163,7 +163,7 @@ Use these steps to configure an OpenLDAP server:
     ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif
     ```
 
-10.	Create a file named basedomain.ldif and add the following lines to it:
+10.	Create a file that is named `basedomain.ldif` and add the following lines to it:
 
     ```
     Code: 
@@ -191,7 +191,7 @@ Use these steps to configure an OpenLDAP server:
     Code: 
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f basedomain.ldif
     ``````
-12.	Create a file named ldapuser.ldif using vi editor and add these lines to it and replace to required own domain name for "dc=***,dc=***" section.
+12.	Create a file that is named ldapuser.ldif using vi editor and add these lines to it and replace to required own domain name for "dc=***,dc=***" section.
 
     ```
     dn: uid=Scaleusr01,ou=People,dc=ibmscale,dc=com
@@ -227,12 +227,12 @@ Use these steps to configure an OpenLDAP server:
     ldapsearch -x -LLL -b "ou=People,dc=ibmscale,dc=com" "(objectClass=posixAccount)" uid cn
     ```
 
-    The OpenLDAP server is now configured and ready to use. You can add more users and groups by creating additional LDIF files and using the ldapadd command to import them into the directory.
+    The OpenLDAP server is now configured and ready to use. You can add more users and groups by creating additional LDIF files and by using the ldapadd command to import them into the directory.
 
 ## Step 2 -  Creating a User group in the OLDAP directory for users accessing the Scale cluster
 {: #creating-user-group-oldap-dir}
 
-Create a user group in the OLDAP directory which will consist of users who are supposed to get access to the Scale cluster.
+Create a user group in the OLDAP directory, which will consist of users who are supposed to get access to the Scale cluster.
 You use the `ldapadd` command to add an LDIF entry for the group 
 to the LDAP directory. 
 
@@ -316,7 +316,7 @@ Later, one can use the `ldapmodify` command to add exiting users to these groups
 ## Step 3 -  Configuration for CES integration and LDAP Authentication
 {: #config-ces-integration}
 
-Before configuring IBM Spectrum Scale with Cluster Export Services (CES) integration and enabling LDAP authentication for NFS services, it's essential to follow a series step. Following are the summarized high-level actions to guide you through this process:
+Before configuring IBM Spectrum Scale with Cluster Export Services (CES) integration and enabling LDAP authentication for NFS services, it's essential to follow a series step. The following are the summarized high-level actions to guide you through this process:
 
 ### Before you begin
 {: #beforeyoubegin-ces-integration}
@@ -344,7 +344,7 @@ Additional Input includes:
     c.  Attach Secondary Interface to Protocol Nodes (Minimum 2)
         Add a secondary network interface to at least two Scale storage nodes for CES protocol communication.
     d.  Enable IP Spoofing
-        Enable IP spoofing to allow CES protocol nodes to communicate using private IPs.
+        Enable IP spoofing to allow CES protocol nodes to communicate by using private IPs.
     e.  Configure Security Group
         Create a security group named storage-sg for managing access control.
     f.  Reserve Private IPs in Protocol Subnet (Minimum 2)
@@ -366,21 +366,21 @@ Additional Input includes:
 		`mmchconfig cesSharedRoot=/gpfs/fs1`
     The CES shared root (cesSharedRoot) is needed for storing CES shared configuration data, for protocol recovery, and for other protocol-specific purposes. It is part of the cluster export configuration and is shared between the protocols. Every CES node requires access to the path configured as a shared root. The “mmchconfig” command is used to configure this directory as part of setting up a CES cluster as mentioned in the preceding example.	
 2.  Verify CES Shared Root Configuration:
-    Confirm the CES shared root configuration using the mmlsconfig command.
+    Confirm the CES shared root configuration by using the mmlsconfig command.
 3.  Configure the cluster Export Services on each of the Scale Nodes, which are going to handle protocol exports:	
 
     `mmchnode --ces-enable -N storage-scale-storage-5[,storage-scale-storage-6]`
 
     In this step, configuration of CES nodes must be done before you configure any protocols.  Nodes that participate in the handling of protocol exports must be configured as CES nodes.
 
-4.  Check the status of CES nodes using the mmces node list command.
-5.  Assign CES IP addresses to protocol nodes using the mmces address add command.
+4.  Check the status of CES nodes by using the mmces node list command.
+5.  Assign CES IP addresses to protocol nodes by using the mmces address add command.
 
     Protocol services are made available through Cluster Export Services (CES) protocol service IP addresses. These addresses are separate from the IP addresses that are used internally by the cluster. To configure the CES protocol IP addresses, the following commands need to be run:
 
     `mmces address add --ces-node storage-scale-storage-5 --ces-ip 10.241.2.6 mmces address add --ces-node storage-scale-storage-6 --ces-ip 10.241.2.7`
 
-    In this scenario the CES IP address is an alias IP address, this ip address can failover across to the other nodes in the event of failure of the owner node. 
+    In this scenario the CES IP address is an alias IP address, this IP address can failover across to the other nodes in the event of failure of the owner node. 
     {: note}
 
 6.  Verify the CES cluster status need to use the following command:

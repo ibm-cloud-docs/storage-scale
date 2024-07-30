@@ -20,7 +20,7 @@ content-type: release-note
 # Release notes
 {: #release-notes}
 
-In this release notes, you learn about the updates to {{site.data.keyword.scale_full}} that are added by the latest release date.
+In this release notes, you learn about the updates to {{site.data.keyword.scale_full}} added by the latest release date.
 {: shortdesc}
 
 ## June 2024
@@ -36,7 +36,7 @@ Enabling Colocation Feature
 :  Enabling colocation designates the subset of Storage server as protocol nodes. If disabled, the protocol nodes are created on a dedicated virtual server irrespective of storage type.
 
 Enabling Boot drive Encryption Feature for Bare Metal
-:  Enable the boot drive encryption feature for IBM Bare Metal servers on VPC to use the local disk drive for boot. Boot drive encryption encrypts the drive using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
+:  Enable the boot drive encryption feature for IBM Bare Metal servers on VPC to use the local disk drive for boot. Boot drive encryption encrypts the drive by using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
 
 Updated Storage Scale software version
 :  The Storage Scale version that is used for the configuration of the compute and storage clusters has been updated from version 5.1.9.2 to 5.2.0.1.
@@ -49,7 +49,7 @@ Updated Storage Scale software version
 {: release-note}
 
 **Enhancements**
-* Introducing a single CES hostname that will be mapped to all the CES IP addresses to distribute the workload.
+* Introducing a single CES hostname that is mapped to all the CES IP addresses to distribute the workload.
 * LDAP user integration with password-based authentication.
 * Minor encryption, NFS, and security fixes.
 
@@ -61,7 +61,7 @@ Updated Storage Scale software version
 {: release-note}
 
 Updated Storage Scale software version
-:  The Storage Scale version that is used for configuration of the compute and storage clusters has been updated from version 5.1.9.0 to 5.1.9.2
+:  The Storage Scale version that is used for configuration of the compute and storage clusters is updated from version 5.1.9.0 to 5.1.9.2
 
 ## December 2023
 {: #storage-scale-sept23}
@@ -96,7 +96,7 @@ Parallel vNIC (Virtual Network Interface Controller)
 :   Create a secondary vNIC for higher VSI profiles to separate the data and storage traffic across different vNICs for higher bandwidth and better performance.
 
 Sapphire Rapids-based virtual server instance profile support
-:   The solution now supports deployment of compute nodes on virtual server instance profiles that make use of 4th Generation Intel&reg; Xeon&reg; Scalable processors (code named Sapphire Rapids). Those profiles can be used only with the RHEL 8.8 custom image.
+:   The solution now supports deployment of compute nodes on virtual server instance profiles that use 4th Generation Intel&reg; Xeon&reg; Scalable processors (code named Sapphire Rapids). Those profiles can be used only with the RHEL 8.8 custom image.
 
 ## August 2023
 {: #hpc-scale-aug23}

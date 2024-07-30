@@ -26,7 +26,7 @@ subcollection: storage-scale
 # Integrating Symphony Cluster running on RHEL 8.4 based Systems Directly to AD using Samba Winbind
 {: #scale-integrate-symph-cluster-ad-samba}
 
-## Overview of Direct Integration using Samba Winbind
+## Overview of Direct Integration by using Samba Winbind
 {: #integrate-symph-samba-intro}
 
 To connect a RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
@@ -128,14 +128,14 @@ shell
 
     `# update-crypto-policies --set DEFAULT:AD-SUPPORT`
 
-    After running this command it will update the crypto policies and ask to reboot the machine.
+    After running this command, update the crypto policies and ask to reboot the system.
 
 
 7.  Back up the existing /etc/samba/smb.conf Samba configuration file: 
 
     `# mv /etc/samba/smb.conf /etc/samba/smb.conf.bak`
 
-8.  Join the RHEL 8.x host to the Active Directory domain. As mentioned in the example, to join a domain named POCDOMAIN.LOCAL: 
+8.  Join the RHEL 8.x host to the Active Directory domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL: 
 
     `# realm join --membership-software=samba --client-software=winbind POCDOMAIN.LOCAL`
 
