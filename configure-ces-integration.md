@@ -25,7 +25,7 @@ subcollection: storage-scale
 # Enabling Cluster Export Services
 {: #config-ces-integration-ldap-authentication}
 
-Cluster Export Services (CES) is a key component of the IBM Storage Scale architecture, which is designed to enable access to data stored in the Scale-out File and Object Storage (Storage Scale) system. CES plays a critical role in providing efficient and versatile data access to meet the diverse needs of modern enterprises.
+Cluster Export Services (CES) is a key component of the {{site.data.keyword.scale_full_notm}} architecture, which is designed to enable access to data stored in the Scale-out File and Object Storage (Storage Scale) system. CES plays a critical role in providing efficient and versatile data access to meet the diverse needs of modern enterprises.
 
 CES is designed to offer versatile access methods. This flexibility allows organizations to support a wide range of applications and use cases.
 

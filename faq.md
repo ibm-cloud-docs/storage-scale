@@ -23,19 +23,19 @@ subcollection: storage-scale
 # FAQs
 {: #storage-scale-faqs}
 
-## What locations are available for deploying VPC resources that make up the Storage Scale cluster?
+## What locations are available for deploying the VPC resources that make up the Storage Scale cluster?
 {: #locations-vpc-resources}
 {: faq}
 
 Available regions and zones for deploying VPC resources and a mapping of those regions and zones to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations){: external}. While any of the available regions can be used, resources are provisioned only in a single availability zone within the selected region.
 
-## What permissions do I need in order to create a cluster that uses the offering?
+## What permissions are required in order to create a cluster that uses the offering?
 {: #permissions-cluster-offering}
 {: faq}
 
 Instructions for the appropriate permissions for {{site.data.keyword.cloud_notm}} services that are used by the offering for creating a cluster can be found in Granting user permissions for VPC resources, Managing user access for Schematics, Assigning access to Secrets Manager, and [Creating trusted profiles](/docs/account?topic=account-create-trusted-profile).
 
-## How do I SSH among nodes?
+## How do you SSH among nodes?
 {: #ssh-among-nodes}
 {: faq}
 
@@ -49,11 +49,11 @@ ssh -J ubuntu@<IP_address_bastion_host> vpcuser@<IP-address-of-nodes>
 Although all of the nodes of each cluster have passwordless SSH set up among them, due to security constraints, you can't directly log in to a node from one cluster to another cluster.
 {: note}
 
-## How many compute and storage nodes can I deploy in my Storage Scale cluster through this offering?
+## How many compute and storage nodes can you deploy in the Storage Scale cluster through this offering?
 {: #how-many-compute-storage-nodes}
 {: faq}
 
-Before you deploy a cluster, it is important to ensure that the VPC resource quota are appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
+Before you deploy a cluster, it is important to ensure that the VPC resource quota is appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
 See the following minimum and maximum number of nodes that are supported in a cluster:
 * Compute nodes: For all storage clusters, a minimum of 3 and a maximum of 64 virtual server instance compute nodes are supported.
@@ -68,7 +68,7 @@ For more information, see [Deployment values](/docs/storage-scale?topic=storage-
 
 The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation. For more information, see [Storage types](/docs/storage-scale?topic=storage-scale-storage-types).
 
-Parallel vNIC is not supported on the persistent storage type and it is only supported with a custom image.
+Parallel vNIC is not supported on the persistent storage type and it is only supported by a custom image.
 {: note}
 
 ## Why are there two different resource group parameters that can be specified in the IBM Cloud catalog tile?
@@ -83,7 +83,7 @@ The first resource group parameter entry in the **Configure your workspace** sec
 
 The Terraform-based templates can be found in this [GitHub repository](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external}.
 
-## Where can I find the custom image name to image ID mappings for each cloud region?
+## Where can you find the custom image name to image ID mappings for each cloud region?
 {: #custom-image-mappings}
 {: faq}
 
@@ -95,13 +95,13 @@ The mappings can be found in the `image-map.tf` file in this [GitHub repository]
 
 No, you can't use your own custom image for the bootstrap node currently. The bootstrap node image is configured with all of the required functions to setup the {{site.data.keyword.scale_short}} compute and storage resources.
 
-## Can I connect directly through SSH to the bootstrap, compute, or storage nodes from a system external to IBM Cloud?
+## Can you connect directly through SSH to the bootstrap, compute, or storage nodes from a system external to IBM Cloud?
 {: #connecting-nodes-external}
 {: faq}
 
 No, any SSH connection to the bootstrap, compute, or storage nodes is only possible through the bastion node for security reasons. You would use the following command to connect to your bootstrap, compute, or storage nodes (the IP address is specific to your particular node): `ssh -J ubuntu@<bastion_IP_address> vpcuser@<IP_address>`
 
-## Can I establish an SSH connection between compute and storage nodes?
+## Can you establish an SSH connection between compute and storage nodes?
 {: #establish-connection-between-nodes}
 {: faq}
 
@@ -140,7 +140,7 @@ An {{site.data.keyword.IBM_notm}} Customer Number (ICN) is the unique number tha
 If the `storage_type` deployment value is set as either "scratch" or "persistent", the ICN can't be set as an empty value. An empty value is accepted only if the `storage_type` is set as "evaluation".
 {: important}
 
-## Can I directly destroy all Storage Scale resources from the CLI?
+## Can you directly destroy all Storage Scale resources from the CLI?
 {: #destroy-resources-cli}
 {: faq}
 
@@ -181,17 +181,17 @@ The solution is integrated with the {{site.data.keyword.cloud_notm}} cataided th
 ## What version of scale supports MROT configuration?
 {: #support-mrot-versions}
 
-Anything above IBM Storage Scale 5.1.5 supports the Multi-Rail over TCP (MROT) feature.
+Anything above {{site.data.keyword.scale_full_notm}} 5.1.5 supports the Multi-Rail over TCP (MROT) feature.
 
 ## What version of OS does Scale support?
 {: #os-version-supported}
 
 With Storage Scale, you can use custom or stock images based on RHEL 7.9 or RHEL 8.8. For compute nodes, both RHEL 7.9 or 8.8 can be used. For storage nodes, only RHEL 8.8 is supported.
 
-## Why does the 'mmlsconfg' command displays 5.1.9.0 in 'minReleaseLevel' parameter?
+## Why does the 'mmlsconfg' command display 5.1.9.0 in the 'minReleaseLevel' parameter?
 {: #version-command}
 
-After executing the 'mmlsconfg' command, the 'minReleaseLevel' parameter displays **5.1.9.0**. This is due to the fact that version 5.1.9.2 includes 'minReleaseLevel' set to 5.1.9.0. For verification of the actual version, run the `mmdiag --version` command.
+After running the 'mmlsconfg' command, the 'minReleaseLevel' parameter displays 5.1.9.0. This is because version 5.1.9.2 includes 'minReleaseLevel' set to 5.1.9.0. For verification of the actual version, run the `mmdiag --version` command.
 
 ```
 [root@scale-3-strg-001 ~]# mmdiag --version

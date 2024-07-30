@@ -31,7 +31,7 @@ The {{site.data.keyword.scale_short}} solution offers three different storage ty
 ## Scratch storage
 {: #scratch-storage}
 
-A scratch configuration uses virtual server instances with instance storage. If a virtual server instance with instance storage is powered off, all data stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of scratch storage is not recommended for long running or mission-critical workloads.
+A scratch configuration uses virtual server instances with instance storage. If a virtual server instance with instance storage is powered off, all data that is stored on the instance storage volumes is rendered inaccessible after a subsequent power up of the virtual server instance. Therefore, use of scratch storage is not recommended for long-running or mission-critical workloads.
 
 ## Persistent storage
 {: #persistent-storage}
@@ -41,7 +41,7 @@ A persistent configuration uses bare metal servers with locally attached NVMe st
 ## Evaluation storage
 {: #evaluation-storage}
 
-Evaluation storage is based on {{site.data.keyword.scale_short}} Developer Edition. This option supports all advanced features of {{site.data.keyword.scale_short}} Data Management Edition but is limited to 12TB of storage.
+Evaluation storage is based on {{site.data.keyword.scale_short}} Developer Edition. This option supports all advanced features of {{site.data.keyword.scale_short}} Data Management Edition but is limited to 12 TB of storage.
 
 With evaluation storage, you can try out the {{site.data.keyword.scale_short}} solution on {{site.data.keyword.cloud}} without a license. The automated deployment is done on virtual server instances with instance storage, with {{site.data.keyword.scale_short}} Developer Edition packages, and is available only for prototyping and testing purposes.
 

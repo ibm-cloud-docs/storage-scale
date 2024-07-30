@@ -24,7 +24,7 @@ subcollection: storage-scale
 # Enabling boot drive encryption for Bare Metal Server
 {: #boot-drive-encryption}
 
-Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a local disk drive for boot. This ensures that the responsibility for encryption of the drive is in the end-users hands. Boot drive encryption encrypts the drive using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
+Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a local disk drive for boot. This makes sure that the responsibility for encryption of the drive is with the users. Boot drive encryption encrypts the drive by using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
 
 |Boot drive variable|	Description|	Example value|
 |-------------|------------|--------------|
@@ -33,7 +33,7 @@ Enable the boot drive encryption for IBM Bare Metal Servers for VPC to use a loc
 ## Verifying boot drive encryption on the Bare Metal Server
 {: #boot-drive-encryption-verify}
 
-To verify if the boot drive is encrypted, user can run the `lsblk` command to check the root type partition mounted at `/` is set to crypt.
+To verify if the boot drive is encrypted, the user can run the `lsblk` command to check that the root type partition that is mounted at `/` is set to crypt.
 
 ```
 [root@scale-bm-drive-strg-002 ~]# lsblk
@@ -65,9 +65,9 @@ nvme6n1     259:7    0   2.9T  0 disk
 [root@scale-bm-drive-strg-002 ~]
 ```
 
-Once the boot drive is encrypted, it is recommended to update the recovery passphrase and store it. It is also important that you do not leave the recovery passphrase the same as initial setup as this data is not secure.
+Once the boot drive is encrypted, it is recommended to update the recovery passphrase and store it. It is also important that you do not leave the recovery passphrase the same as the initial setup as this data is not secure.
 
-The initial passphrase used in initial setup is `n0tsecret`.
+The initial passphrase that is used in the initial setup is `n0tsecret`.
 {: note}
 
 Following are the steps to rotate the LUKS Encryption Keys:

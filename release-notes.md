@@ -20,7 +20,7 @@ content-type: release-note
 # Release notes
 {: #release-notes}
 
-Use these release notes to learn about the latest updates to {{site.data.keyword.scale_full}} that are grouped by date.
+In this release notes, you learn about the updates to {{site.data.keyword.scale_full}} added by the latest release date.
 {: shortdesc}
 
 ## June 2024
@@ -33,13 +33,13 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 Following are the feature changes made for this release:
 
 Enabling Colocation Feature
-:  Enabling colocation will designate the subset of Storage server as protocol nodes. If disabled, the protocol nodes will be created on a dedicated virtual server irrespective of storage type.
+:  Enabling colocation designates the subset of Storage server as protocol nodes. If disabled, the protocol nodes are created on a dedicated virtual server irrespective of storage type.
 
 Enabling Boot drive Encryption Feature for Bare Metal
-:  Enable the boot drive encryption feature for IBM Bare Metal servers on VPC to use the local disk drive for boot. Boot drive encryption encrypts the drive using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
+:  Enable the boot drive encryption feature for IBM Bare Metal servers on VPC to use the local disk drive for boot. Boot drive encryption encrypts the drive by using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
 
 Updated Storage Scale software version
-:  The Storage Scale version used for the configuration of the compute and storage clusters has been updated from version 5.1.9.2 to 5.2.0.1.
+:  The Storage Scale version that is used for the configuration of the compute and storage clusters has been updated from version 5.1.9.2 to 5.2.0.1.
 
 ## April 2024
 {: #storage-scale-apr24}
@@ -49,8 +49,8 @@ Updated Storage Scale software version
 {: release-note}
 
 **Enhancements**
-* Introducing single CES hostname that will be mapped to all the CES IP addresses to distribute the workload.
-* LDAP user integration with password based authentication.
+* Introducing a single CES hostname that is mapped to all the CES IP addresses to distribute the workload.
+* LDAP user integration with password-based authentication.
 * Minor encryption, NFS, and security fixes.
 
 ## March 2024
@@ -61,7 +61,7 @@ Updated Storage Scale software version
 {: release-note}
 
 Updated Storage Scale software version
-:  The Storage Scale version used for configuration of the compute and storage clusters has been updated from version 5.1.9.0 to 5.1.9.2
+:  The Storage Scale version that is used for configuration of the compute and storage clusters is updated from version 5.1.9.0 to 5.1.9.2
 
 ## December 2023
 {: #storage-scale-sept23}
@@ -71,17 +71,16 @@ Updated Storage Scale software version
 {: release-note}
 
 Enabling CES Feature
-:  You can now enable CES feature to enable access to data stored in Storage Scale. By providing non-zero value to total_protocol_cluster_instances variable, you can enable CES feature. For more information about enabling CES and configuring these deployment values, see Enabling CES Feature.
+:  You can now enable the CES feature to enable access to data stored in Storage Scale. By providing a nonzero value to the `total_protocol_cluster_instances` variable, you can enable the CES feature. For more information about enabling CES and configuring these deployment values, see Enabling CES Feature.
 
 User Management
-:   LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster. By setting up the ldap_basedns deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES. For more information about LDAP integration and configuring these deployment values, see Configuring CES with LDAP
+:   LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster. By setting up the ldap_basedns deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES. For more information about LDAP integration and configuring these deployment values, see Configuring CES with LDAP.
 
 Updated RHEL stock image version
 :   The RHEL stock image version was updated from RHEL 8.6 to RHEL 8.8.
 
 Updated Storage Scale software version
-:   The Storage Scale version used for configuration of the compute and storage clusters has been updated from version 5.1.8.1 to 5.1.9.0
-
+:   The Storage Scale version that is used for configuration of the compute and storage clusters has been updated from version 5.1.8.1 to 5.1.9.0
 
 ## September 2023
 {: #storage-scale-sept23}
@@ -97,7 +96,7 @@ Parallel vNIC (Virtual Network Interface Controller)
 :   Create a secondary vNIC for higher VSI profiles to separate the data and storage traffic across different vNICs for higher bandwidth and better performance.
 
 Sapphire Rapids-based virtual server instance profile support
-:   The solution now supports deployment of compute nodes on virtual server instance profiles that make use of 4th Generation Intel&reg; Xeon&reg; Scalable processors (code named Sapphire Rapids). Those profiles can be used only with the RHEL 8.8 custom image.
+:   The solution now supports deployment of compute nodes on virtual server instance profiles that use 4th Generation Intel&reg; Xeon&reg; Scalable processors (code named Sapphire Rapids). Those profiles can be used only with the RHEL 8.8 custom image.
 
 ## August 2023
 {: #hpc-scale-aug23}
@@ -110,7 +109,7 @@ Updated RHEL stock image version
 :   The RHEL stock image version was updated from RHEL 8.4 to RHEL 8.8.
 
 Updated {{site.data.keyword.scale_short}} software version
-:   The {{site.data.keyword.scale_short}} version used for configuration of the compute and storage clusters has been updated from version 5.1.4.1 to 5.1.8.1.
+:   The {{site.data.keyword.scale_short}} version that is used for configuration of the compute and storage clusters has been updated from version 5.1.4.1 to 5.1.8.1.
 
 ## March 2023
 {: #storage-scale-mar23}
@@ -143,7 +142,7 @@ Persistent {{site.data.keyword.scale_short}} storage (Beta)
 :   With the persistent {{site.data.keyword.scale_short}} storage beta feature, users can now deploy a persistent storage configuration that uses bare metal servers with locally attached NVMe storage. This is a beta feature that is available for prototyping and testing purposes. There are no warranties, SLAs, or support provided for persistent storage and it is not intended for production use.
 
 Updated {{site.data.keyword.scale_short}} software version
-:   The {{site.data.keyword.scale_short}} version used for configuration of the compute and storage clusters has been updated to version 5.1.4.1.
+:   The {{site.data.keyword.scale_short}} version that is used for configuration of the compute and storage clusters has been updated to version 5.1.4.1.
 
 ## June 2022
 {: #storage-scale-june22}
@@ -154,4 +153,3 @@ Updated {{site.data.keyword.scale_short}} software version
 
 Introducing {{site.data.keyword.scale_full_notm}} storage for HPC solutions
 :   You now have the option for automated deployment of compute and storage clusters that use {{site.data.keyword.scale_full_notm}} for high-performance, shared storage for your HPC solutions. The clusters use the compute and storage node configurations that you select.
-

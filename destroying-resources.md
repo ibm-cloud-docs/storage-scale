@@ -28,7 +28,7 @@ subcollection: storage-scale
 
 If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of its associated VPC resources, you can remove them from your {{site.data.keyword.cloud}} account.
 
-## Destroying resources using the UI
+## Destroying resources by using the UI
 {: #destroy-resources-ui}
 {: ui}
 
@@ -36,7 +36,7 @@ If you want to destroy the {{site.data.keyword.scale_short}} cluster and all of 
 2. If you select the option to destroy resources, decide whether you want to destroy all of them. This action cannot be undone. 
 3. Confirm the action by entering the workspace name in the text box and click **Destroy**.
 
-## Destroying resources using the CLI
+## Destroying resources by using the CLI
 {: #deleting-resources-cli}
 {: cli}
 
@@ -50,25 +50,25 @@ ibmcloud schematics destroy --id <WORKSPACE_ID>
 You can monitor the log files to view the deletion progress of all {{site.data.keyword.cloud_notm}} resources.
 {: note}
 
-## Destroying resources using Schematics Python API
+## Destroying resources by using Schematics Python API
 {: #deleting-resources-api}
 {: api}
 
 1. To destroy resources by using the {{site.data.keyword.bplong_notm}} Python APIs, create a Python file and provide a name of your choice, for example, `schematics_destroy_resources.py`.
 2. Copy and paste the [Destroy resources using Schematics Python API](/docs/storage-scale?topic=storage-scale-deleting-resources&interface=api#example-request-destroy) example request to your Python file.
 3. Change the following parameters as part of the request:
-  * Replace your {{site.data.keyword.cloud_notm}} key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
-  * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
+   * Replace your {{site.data.keyword.cloud_notm}} key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
+   * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
 4. Inside the `schematics_service.destroy_workspace_command` function, provide the following parameters:
-  * Provide the workspace ID that you generated in the [Creating a workspace](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=api) task, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
-  * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
+   * Provide the workspace ID that you generated in the [Creating a workspace](/docs/storage-scale?topic=storage-scale-creating-workspace&interface=api) task, for example `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
+   * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
   
     ```
     export IBMCLOUD_API_KEY =”<ibm-cloud-api-key>” 
     ```
     {: pre}
   
-  * Run the following curl command to create a refresh token:
+   * Run the following curl command to create a refresh token:
 
     ```
     curl -X POST "https://iam.cloud.ibm.com/identity/token" -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=$IBMCLOUD_API_KEY" -u bx:bx
