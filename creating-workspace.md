@@ -29,7 +29,7 @@ subcollection: storage-scale
 With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based templates to create and manage {{site.data.keyword.cloud_notm}} resources. A workspace allows you to view and update configuration properties, view the list of resources that are provisioned through the workspace, and clean up resources if and when needed.
 {: shortdesc}
 
-## Creating a workspace using the UI
+## Creating a workspace by using the UI
 {: #create-workspace-ui}
 {: ui}
 
@@ -43,22 +43,22 @@ With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based
 4. In the _Set the deployment values_ section, specify the values for the required properties.
 5. Expand the _Parameters with default values_ section, and review it to determine whether you need to override any of the default values provided for the configuration properties.
 6. Review and accept the **{{site.data.keyword.scale_full_notm}}** license terms and conditions in the order summary.
-7. Click **Install**. The {{site.data.keyword.bpshort}} workspace is created with the name you specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the _Apply Plan_ action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account.
+7. Click Install. The {{site.data.keyword.bpshort}} workspace is created with the name specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the _Apply Plan_ action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account.
 8. You can also review the status of your deployment process by identifying the workspace name in the _View the existing installations_ section. When you click a record in _View the existing installations_ section, you are taken to the {{site.data.keyword.bpshort}} workspace view. 
 
 ## Next steps
 {: #next-steps-create-ui}
 {: ui}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=ui) to validate all of the configuration properties.
+After you have successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=ui) to validate all the configuration properties.
 
 ## Before you begin
 {: #before-you-begin-creating-cli}
 {: cli}
 
-Before you get started, make sure that you've completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/storage-scale?topic=storage-scale-setting-up-cli). 
+Before you get started, make sure you have completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/storage-scale?topic=storage-scale-setting-up-cli). 
 
-## Creating a workspace using the CLI
+## Creating a workspace by using the CLI
 {: #create-workspace-cli}
 {: cli}
 
@@ -121,15 +121,15 @@ To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run t
 {: #next-steps-create-cli}
 {: cli}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=cli) to validate all of the configuration properties. 
+After you have successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=cli) to validate all of the configuration properties. 
 
 ## Before you begin
 {: #before-you-begin-creating-api}
 {: api}
 
-Before you get started, make sure that you've completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} API](/docs/storage-scale?topic=storage-scale-setting-up-api).
+Before you get started, make sure that you have completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} API](/docs/storage-scale?topic=storage-scale-setting-up-api).
 
-## Creating a workspace using the API
+## Creating a workspace by using the API
 {: #create-workspace-api}
 {: api}
 
@@ -144,10 +144,10 @@ Before you get started, make sure that you've completed the prerequisites found 
     * Provide your GitHub or GitLab Repository HTTPS URL where your Terraform files reside in the `template_repo_request_model['url']` variable. If you are using the [public repository](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external} that is provided by {{site.data.keyword.cloud_notm}}, then set this variable as `template_repo_request_model['url'] = 'https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics'`; otherwise, set it to the private repository you are using. 
 4. Inside the `schematics_service.create_workspace` function, provide the following parameters:
     * Provide an optional description.
-    * Provide a name to identify your {{site.data.keyword.bpshort}} workspace, for example, `terraform-dev-workspace`.
+    * Provide a name to identify your {{site.data.keyword.bpshort}} workspace, for example `terraform-dev-workspace`.
     * Change the `type` parameter to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources, for example, `terraform_v0.13`.
     * Change the location to a region where your {{site.data.keyword.bpshort}} workspace needs to be created, for example, `us-south`.
-    * Change the resource group to the resource group where your resources should be grouped, for example, `Default` for a default resource group.
+    * Change the resource group to the resource group where your resources are grouped, for example, `Default` for a default resource group.
     * If you are using a private GitHub repository, provide your personal GitHub access token that you set up in [Setting up the {{site.data.keyword.bplong_notm}}](/docs/storage-scale?topic=storage-scale-setting-up-api) prerequisites in the `x_github_token= "<github-api-token>"` parameter. If you are using the public repository that is provided by {{site.data.keyword.cloud_notm}}, you do not need to specify this parameter.
     * **Optional**: Provide the tags if you want to filter resources by using the tag.
 5. Run the Python script by using `python3 <python-file-name>` to create a {{site.data.keyword.bpshort}} workspace in the {{site.data.keyword.cloud_notm}}.
@@ -430,4 +430,4 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "POST /v1/w
 {: #next-steps-create-api}
 {: api}
 
-After you've successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=api) to validate all of the configuration properties. 
+After you have successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=api) to validate all of the configuration properties. 

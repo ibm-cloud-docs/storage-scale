@@ -29,7 +29,7 @@ subcollection: storage-scale
 ## Introduction
 {: #scale-ad-auth-intro}
 
-You can configure IBM Spectrum Symphony to use Active Directory (AD) server as the primary directory service for user authentication. The document outlines step-by-step procedures for installing and configuring Active Directory and DNS Server on a Windows Server 2019 using PowerShell. It covers the process of connecting RHEL 8.4 OS-based Symphony Cluster node directly to AD using Samba Winbind, to ensure that there is encryption compatibility, and joining it to an Active Directory domain.
+You can configure IBM Spectrum Symphony to use Active Directory (AD) server as the primary directory service for user authentication. The document outlines step-by-step procedures for installing and configuring Active Directory and DNS Server on a Windows Server 2019 using PowerShell. It covers the process of connecting RHEL 8.4 OS-based Symphony Cluster node directly to AD using Samba Winbind to ensure that there is encryption compatibility, and joining it to an Active Directory domain.
 
 The purpose of this documentation is to enable system administrators to seamlessly configure IBM Spectrum Symphony with Active Directory for user authentication, allowing for efficient user management and access control.
 
@@ -39,11 +39,11 @@ The purpose of this documentation is to enable system administrators to seamless
 Before you configure, be sure that these prerequisites are met:
 
 1.	For Installing and Configuring Active Directory and DNS Server:
-	*  A Windows Server 2019 machine with administrative privileges.
+	*  A Windows Server 2019 system with administrative privileges.
 	*  Basic familiarity with PowerShell commands and Windows Server management.
 2.	For Connecting RHEL Systems Directly to AD using Samba Winbind:
 	*  An RHEL system capable of running Samba Winbind.
-	*  Familiarity with RHEL command line interface and system configuration.
+	*  Familiarity with RHEL command-line interface and system configuration.
 	*  Access to the Active Directory domain and appropriate permissions to join the domain.
 
 ## Network prerequisites
@@ -51,28 +51,27 @@ Before you configure, be sure that these prerequisites are met:
 
 Before you proceed with the configuration of {{site.data.keyword.scale_full_notm}} to utilize Active Directory and connecting RHEL systems to AD, ensure that the following network prerequisites are met:
 
-1.	**Network connectivity:** You need stable and reliable network connectivity between the Windows Server 2019 machine (where Active Directory and DNS will be installed) and the RHEL systems that will be joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
+1.	**Network connectivity:** You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
 
 2.	**Domain controller reachability:** Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like "ping" or "nslookup" to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
 
-3.	**Time synchronization:** Ensure that all systems that are participating in the Active Directory domain, including the Windows Server 2019 machine and RHEL systems, have their clocks synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
+3.	**Time synchronization:** Ensure that all systems that are participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks that are synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
 
-4.	**Domain DNS configuration:** The Active Directory domain must have properly configured DNS settings. The domain controller's IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 machine and RHEL systems) that will be part of the AD domain.
+4.	**Domain DNS configuration:** The Active Directory domain must have properly configured DNS settings. The domain controller's IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 system and RHEL systems) that are part of the AD domain.
 
-5.	**DNS resolution:** Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname should be resolvable from the Windows Server 2019 machine and RHEL systems, and the Windows Server 2019 machine's hostname should be resolvable from the RHEL systems.
+5.	**DNS resolution:** Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname should be resolvable from the Windows Server 2019 system and RHEL systems, and the Windows Server 2019 systems hostname should be resolvable from the RHEL systems.
 
 6.	**DNS domain name** Ensure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory should be consistent throughout the configuration.
 
-7.	**Firewall rules:**  Review and update firewall rules to allow the necessary communication between the Windows Server 2019 machine, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
+7.	**Firewall rules:**  Review and update firewall rules to allow the necessary communication between the Windows Server 2019 system, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
 
-8.	**Active Directory user account with administrative privileges:**  Ensure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 machine as a domain controller and to join the RHEL systems to the AD domain.
-
+8.	**Active Directory user account with administrative privileges:**  Ensure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the AD domain.
 
 ### Windows Server and Powershell
 {: #windows-server-powershell-prereq}   
 
 For this procedure you need:
-* A Windows Server 2019 machine with administrative privileges.
+* A Windows Server 2019 system with administrative privileges.
 * Basic familiarity with PowerShell commands and Windows Server management.
 
 ## Step 1 -  Installing and Configuring Active Directory and DNS Server on Windows Server 2019 using PowerShell
@@ -123,8 +122,8 @@ Verify that Active Directory and DNS are configured correctly by checking:
    * Open "Server Manager," and in the "Dashboard," confirm that "Active Directory Users and Computers" and "DNS" are listed under "Tools." indicating that the Active Directory and DNS management tools were successfully installed.
 2. Start **Active Directory Users and Computers** to manage user accounts, groups, and organizational units (OUs) within the domain.
 3. Access **DNS Manage**r to manage DNS zones and records for the domain.
-4. On a client machine within the same network, configure the DNS settings to point to the IP address of the newly promoted domain controller.
-5.  Attempt to join the client machine to the "POCDOMAIN.LOCAL" domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.
+4. On a client system within the same network, configure the DNS settings to point to the IP address of the newly promoted domain controller.
+5.  Attempt to join the client system to the "POCDOMAIN.LOCAL" domain. A successful connection confirms proper DNS resolution and functional Active Directory domain services.
 
 ## Step 2 - Creating a User group and users in Active Directory for users that are accessing the Symphony cluster
 {: #create-user-group-ad-symphony}
@@ -192,14 +191,13 @@ Create a user group named "Symphony-group" and a user named "Symphonyuser01" in 
 
     g.  Click **Apply** and then **OK** to save the changes.
 
-    Creating user groups and users in the "pocdomain.local" Active Directory domain requires administrative privileges within that domain. Ensure that you have the necessary permissions to create groups and users. Additionally, always set strong passwords and follow security best practices when you create user accounts and groups in Active Directory to maintain a secure network environment.
+    Creating user groups and users in the "pocdomain.local" Active Directory domain requires administrative privileges within that domain. Ensure that you have the necessary permissions to create groups and users. Also, always set strong passwords and follow security best practices when you create user accounts and groups in Active Directory to maintain a secure network environment.
     {: note}
-
 
 ## Step 3 - Integrating Symphony Cluster running on RHEL 8.4 based Systems Directly to AD using Samba Winbind
 {: #scale-integrate-symph-cluster-ad-samba}
 
-### Overview of Direct Integration using Samba Winbind
+### Overview of Direct Integration by using Samba Winbind
 {: #integrate-symph-samba-intro}
 
 To connect a RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
@@ -236,7 +234,7 @@ For enabling RC4 support in RHEL, the steps differ depending on the RHEL version
  
 Samba Winbind is an alternative to the System Security Services Daemon (SSSD) for connecting a Red Hat Enterprise Linux (RHEL) system with Active Directory (AD). You need to join a RHEL system to an AD domain by using realmd to configure Samba Winbind. 
 
-Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain using Samba Winbind and `realmd`:
+Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by using Samba Winbind and `realmd`:
 
 1.  Install and update the following packages: 
 
@@ -259,13 +257,13 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain using
     addc1.POCDomain.local is the AD server FQDN name
     {: note}
 
-3.  Update the DNS entries in /etc/resolv.conf file using:  
+3.  Update the DNS entries in /etc/resolv.conf file by using:
 
     ```
     sudo nmcli connection modify "System eth0" ipv4.dns "10.243.0.41" ipv4.ignore-auto-dns yes
     ```
 
-    This command not only updates the DNS entries in the /etc/resolv.conf file but also verifies that the DNS entries are not auto-updated to cloud based DNS servers
+    This command not only updates the DNS entries in the `/etc/resolv.conf` file but also verifies that the DNS entries are not auto-updated to cloud based DNS servers.
 
 4.  Confirm the changes in the DNS file:
 
@@ -304,16 +302,16 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain using
     # update-crypto-policies --set DEFAULT:AD-SUPPORT
     ```
 
-    After you run this command, it updates the crypto policies and asks to reboot the machine.
+    After you run this command, it updates the crypto policies and asks to reboot the system.
 
 
-7.  Back up the existing /etc/samba/smb.conf Samba configuration file: 
+7.  Back up the existing `/etc/samba/smb.conf` Samba configuration file: 
 
     ```shell
     # mv /etc/samba/smb.conf /etc/samba/smb.conf.bak
     ```
 
-8.  Join the RHEL 8.x host to the Active Directory domain. As mentioned in the example, to join a domain named POCDOMAIN.LOCAL: 
+8.  Join the RHEL 8.x host to the Active Directory domain. As mentioned in the example to join a domain named POCDOMAIN.LOCAL: 
 
     ```shell
     # realm join --membership-software=samba --client-software=winbind POCDOMAIN.LOCAL
@@ -438,9 +436,9 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain using
 ### To provide root user permissions to Active Directory (AD) users
 {: #provide-root-permission}
 
-To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Linux machine:
-1.  Open a terminal or connect to the Linux machine.
-2.  Edit the sudoers file using the visudo command:
+To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Linux system:
+1.  Open a terminal or connect to the Linux system.
+2.  Edit the sudoers file by using the visudo command:
     `sudo visudo`
 3.  Locate the section in the sudoers file that configures user privileges:
 
@@ -536,7 +534,6 @@ In addition to configuring the AD client authentication at the OS layer, you nee
     @chrony
     ```
 
-
 3.  Log in with the user you added to the Symphony cluster: 
 
     ```
@@ -559,8 +556,6 @@ In addition to configuring the AD client authentication at the OS layer, you nee
 
     
 	
-
- 
  
 
 

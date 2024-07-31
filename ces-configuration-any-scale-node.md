@@ -56,7 +56,7 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
 
     `mmces address add --ces-node storage-scale-storage-5 --ces-ip 10.241.2.6 mmces address add --ces-node storage-scale-storage-6 --ces-ip 10.241.2.7`
 
-    In this scenario, the CES IP address is an alias IP address. This IP address can failover across the other nodes in the event of failure of the owner node. 
+    In this scenario, the CES IP address is an alias IP address. This IP address can failover across other nodes in the event of failure of the owner node. 
     {: note}
 
 6.  Verify the CES cluster status:
@@ -84,12 +84,12 @@ You can integrate Scale with CES services and enable LDAP-based authentication f
         `mmcrfileset fs1 lsf --inode-space new`
     2.  Link the lsf file set to the /gpfs/fs1/lsf directory:
         `mmlinkfileset fs1 lsf -J /gpfs/fs1/lsf`
-    3.  Define quotas for the fileset as required.
+    3.  Define quotas for the file set as required.
     4.  Configure user authentication for file access:
          
         `mmuserauth service create --type ldap --data-access-method file --servers 149.81.12.196 --base-dn dc=ibmscale,dc=com --user-name cn=manager,dc=ibmscale,dc=com --netbios-name ess`
 
-        To verify if the LDAP authentication is setup correctly, use this command: 
+        To verify whether the LDAP authentication is setup correctly, use this command: 
 
         ```shell
         [root@jl-scale-encrypt-compute-3 vpcuser]# mmuserauth service list

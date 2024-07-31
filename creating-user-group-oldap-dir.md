@@ -22,17 +22,17 @@ subcollection: storage-scale
 {:step: data-tutorial-type='step'}
 {:table: .aria-labeledby="caption"}
 
-# Creating a user group in OLDAP directory for users accessing the Scale cluster
+# Creating a user group in the OLDAP directory for accessing the Scale cluster
 {: #creating-user-group-oldap-dir}
 
-Create a user group in the OLDAP directory which will consists of users who are supposed to get access to the Scale cluster.
+Create a user group in the OLDAP directory, which consist of users who are supposed to get access to the Scale cluster.
 You use the `ldapadd` command to add an LDIF entry for the group 
 to the LDAP directory. 
 
 ## Procedure
 {: #procedure-create-user-group}
 
-1.  Create your groups.  For example, to create groups called `developers` and `testers`, you create an LDIF file with these contents:
+1.  Create your groups.  For example, to create groups that are called `developers` and `testers`, you create an LDIF file with these contents:
 
     ```
     # create an organizational unit for groups
@@ -57,7 +57,7 @@ to the LDAP directory.
     description: Scaleconsumer group
     ```
 
-    In this example, the first entry creates an organizational unit called "groups". The next two entries create groups called "developers" and "testers" respectively.
+    In this example, the first entry creates an organizational unit called "groups". The next two entries create groups that are called "developers" and "testers" respectively.
 
     Each group entry specifies the objectClass "top" and "posixGroup" to define the group's schema. The gidNumber attribute specifies the group's unique identifier, while the cn attribute specifies the group's common name. Finally, the description attribute provides a brief description of the group.
 

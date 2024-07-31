@@ -29,7 +29,7 @@ Cluster Export Services (CES) is a key component of the {{site.data.keyword.scal
 
 CES is designed to offer versatile access methods. This flexibility allows organizations to support a wide range of applications and use cases.
 
-Enabling colocation will designate the subset of Storage server as protocol nodes. If disabled, the protocol nodes will be created on a dedicated virtual server irrespective of storage type.
+Enabling colocation designates the subset of Storage server as protocol nodes. If disabled, the protocol nodes are created on a dedicated virtual server irrespective of storage type.
 
 The colocation feature avoids the need to provision extra virtual servers and improves the performance. It is also supported on Bare Metal servers.
 
@@ -53,12 +53,12 @@ To enable the CES feature on a Storage Scale cluster, the following variables ne
 |-------------|------------|--------------|
 |`vpc_protocol_cluster_private_subnets_cidr_blocks`|The CIDR block is required for the creation of the protocol node's private subnet	|`["10.241.17.0/24"]`|
 |`vpc_protocol_cluster_dns_domain`|IBM Cloud DNS Services domain name to be used for the protocol nodes.	|`cesscale.com`|
-|`protocol_vsi_profile`	|The virtual server instance profile type name to be used to create the protocol cluster nodes. For more information, see Instance Profiles. |`cx2-32x64`|
+|`protocol_vsi_profile`	|The virtual server instance profile type name is used to create the protocol cluster nodes. For more information, see Instance Profiles. |`cx2-32x64`|
 |`total_protocol_cluster_instances`|	protocol nodes	|`2`  |
 |`custom_file_shares`	|Mount points and sizes in GB of file shares that can be used to customize shared file storage layout. Provide the details for up to 5 shares.	|`[{ mount_path = "/mnt/binaries", size = 100 }, { mount_path = "/mnt/data", size = 100 }]`|
 |`total_client_cluster_instances`	|Client cluster node count	|`2`  |
 |`client_vsi_osimage_name`	|Image name to use for provisioning the client cluster instances.	| `ibm-redhat-8-8-minimal-amd64-3`  |
-|`client_vsi_profile`	|The virtual server instance profile type name to be used to create the client cluster nodes. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui).|`cx2-2x4` |
+|`client_vsi_profile`	|The virtual server instance profile type name is used to create the client cluster nodes. For more information, see [Instance Profiles](/docs/vpc?topic=vpc-profiles&interface=ui).|`cx2-2x4` |
 |`vpc_client_cluster_dns_domain`	|IBM Cloud DNS domain name to be used for client cluster.	|`clientscale.com`|
 |`client_cluster_key_pair`	|Name of the SSH key configured in your IBM Cloud account that is used to establish a connection to the Client cluster nodes. Make sure that the SSH key is present in the same resource group and region where the cluster is provisioned. If you do not have an SSH key in your IBM Cloud account, create one by using the SSH keys instructions.|`["my-ssh-key1", "my-ssh-key2"]` |
 |`colocate_protocol_cluster_instances`|Enable this to use storage instances as protocol instances	|false |
@@ -121,6 +121,6 @@ The successful scale deployment with the CES feature enabled consists of differe
     mmlsquota -j data FILESYSTEM
     ```
 
-The CES feature is only available with the custom image provided by the solution.
+The CES feature is only available with the custom image that is provided by the solution.
 {: note}
 

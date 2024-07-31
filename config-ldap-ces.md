@@ -25,7 +25,7 @@ subcollection: storage-scale
 # Enabling OpenLDAP service
 {: #enable-openldap}
 
-This document gives you the brief overview about Open Lightweight Directory Access Protocol (OpenLDAP) and the integration of OpenLDAP with {{site.data.keyword.scale_full_notm}} cluster.
+This document gives you the brief overview about the Open Lightweight Directory Access Protocol (OpenLDAP) and the integration of OpenLDAP with {{site.data.keyword.scale_full_notm}} cluster.
 
 ## About OpenLDAP with IBM Storage Scale
 {: #about-openldap}
@@ -45,12 +45,12 @@ You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster 
 
 If you have an existing OpenLDAP server, you can use that with your {{site.data.keyword.scale_full_notm}} cluster. Before you deploy the {{site.data.keyword.scale_full_notm}} cluster with the LDAP input values, complete the following LDAP requirements:
 1. OpenLDAP version 2.4 or later is installed and configured.
-2. The OpenLDAP server can communicate with the {{site.data.keyword.scale_full_notm}} cluster nodes over the network; configure the network settings on both the OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes.
+2. The OpenLDAP server can communicate with the {{site.data.keyword.scale_full_notm}} cluster nodes over the network. Configure the network settings on both the OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes.
 3. The OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes can communicate over port 389.
 
 Also, always allow access to the CIDR ranges for the VPC that the {{site.data.keyword.scale_full_notm}} cluster deployment creates. Make sure that the security groups for the existing LDAP server are allowlisted with the VPC CIDR range of newly created VPC. This way, the new VPC can connect to the existing your existing OpenLDAP server and that all management and login nodes can access your LDAP server.
 
-If the security groups of the LDAP server are updated with the VPC CIDR ranges, you see a message similar to this:
+If the security groups of the LDAP server are updated with the VPC CIDR ranges, you see a message similar to:
 
 ```text
 null_resource.validate_ldap_server_connection[0] (remote-exec): The connection to the existing LDAP server 10.241.0.5 was successfully established.
@@ -58,7 +58,7 @@ null_resource.validate_ldap_server_connection[0] (remote-exec): The connection t
 {: codeblock}
 
 
-However, if the connection to the existing LDAP server is not established, you see a message similar to this:
+However, if the connection to the existing LDAP server is not established, you see a message similar to:
 
 ```text
 ╷
@@ -107,7 +107,7 @@ After {{site.data.keyword.scale_full_notm}} cluster deployment, Schematic logs s
 
 If you do not have an existing LDAP server, the deployment process created one for you and connected it to {{site.data.keyword.scale_full_notm}} cluster during deployment. Create a LDAP user for your {{site.data.keyword.scale_full_notm}} cluster. Use it to run Storage Scale commands and submit the jobs with existing authentication credentials, reducing the need to remember multiple login credentials.
 
-If you have an existing LDAP server with the LDAP information provided during the {{site.data.keyword.scale_full_notm}} cluster deployment, then you need not create a new LDAP user.
+If you have an existing LDAP server with the LDAP information that is provided during the {{site.data.keyword.scale_full_notm}} cluster deployment, then you need not create a new LDAP user.
 {: shortdesc}
 
 ### Before you begin
@@ -117,7 +117,7 @@ Ensure that you have the following LDAP information:
 
 * `BASE_DN`: The base domain name for your LDAP server (for example, **ldap.com**).
 * `LDAP_ADMIN_PASSWORD`: The password for the LDAP administrator.
-* `OU_NAME`: The organizational unit where users will be located (for example, **People**).
+* `OU_NAME`: The organizational unit where users are located (for example, **People**).
 * `EXISTING_LDAP_USER`: The username of an existing LDAP user to be verified.
 * `LDAP_USER`: The username for the new LDAP user.
 * `NEW_LDAP_USER_PASSWORD`: The password for the new LDAP user.
@@ -185,7 +185,7 @@ export NEW_LDAP_USER_PASSWORD="Test@1234"
     ```
     {: pre}
 
-5.  Create the LDAP user, using the details from the `${LDAP_USER}.ldif` file:
+5.  Create the LDAP user, by using the details from the `${LDAP_USER}.ldif` file:
 
     ```text
     ldapadd -x -D "cn=admin,dc=${BASE_DN%%.*},dc=${BASE_DN#*.}" -w "${LDAP_ADMIN_PASSWORD}" -f "${LDAP_USER}.ldif"
