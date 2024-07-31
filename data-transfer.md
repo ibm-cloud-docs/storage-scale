@@ -69,16 +69,12 @@ If the files are not in the cache, the LSF data manager stages them and notifies
 ### Pros 
 {: #pros-data-mgr}
 
-The Pros of this approach include:
-
-*	Able to run jobs with data resists in different locations.
+Able to run the jobs with data resists in different locations.
 
 ### Cons
 {: #cons-data-mgr}
 
-The Cons of this approach include:
-
-*	Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it's applications, if it is libraries and any other dependency, presumably those are already living in the cloud, but if it's the actual input data set or any reference data set that it might need, you must point that out as part of your job submission.
+Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it's applications, if it is libraries and any other dependency, presumably those are already living in the cloud, but if it is the actual input data set or any reference data set that it might need, you must point that out as part of your job submission.
 
 ### Limitations
 {: #limit-data-mgr}
@@ -128,7 +124,7 @@ The Cons of this approach include:
 {: #limits-storage-scale}
 
 *   AFM can be enabled on GPFS-independent filesets only. A dependent fileset can be linked under an AFM fileset, but only up to one level below the AFM-independent fileset. The dependent fileset does not allow nested dependent filesets under the AFM-independent fileset.
-*   An AFM cache site can be configured to connect with any home site that provides access to the home data via the NFSv3 protocol. The home site is not required to be an IBM Storage Scale; the mmafmconfig command cannot be issued on the AFM home site. Therefore, the AFM cache site cannot cache or update extended attributes (EAs), access control lists (ACLs), file spareness, or AFM psnaps.
+*   An AFM cache site can be configured to connect with any home site that provides access to the home data through the NFSv3 protocol. The home site is not required to be an IBM Storage Scale; the mmafmconfig command cannot be issued on the AFM home site. Therefore, the AFM cache site cannot cache or update extended attributes (EAs), access control lists (ACLs), file spareness, or AFM psnaps.
 *   The mmclone command is not supported on the AFM cache.
 
 To learn more about the limitations, click [here](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=limitations-afm-afm-dr).
@@ -183,7 +179,6 @@ Only one SCP client session is supported at a time
 
 Open Source
 
-
 ### RSYNC
 {: #rsync}
 
@@ -196,7 +191,7 @@ The servers can be synchronized with each other; you can update the file from th
 
 The Pros of this approach include:
 
-*   By default, it is on every six system, so no messy installation is needed. `rsync` has not changed in a long time, so there is no need for feature and revision differences.
+*   By default, it is on every six systems, so no messy installation is needed. `rsync` has not changed in a long time, so there is no need for feature and revision differences.
 *   The file system at the destination server inspects and syncs; this is an important factor to consider for easier failovers.
 *   Failing over and back to use is simple because this is all done at the file system level. If a server is to fall out of sync or if there is a need to add another server into replication, a simple rsync command catches things up.
 
@@ -205,7 +200,7 @@ The Pros of this approach include:
 
 *   Data will never be as up to date as rsync is copied from an existing data source, and DRBD synchronous mode is to write to all servers before deeming it a successful commit.
 *   You need to write checks for validation and monitoring, as Rsync does not provide any of that.
-*   You need to figure out the exact flags and options. This is not a big con, as it is a one-time tax to be paid. I will share mine if it helps anyone.
+*   You need to figure out the exact flags and options. This is not a big con, as it is a one-time tax to be paid.
 
 #### Limitation
 {: #limits-rsync}
