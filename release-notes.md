@@ -20,7 +20,7 @@ content-type: release-note
 # Release notes
 {: #release-notes}
 
-In this release notes, you learn about the updates to {{site.data.keyword.scale_full}} added by the latest release date.
+This document describes the recent changes added to {{site.data.keyword.scale_full}} for the release.
 {: shortdesc}
 
 ## June 2024
@@ -32,14 +32,14 @@ In this release notes, you learn about the updates to {{site.data.keyword.scale_
 
 Following are the feature changes made for this release:
 
-Enabling Colocation Feature
+Enabling colocation feature
 :  Enabling colocation designates the subset of Storage server as protocol nodes. If disabled, the protocol nodes are created on a dedicated virtual server irrespective of storage type.
 
-Enabling Boot drive Encryption Feature for Bare Metal
+Enabling boot drive encryption feature for Bare Metal
 :  Enable the boot drive encryption feature for IBM Bare Metal servers on VPC to use the local disk drive for boot. Boot drive encryption encrypts the drive by using LUKS and leverages the local Trusted Platform Module (TPM) for key management.
 
 Updated Storage Scale software version
-:  The Storage Scale version that is used for the configuration of the compute and storage clusters has been updated from version 5.1.9.2 to 5.2.0.1.
+:  The Storage Scale version that is used for the configuration of the compute and storage clusters is updated from version 5.1.9.2 to 5.2.0.1.
 
 ## April 2024
 {: #storage-scale-apr24}
