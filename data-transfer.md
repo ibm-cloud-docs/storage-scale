@@ -48,7 +48,7 @@ The options are classified into four categories:
 ## IBM Spectrum LSF Data Manager
 {: #lsf-data-manager}
 
-When large amounts of data are required to complete computations, LSF Data Manager enables your applications to access the data they require to complete computations, unhindered by the location of the data for the concerned application. LSF Data Manager solves the problem of data locality by staging required data files as closely as possible to your applications. You can stage input data from an external source repository to the cluster execution hosts and stage output data asynchronously to an external destination repository after job completion.
+When large amount of data are required to complete computations, LSF Data Manager enables your applications to access the data they require to complete computations, unhindered by the location of the data for the concerned application. LSF Data Manager solves the problem of data locality by staging required data files as closely as possible to your applications. You can stage input data from an external source repository to the cluster execution hosts and stage output data asynchronously to an external destination repository after job completion.
 
 Every LSF cluster that shares a staging area also communicates with the same LSF data manager instance. The clusters query the data manager for the availability of data files.
 
@@ -59,12 +59,10 @@ If the files are not in the cache, the LSF data manager stages them and notifies
 
     ![Single-cluster diagram.](images/lsf-single-cluster.jpg){: caption="Figure 1. Single-cluster" caption-side="bottom"}
 
-
 *   LSF multicluster capability implementation
     A typical LSF multicluster capability implementation of LSF Data Manager has a queue configuration that is not a remote-only queue. Each component works together to accomplish the task of staging data and submitting jobs with data requirements.
 
     ![Multiple-cluster diagram.](images/lsf-multiple-cluster.jpg){: caption="Figure 1. Multiple-cluster" caption-side="bottom"}
-
 
 ### Pros 
 {: #pros-data-mgr}
@@ -74,7 +72,7 @@ Able to run the jobs with data resists in different locations.
 ### Cons
 {: #cons-data-mgr}
 
-Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it's applications, if it is libraries and any other dependency, presumably those are already living in the cloud, but if it is the actual input data set or any reference data set that it might need, you must point that out as part of your job submission.
+Data dependency for the LSF cluster to be identified, what exact data is required to complete the job. If it is applications, libraries or any other dependency, presumably those are already living in the cloud, but if it is the actual input data set or any reference data set that it might need, you must point that out as part of your job submission.
 
 ### Limitations
 {: #limit-data-mgr}
@@ -87,18 +85,17 @@ Data dependency for the LSF cluster to be identified, what exact data is require
 *   No separate license is required for IBM LSF Data Manager if you have an IBM LSF Data Manager Server License
 
 To learn more about IBM Spectrum LSF Data Manager, click [here](https://www.ibm.com/docs/en/spectrum-lsf/10.1.0?topic=lsf-data-manager).
- 
 
 ## IBM Storage Scale Active File Management (AFM)
 {: #storage-scale-afm}
 
 Active File Management (AFM) enables the sharing of data across clusters, even if the networks are unreliable or have high latency.
 
-An AFM fileset can be enabled on a GPFS-independent fileset. Each fileset has a distinct set of AFM attributes. An IBM Storage Scale cluster that contains AFM filesets is called a cache cluster. A cache cluster has a relationship with another remote site called the home, where either the cache or the home can be the data source or destination.
+An AFM fileset can be enabled on a GPFS-independent fileset. Each fileset has a distinct set of AFM attributes. An {{site.data.keyword.scale_full_notm}} cluster that contains AFM filesets is called a cache cluster. A cache cluster has a relationship with another remote site called the home, where either the cache or the home can be the data source or destination.
 
 AFM uses the NFSv3 protocol or the NSD protocol for communication between clusters.
 
-AFM can create associations between IBM Storage Scale clusters or between IBM Storage Scale clusters and NFS data sources.
+AFM can create associations between {{site.data.keyword.scale_full_notm}} clusters or between {{site.data.keyword.scale_full_notm}} clusters and NFS data sources.
 
 With AFM, you can implement a single namespace view across sites around the world by making your global namespace truly global.
   
@@ -111,7 +108,7 @@ The Pros of this approach include:
 *   Users can duplicate data for disaster recovery purposes without suffering from wide area network (WAN) latencies.
 *   Individual files in the AFM filesets can be compressed. Compressing files saves disk space. For more information, see File Compression.
 *   Snapshot data migration is also supported. For more information, see ILM for snapshots.
-*   Namespace replication with AFM occurs asynchronously so that applications can operate continuously on an AFM fileset without network bandwidth constraints
+*   Namespace replication with AFM occurs asynchronously so that applications can operate continuously on an AFM fileset without network bandwidth constraints.
  
 ### Cons
 {: #cons-storage-scale}
@@ -124,7 +121,7 @@ The Cons of this approach include:
 {: #limits-storage-scale}
 
 *   AFM can be enabled on GPFS-independent filesets only. A dependent fileset can be linked under an AFM fileset, but only up to one level below the AFM-independent fileset. The dependent fileset does not allow nested dependent filesets under the AFM-independent fileset.
-*   An AFM cache site can be configured to connect with any home site that provides access to the home data through the NFSv3 protocol. The home site is not required to be an IBM Storage Scale; the mmafmconfig command cannot be issued on the AFM home site. Therefore, the AFM cache site cannot cache or update extended attributes (EAs), access control lists (ACLs), file spareness, or AFM psnaps.
+*   An AFM cache site can be configured to connect with any home site that provides access to the home data through the NFSv3 protocol. The home site is not required to be an {{site.data.keyword.scale_full_notm}}; the mmafmconfig command cannot be issued on the AFM home site. Therefore, the AFM cache site cannot cache or update extended attributes (EAs), access control lists (ACLs), file spareness, or AFM psnaps.
 *   The mmclone command is not supported on the AFM cache.
 
 To learn more about the limitations, click [here](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=limitations-afm-afm-dr).
@@ -132,9 +129,9 @@ To learn more about the limitations, click [here](https://www.ibm.com/docs/en/st
 ### Licensing
 {: #license-storage-scale}
 
-*  No separate license is required for IBM Storage Scale AFM if you have an IBM Storage Scale Server License
+*  No separate license is required for {{site.data.keyword.scale_full_notm}} AFM if you have an {{site.data.keyword.scale_full_notm}} Server License
 
-To learn more about IBM Storage Scale Active File Management (AFM), click [here](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=management-introduction-active-file-afm).
+To learn more about {{site.data.keyword.scale_full_notm}} Active File Management (AFM), click [here](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=management-introduction-active-file-afm).
  
 ## Collection of generic utilities
 {: #collect-gen-util}
@@ -210,7 +207,7 @@ The Pros of this approach include:
 #### Sample code
 {: #rsync-sample}
 
-Users can also utilize wrapper script for rsync which is available in the GitHub repo, click here
+Users can also utilize wrapper script for rsync, which is available in the GitHub repo, click here
 Scenario
 
 If you have a farm of NFS servers in production that needed replication 1) failover and 2) backup.
@@ -223,7 +220,7 @@ Open Source
 ### RClone
 {: #rclone}
 
-Rclone is a command-line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors' web storage interfaces. Over 40 cloud storage products support Rclone, including S3 object stores, business, and consumer file storage services, as well as standard transfer protocols.
+Rclone is a command-line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors web storage interfaces. Over 40 cloud storage products support Rclone, including S3 object stores, business, consumer file storage services, and standard transfer protocols.
 
 Rclone has powerful cloud equivalents to the Unix commands rsync, cp, mv, mount, ls, ncdu, tree, rm, and cat. Rclone's familiar syntax includes shell pipeline support and --dry-run protection. It is used at the command line, in scripts, or via its API.
  

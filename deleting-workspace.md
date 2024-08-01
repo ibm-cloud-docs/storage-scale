@@ -62,7 +62,7 @@ You can monitor the log files to view the deletion progress of your workspace.
     * Replace your {{site.data.keyword.cloud_notm}} key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
     * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
 4. Inside the `schematics_service.delete_workspace` function, provide the following parameters:
-    * Provide the workspace ID that you generated in the [Creating a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace) task, for example `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
+    * Provide the workspace ID that you generated in the [Creating a workspace](/docs/storage-scale?topic=storage-scale-creating-workspace) task, for example `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
     * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
         
         ```
