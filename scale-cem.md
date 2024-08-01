@@ -25,12 +25,12 @@ subcollection: storage-scale
 # Integrate Scale with CES and enable LDAP for NFS on Scale nodes 
 {: #scale-cem-intro}
 
-You can integrate Scale with CES services and enable LDAP-based authentication for NFS services on CES Scale Nodes. The information includes assumptions, a step-by-step guide, and detailed explanations for each configuration. By utilizing LDAP-based authentication with an external LDAP server, organizations can enhance security and centralize user management for NFS shares and configuration steps. This enables the LDAP-based authentication and provide instructions for setting up an OpenLDAP server on a Linux system.
+You can integrate Scale with CES services and enable LDAP-based authentication for NFS services on CES Scale Nodes. The information includes assumptions, a step-by-step guide, and detailed explanations for each configuration. By using LDAP-based authentication with an external LDAP server, organizations can enhance security and centralize user management for NFS shares and configuration steps. This enables the LDAP-based authentication and provide instructions for setting up an OpenLDAP server on a Linux system.
 
 ## Step 1 - Configuration for OpenLDAP Server setup
 {: #configure-ldap-server}
 
-Ensure that the LDAP server is properly configured with the required schemas that are installed to handle authentication and ID-mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
+Make sure that the LDAP server is properly configured with the required schemas that are installed to handle authentication and ID-mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
 
 ### Configuring an OpenLDAP Server
 {: #configure-openldap-server}
@@ -40,7 +40,7 @@ OpenLDAP is an open source implementation of the Lightweight Directory Access Pr
 ### Before you begin - OpenLDAP Server
 {: #beforeyoubegin-openldap}
 
-You should have access to a Linux system with root privileges. You should also have a basic understanding of the command-line interface and how to use a text editor.
+You need to have access to a Linux system with root privileges. You need to have a basic understanding of the command-line interface and how to use a text editor.
 
 ### Configuring an OpenLDAP Server
 {: #proc-config-openldap}
@@ -221,7 +221,7 @@ Use these steps to configure an OpenLDAP server:
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f ldapuser.ldif
     ```
 
-14.	Verify whether users have been created as mentioned in the preceding steps:
+14.	Verify whether users are created as mentioned in the preceding steps:
 
     ```
     ldapsearch -x -LLL -b "ou=People,dc=ibmscale,dc=com" "(objectClass=posixAccount)" uid cn
@@ -232,7 +232,7 @@ Use these steps to configure an OpenLDAP server:
 ## Step 2 -  Creating a User group in the OLDAP directory for users accessing the Scale cluster
 {: #creating-user-group-oldap-dir}
 
-Create a user group in the OLDAP directory, which will consist of users who are supposed to get access to the Scale cluster.
+Create a user group in the OLDAP directory, which consist of users who are supposed to get access to the Scale cluster.
 You use the `ldapadd` command to add an LDIF entry for the group 
 to the LDAP directory. 
 
@@ -265,7 +265,7 @@ to the LDAP directory.
 
     Each group entry specifies the objectClass "top" and "posixGroup" to define the group's schema. The gidNumber attribute specifies the group's unique identifier, while the cn attribute specifies the group's common name. Finally, the description attribute provides a brief description of the group.
 
-2.  Save the above content in a file with a ".ldif" extension, such as "groups.ldif", 
+2.  Save the preceding content in a file with a ".ldif" extension, such as "groups.ldif", 
 
 3.  Use the `ldapadd` command to add these group entries to your LDAP directory. For example:
 
@@ -326,7 +326,7 @@ Before proceeding, several assumptions are made:
 *   Compute Subnet: The IP address range for compute resources is assumed to be 10.241.0.0/24.
 *   Storage Subnet: The IP address range for storage resources is assumed to be 10.241.1.0/24.
 *   Protocol Subnet: The IP address range for CES protocol nodes is assumed to be 10.241.2.0/24.
-*   Supported Protocol Nodes: Only Virtual Server Instances (VSIs) will be used as CES protocol nodes.
+*   Supported Protocol Nodes: Only Virtual Server Instances (VSIs) are used as CES protocol nodes.
 
 Additional Input includes:
 •	total_protocol_node_count: The total number of CES protocol nodes to be used.
@@ -395,7 +395,7 @@ Additional Input includes:
 
 9.  Route Addition at OS & RT Level:
     Explanation: Configure routes on all protocol nodes to reach the CES interface base IP addresses.
-    Example: ip route add 10.241.0.0/24 via 10.241.2.1 dev eth1
+    Example: ip route add 10.241.0.0/24 through 10.241.2.1 dev eth1
     Add Routes to Reach CES Endpoints:
     Explanation: Set up routes to reach CES endpoints from base IPs using {{site.data.keyword.cloud_notm}} CLI commands.
     Example: ibmcloud is vpc-routing-table-route-create <vpc_id> <rt_id> --zone <zone> --destination <ces_ip> --next-hop <base_ip_of_ces_interface> --action deliver --name <ces-ip> -q
@@ -467,7 +467,7 @@ Additional Input includes:
 ### Before you begin
 {: #step5-before-begin}
 
-•	Ensure a healthy Scale cluster with the ability to move CES IP addresses across protocol nodes.
+•	Make sure a healthy Scale cluster with the ability to move CES IP addresses across protocol nodes.
 
 1.  Installing the IBMCloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources.
     `curl -fsSL https://clis.cloud.ibm.com/install/linux | sh`

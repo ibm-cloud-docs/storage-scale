@@ -29,13 +29,13 @@ subcollection: storage-scale
 ## Before you begin
 {: #before-you-begin-ces-failover}
 
-*   Ensure that you have a healthy Scale cluster with the ability to move CES IP addresses across protocol nodes.
+*   Ensure that you have a correct Scale cluster with the ability to move CES IP addresses across protocol nodes.
 
 ## Procedure
 {: #procedure-ces-failover}
 
 
-1.  Install the IBMCloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources.
+1.  Install the IBM Cloud CLI tool for managing {{site.data.keyword.cloud_notm}} resources.
 
     ```
     curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
@@ -83,7 +83,7 @@ subcollection: storage-scale
 
 4.  Copy the mmcesExtendedIpMgmt script to /var/mmfs/etc/mmcesExtendedIpMgmt.
 
-5.  Ensure that the script has executable permissions.
+5.  Make sure that the script has executable permissions.
 
     ```
     chmod +x /var/mmfs/etc/mmcesExtendedIpMgmt

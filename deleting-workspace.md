@@ -31,14 +31,14 @@ After you destroy all associated VPC resources, if you don't need the workspace 
 Make sure that you delete the resources in the workspace before you delete the workspace. If you delete the workspace without cleaning up the related resources, the resources would still be left behind and might have to be cleaned up individually.
 {: important}
 
-## Deleting a workspace using the UI
+## Deleting a workspace by using the UI
 {: #delete-workspace-ui}
 {: ui}
 
 1. In the {{site.data.keyword.cloud_notm}} console on the **Schematics > Workspaces** page, select **Actions > Delete workspace** to delete the schematics workspace.
 2. Confirm the action by entering the workspace name in the text box and click **Delete workspace**.
 
-## Deleting a workspace using the CLI
+## Deleting a workspace by using the CLI
 {: #delete-workspace-cli}
 {: cli}
 
@@ -52,7 +52,7 @@ ibmcloud schematics workspace delete --id <WORKSPACE_ID>
 You can monitor the log files to view the deletion progress of your workspace.
 {: note}
 
-## Deleting a workspace using the API
+## Deleting a workspace by using the API
 {: #delete-workspace-api}
 {: api}
 
@@ -62,7 +62,7 @@ You can monitor the log files to view the deletion progress of your workspace.
     * Replace your {{site.data.keyword.cloud_notm}} key to the `authenticator = IAMAuthenticator('<ibm-api-key>')` variable.
     * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
 4. Inside the `schematics_service.delete_workspace` function, provide the following parameters:
-    * Provide the workspace ID that you generated in the [Creating a workspace](/docs/ibm-spectrum-lsf?topic=ibm-spectrum-lsf-creating-workspace) task, for example, `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
+    * Provide the workspace ID that you generated in the [Creating a workspace](/docs/storage-scale?topic=storage-scale-creating-workspace) task, for example `us-south.workspace.Terraform-Schematics-Python-Workspace.b3bbc9f5`.
     * Export your {{site.data.keyword.cloud_notm}} API key by using the following command:
         
         ```
@@ -77,9 +77,11 @@ You can monitor the log files to view the deletion progress of your workspace.
         ```
         {: pre}
 
-    * **Note**: If you want to destroy the resources as well as delete the workspace, then set the `destroy_resources` parameter value to `True`. In this case, the resources are deleted first, and then the workspace is deleted. 
+    * If you want to destroy the resources as well as delete the workspace, then set the `destroy_resources` parameter value to `True`. In this case, the resources are deleted first, and then the workspace is deleted.
+    {: note}
     
-    * **Note**: If you want to delete the workspace but not the resources, then remove the `destroy_resources` parameter completely or set the `destroy_resources` parameter to `False`. If resources are already deleted, and if the `destroy_resources` parameter value is set to `True`, then the **RESOURCE DELETE** action will be in **FAILED** state.
+    * If you want to delete the workspace but not the resources, then remove the `destroy_resources` parameter completely or set the `destroy_resources` parameter to `False`. If resources are already deleted, and if the `destroy_resources` parameter value is set to `True`, then the **RESOURCE DELETE** action is in the **FAILED** state.
+    {: note}
 
 5. Run the Python script by using `python3 <python-file-name>` to delete the workspace.
 6. You get the status `Started Deleting Schematic Workspace` and `Completed Deleting Schematic Workspace` in response if the parameters passed as part of the request are valid. You should be able to see that the workspace is deleted in the {{site.data.keyword.bpshort}} that you created. If you don’t get a successful response, the error response contains the errors that you need to resolve. Resolve those errors and run the script until you are able to get a valid response and the workspace is deleted.

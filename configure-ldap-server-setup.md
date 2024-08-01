@@ -26,12 +26,12 @@ subcollection: storage-scale
 # Configuration for LDAP Server setup
 {: #configure-ldap-server}
 
-Ensure that the LDAP server is properly configured with the required schemas installed to handle authentication and ID mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
+Make sure that the LDAP server is properly configured with the required schemas that are installed to handle authentication and ID-mapping requests. If SMB data access is required, the LDAP schema must be extended to store additional attributes such as SID and password hash.
 
 ## Configuring an OpenLDAP Server
 {: #configure-openldap-server}
 
-OpenLDAP is an open-source implementation of the Lightweight Directory Access Protocol (LDAP) that can be used to store and manage information about users, groups, and other objects in a network. This document provides step-by-step instructions for configuring an OpenLDAP server on a Linux system.
+OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that can be used to store and manage information about users, groups, and other objects in a network. This document provides step-by-step instructions for configuring an OpenLDAP server on a Linux system.
 
 ## Before you begin
 {: #beforeyoubegin-openldap}
@@ -42,7 +42,7 @@ You should have access to a Linux system with root privileges. You should also h
 {: #proc-config-openldap}
 
 
-Use these steps to configuire an OpenLDAP server:
+Use these steps to configure an OpenLDAP server:
 
 1.	Install the OpenLDAP server and client packages
 
@@ -65,23 +65,23 @@ Use these steps to configuire an OpenLDAP server:
     systemctl start slapd systemctl enable slapd 
     ```
 
-4.	Generate an admin password by running the slappasswd command. You are  prompted to enter a password. For example:
+4.	Generate an admin password by running the slappasswd command. You are prompted to enter a password. For example:
 
     ```shell
     Code:
     slappasswd 
     ```
     
-    You will see an output that looks something like this:
+    You see an output that looks something like this:
 
     ```shell
     Code:
     {SSHA}FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4 
     ```
-    The password hash that is generated (in this case,   {SSHA}         FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4) as you will need it later.
+    The password hash that is generated (in this case,   {SSHA}         FUMV8TZ9lZQxABxCBE5UZ+oU/dlwf/d4) as you need it later.
     {: note} 
 
-5.	Create a file named chrootpw.ldif and add the following lines to it:
+5.	Create a file that is named `chrootpw.ldif` and add the following lines to it:
 
     ```shell
     Code:
@@ -109,7 +109,7 @@ Use these steps to configuire an OpenLDAP server:
     slappasswd 
     ```
 
-    You will see an output that looks something like this:
+    You see an output that looks something like this:
 
 
     ```shell
@@ -119,7 +119,7 @@ Use these steps to configuire an OpenLDAP server:
     
     Make note of the password hash that is generated (in this case, {SSHA}TVW9z6WLIBC3EXtFHFWnb2EVlK7EZQ3b) as you need it in the next step.
 
-8.	Add the manager password and enable the manager account by creating a file named chdomain.ldif and adding these lines to it:
+8.	Add the manager password and enable the manager account by creating a file that is named `chdomain.ldif` and adding these lines to it:
 
     ```shell
     # DC should be your domain
@@ -160,7 +160,7 @@ Use these steps to configuire an OpenLDAP server:
     ldapmodify -Y EXTERNAL -H ldapi:/// -f chdomain.ldif
     ```
 
-10.	Create a file named basedomain.ldif and add the following lines to it:
+10.	Create a file that is named `basedomain.ldif` and add the following lines to it:
 
     ```shell
     Code: 
@@ -188,7 +188,7 @@ Use these steps to configuire an OpenLDAP server:
     Code: 
     ldapadd -x -D cn=Manager,dc= ibmscale,dc=com -W -f basedomain.ldif
     ```
-12.	Create a file named ldapuser.ldif using vi editor and add the these lines to it and replace to required own domain name for "dc=***,dc=***" section.
+12.	Create a file named `ldapuser.ldif` using vi editor and add these lines to it and replace to required own domain name for "dc=***,dc=***" section.
 
     ```shell
     dn: uid=Scaleusr01,ou=People,dc=ibmscale,dc=com
@@ -224,5 +224,5 @@ Use these steps to configuire an OpenLDAP server:
     ldapsearch -x -LLL -b "ou=People,dc=ibmscale,dc=com" "(objectClass=posixAccount)" uid cn
     ```
 
-    The OpenLDAP server is now configured and ready to use. You can add more users and groups by creating additional LDIF files and using the ldapadd command to import them into the directory.
+    The OpenLDAP server is now configured and ready to use. You can add more users and groups by creating additional LDIF files and by using the ldapadd command to import them into the directory.
 
