@@ -29,9 +29,9 @@ subcollection: storage-scale
 ## Overview of Direct Integration by using Samba Winbind
 {: #integrate-symph-samba-intro}
 
-To connect a RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
+To connect an RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
 
-In this section, we will explore how to connect a RHEL system to AD using Samba Winbind. The steps include an overview of the direct integration process, supported Windows platforms, ensuring encryption compatibility, joining the AD domain, and utilizing realm commands.
+In this section, you will explore how to connect a RHEL system to AD using Samba Winbind. The steps include an overview of the direct integration process, supported Windows platforms, ensuring encryption compatibility, joining the AD domain, and using realm commands.
 
 ## Supported Windows Platforms and OSs for Direct Integration
 {: #supported-windows-platforms}
@@ -63,11 +63,11 @@ For enabling RC4 support in RHEL, the steps differ depending on the RHEL version
 ## Procedure
 {: #procedure}
 
-Samba Winbind is an alternative to the System Security Services Daemon (SSSD) for connecting a Red Hat Enterprise Linux (RHEL) system with Active Directory (AD). This section describes how to join a RHEL system to an AD domain by using realmd to configure Samba Winbind. 
+Samba Winbind is an alternative to the System Security Services Daemon (SSSD) for connecting a Red Hat Enterprise Linux (RHEL) system with Active Directory (AD). This section describes how to join an RHEL system to an AD domain by using realmd to configure Samba Winbind. 
 
-Join a Symphony Cluster node which is hosted on  RHEL 8.4 OS to an AD domain using Samba Winbind and `realmd``:
+Join a Symphony Cluster node, which is hosted on RHEL 8.4 OS to an AD domain by using Samba Winbind and `realmd``:
 
-1.  Install and  update the following packages: 
+1.  Install and update the following packages: 
 
     ```shell
     # yum install realmd oddjob-mkhomedir oddjob samba-winbind-clients \
@@ -88,7 +88,7 @@ Join a Symphony Cluster node which is hosted on  RHEL 8.4 OS to an AD domain usi
     addc1.POCDomain.local is the AD server FQDN name
     {: note}
 
-3.  Update the DNS entries in /etc/resolv.conf file using:  
+3.  Update the DNS entries in /etc/resolv.conf file by using:  
 
     `sudo nmcli connection modify "System eth0" ipv4.dns "10.243.0.41" ipv4.ignore-auto-dns yes`
 
@@ -113,7 +113,7 @@ shell
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=3 ttl=128 time=0.581 ms
     64 bytes from addc1.POCDomain.local (10.243.0.41): icmp_seq=4 ttl=128 time=0.525 ms
 
-5.  Use `nslookup` to ensure that AD domain is resolvable:
+5.  Use `nslookup` to make sure that AD domain is resolvable:
 
     ```shell
     [root@amit-rhel84 ~]#  nslookup pocdomain.local
@@ -128,7 +128,7 @@ shell
 
     `# update-crypto-policies --set DEFAULT:AD-SUPPORT`
 
-    After running this command, update the crypto policies and ask to reboot the system.
+    After running this command, update the crypto policies and ask to restart the system.
 
 
 7.  Back up the existing /etc/samba/smb.conf Samba configuration file: 
@@ -139,7 +139,7 @@ shell
 
     `# realm join --membership-software=samba --client-software=winbind POCDOMAIN.LOCAL`
 
-    When you use this  command, the realm utility automatically: 
+    When you use this command, the realm utility automatically: 
     *  Creates a /etc/samba/smb.conf file for a membership in the pocdomain.local domain 
     *  Adds the winbind module for user and group lookups to the /etc/nsswitch.conf file 
     *  Updates the Pluggable Authentication Module (PAM) configuration files in the /etc/pam.d/ directory 
@@ -198,7 +198,7 @@ shell
 3.  (Optional) Verify that you can use domain users and groups when you set permissions on files and directories. For example, to set the owner of the /srv/samba/example.txt file to AD\administrator and the group to AD\Domain Users: 
 
     `# sudo chown "POCDOMAIN\administrator":"POCDOMAIN\Domain Users" example.txt`
-4.  Verify that Kerberos authentication works as expected.On the AD domain member, obtain a ticket for the administrator@POCDOMAIN.LOCAL principal: 
+4.  Verify that Kerberos authentication works as expected. On the AD domain member, obtain a ticket for the administrator@POCDOMAIN.LOCAL principal: 
         `# kinit administrator@POCDOMAIN.LOCAL`
 
 5.  Display the cached Kerberos ticket: 
@@ -240,8 +240,8 @@ shell
 ### To provide root user permissions to Active Directory (AD) users
 {: #provide-root-permission}
 
-In order to provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Linux machine:
-1.  Open a terminal or connect to the Linux machine.
+To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Linux system:
+1.  Open a terminal or connect to the Linux system.
 2.  Edit the sudoers file using the visudo command:
     `sudo visudo`
 3.  Locate the section in the sudoers file that configures user privileges:
