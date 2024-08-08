@@ -25,9 +25,9 @@ subcollection: storage-scale
 # Enabling Active File Management to Cloud Object Storage
 {: #config-afm-integration-cos}
 
-Active File Management (AFM) enables data sharing across clusters even if the networks are unreliable or have high latency.
+Active File Management (AFM) to Cloud Object Storage (COS) is a feature that integrates {{site.data.keyword.scale_full_notm}} with {{site.data.keyword.cos_full_notm}} (COS). This feature enables placement of files or objects in an {{site.data.keyword.scale_full_notm}} cluster to COS. This feature extends the capabilities of Active File Management (AFM) to provide a hybrid cloud storage solution by allowing {{site.data.keyword.scale_full_notm}} to interact with IBM CLoud Object Storage as a storage target.
 
-Active File Management (AFM) to Cloud Object Storage (COS) is a feature that integrates {{site.data.keyword.scale_full_notm}} with {{site.data.keyword.cos_full_notm}} COS. This feature enables placement of files or objects in an {{site.data.keyword.scale_full_notm}} cluster to COS. This feature extends the capabilities of Active File Management (AFM) to provide a hybrid cloud storage solution by allowing {{site.data.keyword.scale_full_notm}} to interact with IBM CLoud Object Storage as a storage target.
+Active File Management (AFM) enables data sharing across clusters even if the networks are unreliable or have high latency.
 
 AFM to COS allows associating an {{site.data.keyword.scale_full_notm}} fileset with a cloud object storage. You can use the cloud object storage to run workloads such as mobile applications, backup and restore, enterprise applications, big data analytics, and file server. These workloads can be cached on AFM to cloud object storage filesets for faster computation and synchronize back to the cloud object storage server.
 
