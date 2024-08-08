@@ -31,7 +31,7 @@ Active File Management (AFM) to Cloud Object Storage (COS) is a feature that int
 
 AFM to COS allows associating an {{site.data.keyword.scale_full_notm}} fileset with a cloud object storage. You can use the cloud object storage to run workloads such as mobile applications, backup and restore, enterprise applications, big data analytics, and file server. These workloads can be cached on AFM to cloud object storage filesets for faster computation and synchronize back to the cloud object storage server.
 
-![Architecture diagram](){: caption="Figure 1.  AFM to Cloud Object Storage" caption-side="bottom"}
+![Architecture diagram.](images/afm_cos_architecture.svg){: caption="Figure 1.  CES node on Storage Scale" caption-side="bottom"}
 
 An AFM to cloud object storage fileset is supported on all existing AFM fileset modes that includes Read-Only (RO), Single Writer (SW), Local Updates (LU), and Independent Writer (IW).
 
