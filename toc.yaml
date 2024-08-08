@@ -36,6 +36,7 @@ toc:
       - updating-variables.md
       - enabling-encryption.md
       - configure-ces-integration.md
+      - configure-afm-integration.md
       - config-ldap-ces.md
       - config-setup-symph-cluster.md
       - vnic-info.md

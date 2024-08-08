@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2022, 2023, 2024
+  years: 2022, 2024
 
-lastupdated: "2024-06-13"
+lastupdated: "2024-08-08"
 
 keywords: IBM Storage Scale release notes
 
@@ -20,8 +20,18 @@ content-type: release-note
 # Release notes
 {: #release-notes}
 
-This document describes the recent changes added to {{site.data.keyword.scale_full}} for the release.
+This release notes for {{site.data.keyword.scale_full}} describes the new changes added to the release.
 {: shortdesc}
+
+## August 2024
+{: #storage-scale-aug24}
+
+### 30 August 2024
+{: #storage-scale-aug0830}
+{: release-note}
+
+Enabling AFM feature
+:  Enabling AFM feature allows you to connect {{site.data.keyword.scale_full_notm}} filesets to Cloud Object Storage (COS).
 
 ## June 2024
 {: #storage-scale-june24}

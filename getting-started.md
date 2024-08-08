@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023, 2024
-lastupdated: "2024-06-13"
+  years: 2022, 2024
+lastupdated: "2024-08-08"
 
 keywords: 
 
@@ -96,6 +96,12 @@ To enable boot drive encryption for persistent storage, set `bms_boot_drive_encr
 {: step}
 
 To enable LDAP, set `enable_ldap` parameter to true and fill in other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). Existing LDAP is also supported.
+
+## Enable AFM (Optional)
+{: #enable-afm}
+{: step}
+
+To enable AFM, set `total_afm_cluster_instances` parameter to a value greater than zero. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
 
 ## Next steps
 {: #getting-started-next-steps}

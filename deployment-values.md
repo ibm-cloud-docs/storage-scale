@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2022, 2023, 2024
-lastupdated: "2024-06-13"
+  years: 2022, 2024
+lastupdated: "2024-08-08"
 
 keywords: 
 
@@ -27,6 +27,8 @@ The following deployment values can be used to configure the {{site.data.keyword
 
 | Value | Description | Is it required? | Default value |
 | ----- | ----------- | --------------- | ------------ |
+| `afm_vsi_profile` | The virtual instance or bare metal server instance profile type name used to create the AFM gateway nodes. For more information, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui) and [bare metal server profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). | No | bx2-32x128 |
+| `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM fileset, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note: The `afm_cos_config` can contain upto 5 entries. For more details on COS bucket locations, refer to [Endpoints and storage locations](https://cloud.ibm.com/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints) documentation. | No | [{cos_instance="", bucket_name="", bucket_region="us-south", cos_service_cred_key="", afm_fileset="indwriter", mode="iw", bucket_storage_class="smart", bucket_type="region_location"}] |
 | `bastion_key_pair` | Name of the SSH key configured in your {{site.data.keyword.cloud_notm}} account that is used to establish a connection to the bastion and bootstrap nodes. Make sure that the SSH key is present in the same resource group and region where the cluster is being provisioned. If you do not have an SSH key in your {{site.data.keyword.cloud_notm}} account, create one by using the [SSH keys](/docs/vpc?topic=vpc-ssh-keys) instructions. | Yes | None |
 | `bastion_osimage_name` | Name of the image that will be used to provision the bastion node for the {{site.data.keyword.scale_short}} cluster. Only Ubuntu stock images of any version available to the {{site.data.keyword.cloud_notm}} account in the specific region are supported. | No | ibm-ubuntu-20-04-3-minimal-amd64-2 |
 | `bastion_vsi_profile` | The virtual server instance profile types name used to create the bastion node. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | No | cx2-2x4 |
@@ -81,6 +83,7 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `total_compute_cluster_instances` | Total number of compute cluster instances that you need to provision. A minimum of three nodes and a maximum of 64 nodes are supported. A count of 0 can be defined when no compute nodes are required. | No | 0 |
 | `total_protocol_cluster_instances`  | Total number of protocol nodes that you need to provision. A minimum of 2 nodes and a maximum of 16 nodes are supported.	| No | 2  |
 | `total_storage_cluster_instances` | Total number of storage cluster instances that you need to provision. A minimum of two nodes and a maximum of 64 nodes are supported if the storage type selected is scratch. A minimum of two nodes and a maximum of 42 nodes are supported if the storage type selected is persistent. | No | 2 |
+| `total_afm_cluster_instances`  | Total number of instances that you need to provision AFM nodes and enable AFM.	| No | 0  |
 | `vpc_availability_zones` | {{site.data.keyword.cloud_notm}} availability zone names within the selected region where the {{site.data.keyword.scale_short}} cluster should be deployed. For the current release, the solution supports only a single availability zone. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations). | Yes | None |
 | `vpc_cidr_block` | {{site.data.keyword.vpc_short}} address prefixes that are needed for VPC creation. Since the solution supports only a single availability zone, provide one CIDR address prefix for VPC creation. For more information, see [Bring your own subnet](/docs/vpc?topic=vpc-configuring-address-prefixes). | No | 10.241.0.0/18 |
 | `vpc_client_cluster_dns_domain`  | {{site.data.keyword.cloud_notm}} DNS domain name to be used for client cluster. Note: If an existing DNS domain is already in use, a new domain must be specified as existing domains are not supported.	| No | clntscale.com |
