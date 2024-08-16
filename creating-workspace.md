@@ -33,17 +33,17 @@ With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based
 {: #create-workspace-ui}
 {: ui}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your unique credentials.
-2. In the _Software_ section, select **Compute** and then select the **{{site.data.keyword.scale_full}}** tile. 
+1. Log in to the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog){: external} by using your credentials.
+2. In the Software section, select Compute and then select the **{{site.data.keyword.scale_full}}** tile. 
 3. In the _Configure your workspace_ section:
-    * Specify the **Name** for your {{site.data.keyword.bpshort}} workspace
-    * Select a **Resource group**
-    * Select a **Location**
+    * Specify the **Name** for your {{site.data.keyword.bpshort}} workspace.
+    * Select a Resource group.
+    * Select a Location.
     * Define any **Tags** that you want to associate with the resources provisioned through the offering. The tags can later be used to query the resources in the {{site.data.keyword.cloud_notm}} console.
 4. In the _Set the deployment values_ section, specify the values for the required properties.
 5. Expand the _Parameters with default values_ section, and review it to determine whether you need to override any of the default values provided for the configuration properties.
 6. Review and accept the **{{site.data.keyword.scale_full_notm}}** license terms and conditions in the order summary.
-7. Click Install. The {{site.data.keyword.bpshort}} workspace is created with the name specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the _Apply Plan_ action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account.
+7. Click Install. The {{site.data.keyword.bpshort}} workspace is created with the name specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the Apply Plan action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account.
 8. You can also review the status of your deployment process by identifying the workspace name in the _View the existing installations_ section. When you click a record in _View the existing installations_ section, you are taken to the {{site.data.keyword.bpshort}} workspace view. 
 
 ## Next steps
@@ -56,13 +56,13 @@ After you have successfully created a workspace, you can begin [Generating a pla
 {: #before-you-begin-creating-cli}
 {: cli}
 
-Before you get started, make sure you have completed the prerequisites found in [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/storage-scale?topic=storage-scale-setting-up-cli). 
+Before you get started, make sure that you have completed the prerequisites in [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/storage-scale?topic=storage-scale-setting-up-cli). 
 
 ## Creating a workspace by using the CLI
 {: #create-workspace-cli}
 {: cli}
 
-The first step when using {{site.data.keyword.bpshort}} is to create a workspace with the specific configuration parameters defined in the corresponding Terraform source code.
+The first step using {{site.data.keyword.bpshort}} is to create a workspace with the specific configuration parameters defined in the corresponding Terraform source code.
 
 Use the following CLI command to create a workspace with your `config.json` file. Make sure that the `config.json` file exists in the directory where you run the command.
 
@@ -140,7 +140,7 @@ Before you get started, make sure that you have completed the prerequisites foun
     * Change the API endpoint to the endpoint mentioned in [API endpoints](https://cloud.ibm.com/apidocs/schematics?code=python#api-endpoints){: external} according to the location that you want your {{site.data.keyword.bpshort}} workspace to reside, for example, `schematics_service.set_service_url('https://us.schematics.cloud.ibm.com')`.
     * Provide environment values that you want to have in the form of a key and value pair, such as [{ 'Environment': 'hpc-dev-cluster' }]
     * Change the folder location variable `template_source_data_request_model['folder']` to the folder name inside your GitHub repository where your Terraform files reside. If the Terraform files exist in the base location of your repository, then set this variable to `template_source_data_request_model['folder'] = ' '`; otherwise, mention the folder name in the `template_source_data_request_model['folder']` variable.
-    * Change the `template_source_data_request_model['type']` variable to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources such as `terraform_v0.13`. Ensure that your Terraform templates are compatible with the version that you are mentioning in this field.
+    * Change the `template_source_data_request_model['type']` variable to the Terraform version that you are using to create {{site.data.keyword.cloud_notm}} resources such as `terraform_v0.13`. Make sure that your Terraform templates are compatible with the version that you are mentioning in this field.
     * Provide your GitHub or GitLab Repository HTTPS URL where your Terraform files reside in the `template_repo_request_model['url']` variable. If you are using the [public repository](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external} that is provided by {{site.data.keyword.cloud_notm}}, then set this variable as `template_repo_request_model['url'] = 'https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics'`; otherwise, set it to the private repository you are using. 
 4. Inside the `schematics_service.create_workspace` function, provide the following parameters:
     * Provide an optional description.
@@ -430,4 +430,4 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "POST /v1/w
 {: #next-steps-create-api}
 {: api}
 
-After you have successfully created a workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=api) to validate all of the configuration properties. 
+After creating the workspace, you can begin [Generating a plan](/docs/storage-scale?topic=storage-scale-generate-plan&interface=api) to validate all the configuration properties. 
