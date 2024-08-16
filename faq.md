@@ -27,9 +27,9 @@ subcollection: storage-scale
 {: #locations-vpc-resources}
 {: faq}
 
-Available regions and zones for deploying VPC resources and a mapping of those regions and zones to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations){: external}. While any of the available regions can be used, resources are provisioned only in a single availability zone within the selected region.
+The available regions and zones for deploying VPC resources and a mapping them to city locations and data centers can be found in [Locations for resource deployment](/docs/overview?topic=overview-locations){: external}. While any of the available regions can be used, resources are provisioned only in a single availability zone within the selected region.
 
-## What permissions are required in order to create a cluster that uses the offering?
+## What permissions are required to create a cluster that uses the offering?
 {: #permissions-cluster-offering}
 {: faq}
 
@@ -46,14 +46,14 @@ ssh -J ubuntu@<IP_address_bastion_host> vpcuser@<IP-address-of-nodes>
 ```
 {: pre}
 
-Although all of the nodes of each cluster have passwordless SSH set up among them, due to security constraints, you can't directly log in to a node from one cluster to another cluster.
+Although all the nodes of each cluster have passwordless SSH set up among them, due to security constraints, you cannot directly log in to a node from one cluster to another cluster.
 {: note}
 
 ## How many compute and storage nodes can you deploy in the Storage Scale cluster through this offering?
 {: #how-many-compute-storage-nodes}
 {: faq}
 
-Before you deploy a cluster, it is important to ensure that the VPC resource quota is appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
+Before you deploy a cluster, it is important to make sure that the VPC resource quota is appropriate for the size of the cluster that you would like to create (see [Quotas and service limits](/docs/vpc?topic=vpc-quotas)).
 
 See the following minimum and maximum number of nodes that are supported in a cluster:
 * Compute nodes: For all storage clusters, a minimum of 3 and a maximum of 64 virtual server instance compute nodes are supported.
@@ -89,7 +89,7 @@ The Terraform-based templates can be found in this [GitHub repository](https://g
 
 The mappings can be found in the `image-map.tf` file in this [GitHub repository](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external}.
 
-## Can I use my own custom image in the Storage Scale cluster by specifying the image name in the deployment value `bootstrap_osimage_name`?
+## Can you use own custom image in the Storage Scale cluster by specifying the image name in the deployment value `bootstrap_osimage_name`?
 {: #bring-own-custom-image}
 {: faq}
 
@@ -105,7 +105,7 @@ No, any SSH connection to the bootstrap, compute, or storage nodes is only possi
 {: #establish-connection-between-nodes}
 {: faq}
 
-The compute and storage clusters are created to not have the same passwordless SSH keys. This ensures that there are separate administration domains for the compute and storage clusters; therefore, SSH between nodes from different clusters is not possible.
+The compute and storage clusters are created to not have the same passwordless SSH keys. This make sure that there are separate administration domains for the compute and storage clusters; therefore, SSH between nodes from different clusters is not possible.
 
 ## Does the Storage Scale offering support multiple `key_pairs` to establish SSH to all of the nodes?
 {: #multiple-key-pairs}
@@ -113,11 +113,11 @@ The compute and storage clusters are created to not have the same passwordless S
 
 Yes, the current version of the {{site.data.keyword.scale_short}}offering supports multiple key_pair that provide access to all the nodes that are part of the cluster.
 
-## Can I use my own resource group to configure the resources?
+## Can you use own resource group to configure the resources?
 {: #resource-group-configure-resources}
 {: faq}
 
-Yes, you can provide the resource group of your choice for the deployment of your cluster's VPC resources. Due to the use of trusted profiles in this offering, you must ensure that all of the `key_pair` values that are specified in the deployment values are created in the same resource group.
+Yes, you can provide the resource group of your choice for the deployment of your cluster's VPC resources. Due to the use of trusted profiles in this offering, you must ensure that all the `key_pair` values that are specified in the deployment values are created in the same resource group.
 
 ## Which operating system versions are supported for the images used for the compute and storage nodes in Storage Scale?
 {: #supported-operating-systems}
@@ -129,7 +129,7 @@ With {{site.data.keyword.scale_short}}, you can use custom or stock images based
 {: #default-value-security-group-creation}
 {: faq}
 
-For security reasons, {{site.data.keyword.scale_short}} does not allow you to provide a default value that would allow network traffic from any external device. Instead, you can provide the address of your user system (for example, by using https://ipv4.icanhazip.com/) or a multiple IP address range.
+For security reasons, {{site.data.keyword.scale_short}} does not allow you to provide a default value that will allow network traffic from any external device. Instead, you can provide the address of your user system (for example, by using https://ipv4.icanhazip.com/) or a multiple IP address range.
 
 ## What is an IBM Customer Number and what happens if I don't provide it?
 {: #provide-icn}
@@ -161,20 +161,20 @@ The required set of permissions to create the compute resources are already adde
 There are a few potential reasons why the destroy process failed to remove resources:
 
 * The input parameter from the deployment value might have been changed for some reason and {{site.data.keyword.bpshort}} is looking for the existing value. Mismatch of values might cause the destroy action to fail.
-* If other resources are manually created after deployment of the VPC and subnets through the offering and those resources are associated with the same VPC, the destroy action would fail. 
+* If other resources are manually created after deployment of the VPC and subnets through the offering and those resources are associated with the same VPC, the destroy action will fail. 
 * There might be issues on the {{site.data.keyword.cloud_notm}} infrastructure side that cause the destroy action to fail.
 
-## Why am I not able to see my data on the shared file system storage after stopping the storage nodes?
+## Why are you not able to see the data on the shared file system storage after stopping the storage nodes?
 {: #not-able-to-see-data}
 {: faq}
 
 The {{site.data.keyword.scale_full_notm}} file system data resides on instance storage. In general, data that is stored on instance storage is ephemeral so stopping the storage node results in data loss. However, instance storage data is not lost when an instance is rebooted. For more information, see [Lifecycle of instance storage](/docs/vpc?topic=vpc-instance-storage#instance-storage-lifecycle).
 
-## Why do I see `xxxhiddenxxx` in the deployment output log instead of a variable name that I provided?
+## Why do you see `xxxhiddenxxx` in the deployment output log instead of a variable name that is provided?
 {: #variable-name-issue}
 {: faq}
 
-The solution provides useful information in the Terraform output log regarding the cluster and how to access cluster nodes (for example, SSH command, region, trusted profile ID, etc.n). 
+The solution provides useful information in the Terraform output log about the cluster and how to access cluster nodes (for example, SSH command, region, trusted profile ID, etc.n). 
 
 The solution is integrated with the {{site.data.keyword.cloud_notm}} cataided there triggers {{site.data.keyword.bpshort}} to deploy the VPC resources that form the cluster. When the system is passing sensitive information such as username and password, if that value matches with data in the deployment logs, {{site.data.keyword.bpshort}} outputs the value as `xxxhiddenxxx` according to an implemented security policy.
 
@@ -191,7 +191,7 @@ With Storage Scale, you can use custom or stock images based on RHEL 7.9 or RHEL
 ## Why does the 'mmlsconfg' command display 5.1.9.0 in the 'minReleaseLevel' parameter?
 {: #version-command}
 
-After running the 'mmlsconfg' command, the 'minReleaseLevel' parameter displays 5.1.9.0. This is because version 5.1.9.2 includes 'minReleaseLevel' set to 5.1.9.0. For verification of the actual version, run the `mmdiag --version` command.
+After running the `mmlsconfg` command, the 'minReleaseLevel' parameter displays 5.1.9.0. This is because version 5.1.9.2 includes 'minReleaseLevel' set to 5.1.9.0. For verification of the actual version, run the `mmdiag --version` command.
 
 ```
 [root@scale-3-strg-001 ~]# mmdiag --version
