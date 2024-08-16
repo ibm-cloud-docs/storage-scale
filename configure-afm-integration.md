@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-08-16"
 
 keywords: 
 
@@ -99,3 +99,8 @@ Verify Active File Management on the Storage Cluster by using the following step
 4. To check the HMAC for a bucket, run the `mmafmcoskeys storage-scale-bucket get` command.
   *  storage-scale-bucket: The name of the Cloud Object Storage bucket.
   *  get: Operation to retrieve the HMAC key associated with the specified bucket.
+
+## LDAP User Access to COS Filesets
+{: #ldap-user-access-cos}
+
+It is recommended to adjust the ownership, group, and permissions of the fileset to meet the specific needs of the users. While our automation process creates the fileset and establishes the initial relationship, it is the responsibility of the system administrator or user to make sure that these settings are correctly configured afterward. This approach ensures that the LDAP users can access the data with the necessary permissions, maintaining a secure and manageable environment. Properly managing ownership and permissions provides a controlled way for users to interact with the fileset while preserving the integrity and security of the system.
