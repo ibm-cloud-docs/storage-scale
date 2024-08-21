@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-08-20"
+lastupdated: "2024-08-21"
 
 keywords: 
 
@@ -55,7 +55,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
-|`scale_encryption_type` | To enable filesystem encryption, choose `key_protect` or 'gklm'. The default value is 'null', which disables encryption. | `gklm` |
+|`scale_encryption_type` | To enable filesystem encryption, choose `key_protect` or `gklm`. The default value is 'null', which disables encryption. | `gklm` |
 | `scale_encryption_vsi_osimage_name` | Specify the image name to create the GKLM server when `scale_encryption_type` is set to 'gklm'. Only RHEL 8.8 stock images are supported. | `gklm-custom-image-name` |
 | `scale_encryption_vsi_profile` | Specify the virtual server instance profile type to create storage nodes when `scale_encryption_type` is set to 'gklm'. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | `bx2-2x8` |
 | `scale_encryption_server_count` | Specify the number of servers for a high-availability encryption setup when `scale_encryption_type` is set to 'gklm'. The minimum is 2, and the maximum is 5. | `3` |

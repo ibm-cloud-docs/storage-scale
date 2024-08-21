@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-08-21"
 
 keywords: 
 
@@ -63,6 +63,7 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `remote_cidr_blocks` | Comma-separated list of IP addresses that can access the {{site.data.keyword.scale_short}} cluster bastion node through SSH. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, \"169.45.117.34\"). To fetch the IP address of the device, use https://ipv4.icanhazip.com/. | Yes | None |
 | `resource_group` | Resource group name from your {{site.data.keyword.cloud_notm}} account where the VPC resources must be deployed. For more information, see [Managing resource groups](/docs/account?topic=account-rgs). | No | Default |
 | `resource_prefix` | Prefix that is used to name the {{site.data.keyword.cloud_notm}} resources that are provisioned to build the {{site.data.keyword.scale_short}} cluster. Make sure that the prefix is unique since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. | No | storage-scale |
+|`scale_encryption_type` | To enable filesystem encryption, choose `key_protect` or `gklm`. The default value is 'null', which disables encryption. | key_protect |
 | `scale_encryption_enabled` | To enable the encryption for the filesystem. Select true or false. | No | false |
 | `scale_encryption_vsi_osimage_name` | Name of the image that you would like to use to create the GKLM server for encryption. The solution supports only an RHEL 8.8 stock image.  | No | `hpcc-scale-gklm4202-v2-4-0` |
 | `scale_encryption_vsi_profile` | Specify the virtual server instance profile type name used to create the storage nodes. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | Yes, if `scale_encryption_enabled` is set to "true". | bx2-2x8 |
