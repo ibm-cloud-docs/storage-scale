@@ -22,10 +22,10 @@ subcollection: storage-scale
 {:row-headers: .row-headers}
 {:table: .aria-labeledby="caption"}
 
-# Enabling encryption
+# Enabling Encryption
 {: #enable-encryption}
 
-The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect service. You can enable encryption features during deployment. The encryption provides highly available key servers for cryptographic operations on the GPFS file system.
+The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM) or the IBM KeyProtect. You can enable encryption features during deployment. The encryption provides highly available key servers for cryptographic operations on the GPFS file system.
 {: shortdesc}
 
 ## Enabling encryption by using GKLM
@@ -61,7 +61,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | `scale_encryption_server_count` | Specify the number of servers for a high-availability encryption setup when `scale_encryption_type` is set to 'gklm'. The minimum is 2, and the maximum is 5. | `3` |
 | `scale_encryption_admin_password` | Password used for administrative operations in KeyProtect or GKLM. The password must be between 8 and 20 characters, and include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from (~@_+:). It should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/sgklm/4.2){: external}. | `xxxxxxx` |
 | `scale_encryption_dns_domain` | Specify the IBM Cloud DNS Services domain name for the GKLM cluster when `scale_encryption_type` is set to 'gklm'. Note: If an existing DNS domain is in use, a new domain must be provided, as existing domains are not supported. | `gklmscale.com` |
-| `scale_encryption_instance_key_pair` | Specify the name of the SSH key in your IBM Cloud account for connecting to the Scale Encryption keyserver nodes when 'scale_encryption_type' is set to 'gklm'. Ensure the SSH key is in the same resource group and region as the keyservers. Only one SSH key is supported for the keyserver nodes. If you do not have an SSH key in your {{site.data.keyword.cloud_notm}} account, create one by using the [SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) instructions. | `my-ssh-key` |
+| `scale_encryption_instance_key_pair` | Specify the name of the SSH key in your IBM Cloud account for connecting to the Scale Encryption keyserver nodes when `scale_encryption_type` is set to 'gklm'. Ensure the SSH key is in the same resource group and region as the keyservers. Only one SSH key is supported for the keyserver nodes. If you do not have an SSH key in your {{site.data.keyword.cloud_notm}} account, create one by using the [SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) instructions. | `my-ssh-key` |
 {: caption="Table 1. Encryption variables and example values" caption-side="bottom"}
 
 After a successful cluster creation, the following resources are automatically configured to encrypt the file system: 
