@@ -140,7 +140,7 @@ To learn more about encryption for {{site.data.keyword.scale_short}} or differen
 ## Enabling encryption by using IBM KeyProtect
 {: #enable-encryption-keyprotect}
 
-The Storage Scale cluster file system can be encrypted using IBM® Key Protect. The IBM Key Protect on IBM Cloud service helps you provision and store encrypted keys for apps across IBM Cloud services, so you can see and manage data encryption and the entire key lifecycle from one central location.
+The Storage Scale cluster file system can be encrypted using IBM® Key Protect. The IBM Key Protect on IBM Cloud service helps you provision and store encrypted keys for applications across IBM Cloud services, so that you can see and manage data encryption and the entire key lifecycle from one central location.
 
 You can enable encryption features during deployment by setting the `scale_encryption_type` deployment value to `key_protect`.
 
@@ -159,7 +159,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
-|`scale_encryption_type` | To enable filesystem encryption, choose either 'key_protect' or 'gklm'. The default value is 'null', which disables encryption. | `key_protect` |
+|`scale_encryption_type` | To enable filesystem encryption, choose `key_protect` or `gklm`. The default value is 'null', which disables encryption. | `key_protect` |
 | `scale_encryption_admin_password` | Password used for administrative operations in KeyProtect or GKLM. The password must be between 8 and 20 characters, and include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from (~@_+:). It should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/sgklm/4.2). | `xxxxxxx` |
 
 ### Verifying encryption on the file system
