@@ -31,13 +31,13 @@ With {{site.data.keyword.scale_full}}, you can deploy HPC clusters that use {{si
 
 Before you deploy your {{site.data.keyword.scale_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
 
-### Create SSH key
+### Step 1: Create SSH key
 {: #create-ssh-key}
 {: step}
 
 Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You might need multiple SSH keys if you want to use different keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. The offering supports passing multiple, comma-separated SSH keys, if the cluster needs multiple SSH keys. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
-### Create custom image
+### Step 2: Create custom image
 {: #create-custom-image}
 {: step}
 
@@ -48,13 +48,13 @@ For parallel vNIC and CES feature, only default images for storage are supported
 
 {{site.data.keyword.cloud_notm}} provides pre-built images with RHEL to help you get started quickly. See the `storage_vsi_osimage_name storage_bare_metal_osimage_name` and `compute_vsi_osimage_name` parameter in [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). In addition to the base operating system, the image includes the {{site.data.keyword.scale_short}} software packages that allow for the {{site.data.keyword.scale_short}} shared file system to be automatically mounted and ready for use after the creation and configuration of the cluster is complete.
 
-### Gather public IP address
+### Step 3: Gather public IP address
 {: #gather-ip-address}
 {: step}
 
 You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_cidr_blocks` deployment value. For more information, see [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
 
-### Identify cluster deployment location
+### Step 4: Identify cluster deployment location
 {: #identify-cluster}
 {: step}
 
@@ -65,13 +65,13 @@ You need to decide where you want your cluster deployed by choosing an {{site.da
 
 After completing the mandatory steps, you can enable the following optional parameters in the {{site.data.keyword.scale_short}} cluster:
 
-### Enable encryption
+### Step 1: Enable encryption
 {: #enable-encryption}
 {: step}
 
 You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM). If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling encryption by using GKLM](/docs/storage-scale?topic=storage-scale-enable-encryption).
 
-### Enable Parallel vNIC (MROT)
+### Step 2: Enable Parallel vNIC (MROT)
 {: #enable-parallel-vnic}
 {: step}
 
@@ -80,25 +80,25 @@ As per parallel vNIC support for each node of the compute and storage cluster, a
 If CES is enabled, parallel vNIC functionality cannot be used.
 {: note}
 
-### Enable CES
+### Step 3: Enable CES
 {: #enable-ces}
 {: ces}
 
 To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. Refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values) topic for more details.
 
-### Enable boot drive encryption for persistent storage
+### Step 4: Enable boot drive encryption for persistent storage
 {: #enable-boot-encryption}
 {: step}
 
 To enable boot drive encryption for persistent storage, set `bms_boot_drive_encryption` parameter to true.
 
-### Enable LDAP
+### Step 5: Enable LDAP
 {: #enable-ldap}
 {: step}
 
 To enable LDAP, set `enable_ldap` parameter to true and fill in other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). Existing LDAP is also supported.
 
-### Enable AFM
+### Step 6: Enable AFM
 {: #enable-afm}
 {: step}
 
