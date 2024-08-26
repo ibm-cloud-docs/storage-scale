@@ -26,10 +26,10 @@ subcollection: storage-scale
 
 With {{site.data.keyword.scale_full}}, you can deploy HPC clusters that use {{site.data.keyword.scale_full_notm}} as a storage solution. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks.
 
-## Mandatory steps
+## Prerequisites to deploy the cluster
 {: #mandatory-steps}
 
-Before you deploy your {{site.data.keyword.scale_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
+Before you deploy your {{site.data.keyword.scale_short}} cluster, complete the following steps:
 
 ### Step 1: Create SSH key
 {: #create-ssh-key}
@@ -107,12 +107,12 @@ To enable AFM, set `total_afm_cluster_instances` parameter to a value greater th
 ## Next steps
 {: #getting-started-next-steps}
 
-After you have gathered the necessary input values to define your cluster configuration, you are ready to deploy your {{site.data.keyword.scale_full_notm}} cluster. The {{site.data.keyword.scale_short}} cluster can be deployed on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} catalog tile, {{site.data.keyword.bpshort}} UI, {{site.data.keyword.bpshort}} CLI, or the {{site.data.keyword.bpshort}} APIs. If you want to deploy your cluster by using the CLI or API, review the prerequisites for your interface of choice:
+Once the necessary input values are gathered to define your cluster configuration, you are ready to deploy your {{site.data.keyword.scale_full_notm}} cluster. The {{site.data.keyword.scale_short}} cluster can be deployed on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} catalog tile, {{site.data.keyword.bpshort}} UI, {{site.data.keyword.bpshort}} CLI, or the {{site.data.keyword.bpshort}} APIs. If you want to deploy your cluster by using the CLI or API, review the prerequisites for your interface of choice:
 
 * [Setting up the {{site.data.keyword.bplong_notm}} CLI](/docs/storage-scale?topic=storage-scale-setting-up-cli)
 * [Setting up the {{site.data.keyword.bplong_notm}} API](/docs/storage-scale?topic=storage-scale-setting-up-api)
 
-After you have created, gathered your information, and reviewed any additional prerequisites for your interface of choice, perform the following: 
+After you have created and reviewed for any additional prerequisites for your interface, perform the following: 
 
 1. **Create a workspace** on {{site.data.keyword.bplong_notm}} that uses the [Terraform code](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics){: external} that is developed for this offering. This step defines the set of configuration properties that are used to perform the automation. For more information, see [Creating a workspace](/docs/storage-scale?topic=storage-scale-creating-workspace).
 
