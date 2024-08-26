@@ -26,18 +26,15 @@ subcollection: storage-scale
 
 With {{site.data.keyword.scale_full}}, you can deploy HPC clusters that use {{site.data.keyword.scale_full_notm}} as a storage solution. The deployment is performed by using Terraform and {{site.data.keyword.bplong_notm}} as automation frameworks. 
 
-## Mandatory Steps
-{: #mandatory-steps}
-
 Before you deploy your {{site.data.keyword.scale_short}} cluster, you need to create or gather some information. To get started, complete the following steps:
 
-1. Create SSH key
+## Create SSH key
 {: #create-ssh-key}
 {: step}
 
 Create SSH keys in your {{site.data.keyword.cloud_notm}} account. You might need multiple SSH keys if you want to use different keys to access the bastion host, compute cluster, and storage cluster. Ensure that the SSH keys are present in the same resource group and region where the cluster is provisioned. The offering supports passing multiple, comma-separated SSH keys, if the cluster needs multiple SSH keys. For more information, see [Managing SSH keys](/docs/vpc?topic=vpc-managing-ssh-keys).
 
-2. Create custom image
+## Create custom image
 {: #create-custom-image}
 {: step}
 
@@ -48,30 +45,27 @@ For parallel vNIC and CES feature, only default images for storage are supported
 
 {{site.data.keyword.cloud_notm}} provides pre-built images with RHEL to help you get started quickly. See the `storage_vsi_osimage_name storage_bare_metal_osimage_name` and `compute_vsi_osimage_name` parameter in [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). In addition to the base operating system, the image includes the {{site.data.keyword.scale_short}} software packages that allow for the {{site.data.keyword.scale_short}} shared file system to be automatically mounted and ready for use after the creation and configuration of the cluster is complete.
 
-3. Gather public IP address
+## Gather public IP address
 {: #gather-ip-address}
 {: step}
 
 You need to provide your public IP addresses from where you want to access the environment after it is provisioned. You provide these public IP addresses in the `remote_cidr_blocks` deployment value. For more information, see [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
 
-4. Identify cluster deployment location
+## Identify cluster deployment location
 {: #identify-cluster}
 {: step}
 
 You need to decide where you want your cluster deployed by choosing an {{site.data.keyword.cloud_notm}} region and availability zone. You provide this location information when you configure your workspace. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
-## Optional steps
-{: #optional-steps}
-
 After completing the mandatory steps, you can enable the following optional parameters in the {{site.data.keyword.scale_short}} cluster:
 
-1. Enable encryption
+## Enable encryption
 {: #enable-encryption}
 {: step}
 
 You need to decide whether you want to enable encryption for your file system. The {{site.data.keyword.scale_short}} cluster file system can be encrypted by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM). If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling encryption by using GKLM](/docs/storage-scale?topic=storage-scale-enable-encryption).
 
-2. Enable Parallel vNIC (MROT)
+## Enable Parallel vNIC (MROT)
 {: #enable-parallel-vnic}
 {: step}
 
@@ -80,25 +74,25 @@ As per parallel vNIC support for each node of the compute and storage cluster, a
 If CES is enabled, parallel vNIC functionality cannot be used.
 {: note}
 
-3. Enable CES
+## Enable CES
 {: #enable-ces}
 {: ces}
 
 To enable CES, set `total_protocol_cluster_instances` to a value greater than zero. Refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values) topic for more details.
 
-4. Enable boot drive encryption for persistent storage
+## Enable boot drive encryption for persistent storage
 {: #enable-boot-encryption}
 {: step}
 
 To enable boot drive encryption for persistent storage, set `bms_boot_drive_encryption` parameter to true.
 
-5. Enable LDAP
+## Enable LDAP
 {: #enable-ldap}
 {: step}
 
 To enable LDAP, set `enable_ldap` parameter to true and fill in other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). Existing LDAP is also supported.
 
-6. Enable AFM
+## Enable AFM
 {: #enable-afm}
 {: step}
 
@@ -122,8 +116,3 @@ After you have created, gathered your information, and reviewed any additional p
 
 If instead of using {{site.data.keyword.bplong_notm}} you decide to deploy your {{site.data.keyword.scale_full_notm}} cluster through the {{site.data.keyword.cloud_notm}} catalog, when you click **Install**, the **Generate plan** action is skipped, and the steps go from **Create workspace** to **Apply plan** directly. You need to enter values in the catalog that work for your permissions and {{site.data.keyword.cloud_notm}} account. If the deployment fails, the {{site.data.keyword.bpshort}} UI can be used to fix the errors, and you can retry the **Apply Plan** step.
 {: note}
-
-
-
-
-
