@@ -58,7 +58,7 @@ You need to provide your public IP addresses from where you want to access the e
 {: #identify-cluster}
 {: step}
 
-You need to decide where you want your cluster deployed by choosing an {{site.data.keyword.cloud_notm}} region and availability zone. You provide this location information when you configure your workspace. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
+You need to decide where you want your cluster that is deployed by choosing an {{site.data.keyword.cloud_notm}} region and availability zone. You provide this location information when you configure your workspace. For more information, see [Region and data center locations for resource deployment](/docs/overview?topic=overview-locations).
 
 ## Enable optional features in the deployment values
 {: #optional-steps}
@@ -96,7 +96,7 @@ To enable boot drive encryption for persistent storage, set `bms_boot_drive_encr
 {: #enable-ldap}
 {: step}
 
-To enable LDAP, set `enable_ldap` parameter to true and fill in other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). Existing LDAP is also supported.
+To enable LDAP, set `enable_ldap` parameter to true and complete other variables such as `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password`. For more information, refer to [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values). Existing LDAP is also supported.
 
 ### Enable AFM
 {: #enable-afm}
