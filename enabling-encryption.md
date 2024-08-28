@@ -161,6 +161,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | ------------------- | ----------- | ------------- |
 |`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | `key_protect` |
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/sgklm/4.2). | `xxxxxxx` |
+{: caption="Table 2. Encryption variables and example values" caption-side="bottom"}
 
 ### Verifying encryption on the file system
 {: #verify-encryption-keyprotect}
@@ -186,4 +187,3 @@ To enable encryption on a Storage Scale cluster, the following variables need to
     mmlsattr -n gpfs.Encryption FILE_NAME
     ```
     {: codeblock}
-

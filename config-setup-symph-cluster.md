@@ -458,6 +458,7 @@ To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Li
 {: important}
 
 ## Step 4 - Configuring setup on the Symphony cluster side
+{: #config-setup-symphony-cluster-side}
 
 In addition to configuring the AD client authentication at the OS layer, you need to configure the Symphony Cluster to inherit the OS authentication: 
 
@@ -557,5 +558,3 @@ In addition to configuring the AD client authentication at the OS layer, you nee
     
 	
  
-
-
