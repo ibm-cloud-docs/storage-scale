@@ -220,7 +220,7 @@ Make sure to complete the steps for [Getting started with IBM Storage Scale](/do
 |`ldap_admin_password`	|Password that is used for performing administrative operations for LDAP. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.	|`xxxxxx`  |
 |`ldap_user_name`	|Custom LDAP user for performing cluster operations. Note: Username must be at least 4 character, (any combination of lowercase and uppercase letters).	|`scaleuser`|
 |`ldap_user_password`	|LDAP user password that is used for performing operations on the cluster. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.|`xxxxxx`|
-|`enable_ldap`|Set this option to true to enable LDAP for {{site.data.keyword.cloud_notm}} HPC, with the default value set to false.|
+|`enable_ldap`|Set this option to true to enable LDAP for {{site.data.keyword.cloud_notm}} HPC, with the default value set to false.|true|
 {: caption='CES variables'}
 
 ### Verifying authentication
