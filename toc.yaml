@@ -12,7 +12,6 @@ toc:
       topics:
       - getting-started.md
       - about.md
-      - considerations-for-HPC-cluster-compute-types.md
       - deployment-values.md
       - storage-types.md
       - release-notes.md
@@ -49,15 +48,12 @@ toc:
             - link:
                 label: IBM Cloud Schematics CLI
                 href: https://cloud.ibm.com/docs/schematics?topic=schematics-schematics-cli-reference
-            - include: ../schematics/cli-reference.md
             - link:
                 label: CLI version history
                 href: https://cloud.ibm.com/docs/schematics?topic=schematics-cli_version-releases
-            - include: ../schematics/cli-version-release.md
       - link:
           label: IBM Cloud Schematics API
           href: https://cloud.ibm.com/apidocs/schematics
-      - include: ../schematics/schematics-sdk.md
       - data-transfer.md
   - navgroup:
       id: help
