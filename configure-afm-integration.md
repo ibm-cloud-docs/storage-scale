@@ -31,7 +31,7 @@ AFM enables data sharing across clusters even if the networks are unreliable or 
 
 You can use the COS to run the workloads such as mobile applications, backup and restore, enterprise applications, big data analytics, and file server. These workloads can be cached on AFM to COS filesets for faster computation and synchronize back to the cloud object storage server.
 
-![Architecture diagram.](images/afm_cos_architecture.svg){: caption="Figure 1. AFM to Cloud Object Storage" caption-side="bottom"}
+![Architecture diagram.](images/afm_cos_architecture.svg){: caption="Figure 1. AFM storage scale framework" caption-side="bottom"}
 
 An AFM to cloud object storage fileset is supported on all existing AFM fileset modes that includes Read-Only (RO), Single Writer (SW), Local Updates (LU), and Independent Writer (IW).
 

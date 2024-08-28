@@ -65,7 +65,7 @@ This automation always uses the same IP address, so there can be issues in the `
 4. Enter your login credentials that you set up when you created your workspace to access the Storage Scale GUI.
 
 ### Accessing the compute GUI
-{: accessing-compute-gui}
+{: #accessing-compute-gui}
 
 1. Open a new command line terminal.
 2. Run the following command to access the compute cluster:
