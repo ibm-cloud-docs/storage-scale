@@ -60,7 +60,7 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Client nodes | Min 2  \n Max 2000 | Min 2  \n Max 2000 | Min 2  \n Max 2000 |
 | AFM nodes | Min 0  \n Max 5 | Min 0  \n Max 5 | Min 0  \n Max 5 |
 | Storage cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom image) |
-| Compute cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL  8.8  \n (custom or stock images) | RHEL 8.8  \n (custom) |
+| Compute cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom) |
 | Protocol nodes | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) |
 | Client nodes | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) |
 | AFM cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) |  RHEL 8.8  \n (custom image) |
