@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-16"
+lastupdated: "2024-09-02"
 
 keywords: 
 
@@ -67,7 +67,7 @@ To enable the AFM feature on a Storage Scale cluster, the following variables ne
 |-------------|------------|--------------|
 | `total_afm_cluster_instances`  | Total number of instances that you need to provision AFM nodes and enable AFM.	| 0  |
 | `afm_vsi_profile` | The virtual instance or bare metal server instance profile type name used to create the AFM gateway nodes. For more information, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui) and [bare metal server profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). | bx2-32x128 |
-| `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM fileset, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note: The `afm_cos_config` can contain up to 5 entries. For more details on COS bucket locations, refer to [Endpoints and storage locations](https://cloud.ibm.com/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints) documentation. | [{cos_instance="", bucket_name="", bucket_region="us-south", cos_service_cred_key="", afm_fileset="indwriter", mode="iw", bucket_storage_class="smart", bucket_type="region_location"}] |
+| `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM fileset, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note: The `afm_cos_config` can contain up to 5 entries. For more details on COS bucket locations, refer to [Endpoints and storage locations](https://cloud.ibm.com/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints) documentation. | [{cos_instance="", bucket_name="", bucket_region="us-south", cos_service_cred_key="", afm_fileset="fileset1", mode="iw", bucket_storage_class="smart", bucket_type="region_location"}] |
 {: caption='AFM variables'}
 
 Following components are required for a successful scale deployment with AFM feature:
@@ -86,16 +86,16 @@ Verify Active File Management on the Storage Cluster by using the following step
 1. Login to one of the storage nodes by using SSH with a jump host by running the command:
   ` ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE`
 
-2. To get details about a specific fileset and its mode (including AFM specifics), run the `mmlsfileset fs1 indwriter --afm -L` command.
+2. To get details about a specific fileset and its mode (including AFM specifics), run the `mmlsfileset fs1 fileset1 --afm -L` command.
   *  fs1: The name of the file system.
-  *  indwriter: The name of the fileset.
+  *  fileset1: The name of the fileset.
   *  --afm: Option to include AFM-specific details.
   *  -L: Option to list all details about the fileset.
 
-3. To check the synchronization status from an AFM fileset to the home cluster, run the `mmafmctl  fs1 getstate -j indwriter` command.
+3. To check the synchronization status from an AFM fileset to the home cluster, run the `mmafmctl  fs1 getstate -j fileset1` command.
   *  fs1: The name of the file system.
   *  getstate: The operation to retrieve the state.
-  *  -j indwriter: Specifies the fileset for which to check the synchronization state.
+  *  -j fileset1: Specifies the fileset for which to check the synchronization state.
 
 4. To check the HMAC for a bucket, run the `mmafmcoskeys storage-scale-bucket get` command.
   *  storage-scale-bucket: The name of the Cloud Object Storage bucket.
