@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-08-20"
+lastupdated: "2024-09-03"
 
 keywords: 
 
@@ -58,7 +58,7 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Compute cluster node count | Min 3  \n Max 64 | Min 3  \n Max 64 | Min 3  \n Max 64 |
 | Protocol nodes | Min 2  \n Max 32 | Min 2  \n Max 32 | Min 2  \n Max 32 |
 | Client nodes | Min 2  \n Max 2000 | Min 2  \n Max 2000 | Min 2  \n Max 2000 |
-| AFM nodes | Min 0  \n Max 5 | Min 0  \n Max 5 | Min 0  \n Max 5 |
+| AFM nodes | Min 0  \n Max 16 | Min 0  \n Max 16 | Min 0  \n Max 16 |
 | Storage cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom image) |
 | Compute cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom) |
 | Protocol nodes | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) |
