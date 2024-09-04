@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2024
 
-lastupdated: "2024-08-08"
+lastupdated: "2024-09-04"
 
 keywords: IBM Storage Scale release notes
 
@@ -23,15 +23,18 @@ content-type: release-note
 This release notes for {{site.data.keyword.scale_full}} describes the new changes added to the release.
 {: shortdesc}
 
-## August 2024
-{: #storage-scale-aug24}
+## September 2024
+{: #storage-scale-sep24}
 
-### 30 August 2024
-{: #storage-scale-aug0830}
+### 04 September 2024
+{: #storage-scale-sep0904}
 {: release-note}
 
 Enabling AFM feature
 :  Enabling AFM feature allows you to connect {{site.data.keyword.scale_full_notm}} filesets to Cloud Object Storage (COS).
+
+Enabling Encryption with IBM Key Protect
+:  You can now encrypt the Storage Scale cluster file systems using IBM Key Protect. To enable encryption, specify the `scale_encryption_xxx` deployment values when setting up your workspace. For detailed instructions on enabling encryption and configuring these deployment values, refer to the [Enabling Encryption](/docs/storage-scale?topic=storage-scale-enable-encryption) documentation.
 
 ## June 2024
 {: #storage-scale-june24}
