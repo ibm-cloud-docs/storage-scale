@@ -51,24 +51,24 @@ Before you configure, be sure that these prerequisites are met:
 
 Before you proceed with the configuration of {{site.data.keyword.scale_full_notm}} to utilize Active Directory and connecting RHEL systems to AD, ensure that the following network prerequisites are met:
 
-1.	**Network connectivity:** You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
+1.	Network connectivity: You need stable and reliable network connectivity between the Windows Server 2019 system (where Active Directory and DNS are installed) and the RHEL systems that are joined to the domain. Verify that there are no network communication issues or firewalls blocking essential ports.
 
-2.	**Domain controller reachability:** Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like "ping" or "nslookup" to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
+2.	Domain controller reachability: Confirm that the RHEL systems can reach the Active Directory domain controllers without any connectivity issues. Use tools like "ping" or "nslookup" to verify the ability to resolve the domain controller's hostname and IP address from the RHEL systems.
 
-3.	**Time synchronization:** Ensure that all systems that are participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks that are synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
+3.	Time synchronization: Ensure that all systems that are participating in the Active Directory domain, including the Windows Server 2019 system and RHEL systems, have their clocks that are synchronized with a reliable time source. Time synchronization is critical for proper authentication and Kerberos ticket validation.
 
-4.	**Domain DNS configuration:** The Active Directory domain must have properly configured DNS settings. The domain controller's IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 system and RHEL systems) that are part of the AD domain.
+4.	Domain DNS configuration: The Active Directory domain must have properly configured DNS settings. The domain controller's IP address should be set as the primary DNS server on all systems (including the Windows Server 2019 system and RHEL systems) that are part of the AD domain.
 
-5.	**DNS resolution:** Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname should be resolvable from the Windows Server 2019 system and RHEL systems, and the Windows Server 2019 systems hostname should be resolvable from the RHEL systems.
+5.	DNS resolution: Verify that both forward and reverse DNS resolutions are functioning correctly. The domain controller's hostname should be resolvable from the Windows Server 2019 system and RHEL systems, and the Windows Server 2019 systems hostname should be resolvable from the RHEL systems.
 
-6.	**DNS domain name** Ensure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory should be consistent throughout the configuration.
+6.	DNS domain name: Ensure that the DNS domain name of the Active Directory matches the domain name that is used during the configuration process. In this case, the domain name "POCDOMAIN.LOCAL" used for the Active Directory should be consistent throughout the configuration.
 
-7.	**Firewall rules:**  Review and update firewall rules to allow the necessary communication between the Windows Server 2019 system, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
+7.	Firewall rules: Review and update firewall rules to allow the necessary communication between the Windows Server 2019 system, RHEL systems, and the domain controllers. Key ports that are used for AD communication include TCP/UDP 53 (DNS), TCP/UDP 88 (Kerberos), TCP 135 (RPC), TCP/UDP 389 (LDAP), TCP/UDP 445 (SMB), and TCP/UDP 636 (LDAPS).
 
-8.	**Active Directory user account with administrative privileges:**  Ensure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the AD domain.
+8.	Active Directory user account with administrative privileges: Ensure that an Active Directory user account with administrative privileges is available to be used during the configuration process. This account is used to promote the Windows Server 2019 system as a domain controller and to join the RHEL systems to the AD domain.
 
 ### Windows Server and Powershell
-{: #windows-server-powershell-prereq}   
+{: #windows-server-powershell-prereq}
 
 For this procedure you need:
 * A Windows Server 2019 system with administrative privileges.
@@ -166,13 +166,13 @@ Create a user group named "Symphony-group" and a user named "Symphonyuser01" in 
 
       *  Password: Set a secure password for the user account and choose whether the user must change the password on the first logon.
 
-      *  The user cannot change password: Check this option if you want to prevent the user from changing their password.
+      *  The user cannot change the password: Check this option if you want to prevent the user from changing their password.
 
       *  Password never expires: Check this option if you want the user's password to never expire.
 
       *  Account is disabled: By default, the account is enabled. If you want to create the user account in a disabled state, clear this option.
 
-    d.  Click **Next** to continue through any additional wizard steps.
+    d.  Click Next to continue through any additional wizard steps.
 
     e.  Review the information entered, and click **Finish** to create the new user "Symphonyuser01."
 
@@ -200,7 +200,7 @@ Create a user group named "Symphony-group" and a user named "Symphonyuser01" in 
 ### Overview of Direct Integration by using Samba Winbind
 {: #integrate-symph-samba-intro}
 
-To connect a RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
+To connect an RHEL system to Active Directory (AD), two components are needed: Samba Winbind and realmd. Samba Winbind interacts with the AD identity and authentication source, while realmd detects available domains and configures the underlying RHEL system services.
 
 ### Supported Windows Platforms and OSs for Direct Integration
 {: #supported-windows-platforms}
@@ -458,6 +458,7 @@ To provide root user permissions to AD users of "POCDOMAIN.LOCAL" domain on a Li
 {: important}
 
 ## Step 4 - Configuring setup on the Symphony cluster side
+{: #config-setup-symphony-cluster-side}
 
 In addition to configuring the AD client authentication at the OS layer, you need to configure the Symphony Cluster to inherit the OS authentication: 
 
@@ -557,5 +558,3 @@ In addition to configuring the AD client authentication at the OS layer, you nee
     
 	
  
-
-

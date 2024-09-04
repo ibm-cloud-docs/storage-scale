@@ -462,7 +462,8 @@ Additional Input includes:
 13.  Mount the NFS share from the CES server to the LSF node.
     `mount -t nfs4 -o sec=sys storage-scale-ces-1.cesscale.com:/gpfs/fs1/lsf /mnt/lsf`
 
-## Step 5 - CES Failover Setup:
+## Step 5 - CES Failover Setup
+{: #ces-failover-setup}
 
 ### Before you begin
 {: #step5-before-begin}
@@ -490,4 +491,3 @@ Additional Input includes:
 4.  Ensure that the script has executable permissions.
 
     `chmod +x /var/mmfs/etc/mmcesExtendedIpMgmt`
-

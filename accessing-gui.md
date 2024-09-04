@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2022, 2023, 2024
+  years: 2022, 2024
 lastupdated: "2024-06-13"
 
 keywords: 
@@ -24,7 +24,7 @@ subcollection: storage-scale
 # Accessing the GUI
 {: #access-gui}
 
-After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/spectrum-scale/5.1.3?topic=reference-spectrum-scale-gui){: external}.
+After the cluster setup is done, you can monitor the resources and status of the service directly from the {{site.data.keyword.scale_full_notm}} GUI for both the compute and storage clusters. For more information about the GUI, see [{{site.data.keyword.scale_full_notm}} GUI](https://www.ibm.com/docs/en/storage-scale/5.2.1?topic=reference-storage-scale-gui){: external}.
 {: shortdesc}
 
 ## Before you begin
@@ -65,7 +65,7 @@ This automation always uses the same IP address, so there can be issues in the `
 4. Enter your login credentials that you set up when you created your workspace to access the Storage Scale GUI.
 
 ### Accessing the compute GUI
-{: accessing-compute-gui}
+{: #accessing-compute-gui}
 
 1. Open a new command line terminal.
 2. Run the following command to access the compute cluster:
