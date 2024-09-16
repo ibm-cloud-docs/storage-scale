@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-16"
 
 keywords: 
 
@@ -64,7 +64,7 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `resource_group` | Resource group name from your {{site.data.keyword.cloud_notm}} account where the VPC resources must be deployed. For more information, see [Managing resource groups](/docs/account?topic=account-rgs). | No | Default |
 | `resource_prefix` | Prefix that is used to name the {{site.data.keyword.cloud_notm}} resources that are provisioned to build the {{site.data.keyword.scale_short}} cluster. Make sure that the prefix is unique since you cannot create multiple resources with the same name. The maximum length of supported characters is 64. | No | storage-scale |
 |`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | No | Null |
-| `scale_encryption_vsi_osimage_name` | Name of the image that you would like to use to create the GKLM server for encryption. The solution supports only an RHEL 8.8 stock image.  | No | `hpcc-scale-gklm4202-v2-4-0` |
+| `scale_encryption_vsi_osimage_name` | Name of the image that you would like to use to create the GKLM server for encryption. The solution supports only an RHEL 8.8 stock image.  | No | `hpcc-scale-gklm4202-v2-5-1` |
 | `scale_encryption_vsi_profile` | Specify the virtual server instance profile type name used to create the storage nodes. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | Yes, if `scale_encryption_enabled` is set to "true". | bx2-2x8 |
 | `scale_encryption_server_count` | Setting up a high-availability encryption server. You need to choose at least 2 and the maximum number of 5. | Yes, if `scale_encryption_enabled` is set to "true". | 2 |
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [Password policy page](https://www.ibm.com/docs/en/sgklm/4.2?topic=manager-password-policy){: external} to know more about the password policy of GKLM. | Yes, if `scale_encryption_enabled` is set to "true". | Null |
