@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2024
 
-lastupdated: "2024-09-04"
+lastupdated: "2024-09-18"
 
 keywords: IBM Storage Scale release notes
 
@@ -26,7 +26,14 @@ This release notes for {{site.data.keyword.scale_full}} describes the new change
 ## September 2024
 {: #storage-scale-sep24}
 
-### 04 September 2024
+### 12 September 2024
+{: #storage-scale-sep0912}
+{: release-note}
+
+Bug Fixes
+:  Updated the SGKLM images.
+
+### 4 September 2024
 {: #storage-scale-sep0904}
 {: release-note}
 
