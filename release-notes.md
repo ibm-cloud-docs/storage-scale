@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2024
 
-lastupdated: "2024-09-17"
+lastupdated: "2024-09-18"
 
 keywords: IBM Storage Scale release notes
 
