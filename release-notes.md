@@ -26,7 +26,7 @@ This release notes for {{site.data.keyword.scale_full}} describes the new change
 ## October 2024
 {: #storage-scale-oct24}
 
-### 12 October 2024
+### 15 October 2024
 {: #storage-scale-oct1015}
 {: release-note}
 
