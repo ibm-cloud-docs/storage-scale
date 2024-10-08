@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-09-03"
+lastupdated: "2024-10-08"
 
 keywords: 
 
@@ -56,15 +56,15 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Client nodes | Virtual server instances | Virtual server instances | Virtual server instances |
 | Storage cluster node count | Min 2  \n Max 64 | Min 2  \n Max 32 | Min 2  \n Max 64 |
 | Compute cluster node count | Min 3  \n Max 64 | Min 3  \n Max 64 | Min 3  \n Max 64 |
-| Protocol nodes | Min 2  \n Max 32 | Min 2  \n Max 32 | Min 2  \n Max 32 |
-| Client nodes | Min 2  \n Max 2000 | Min 2  \n Max 2000 | Min 2  \n Max 2000 |
-| AFM nodes | Min 1  \n Min 2 (HA)  \n Max 16 | Min 1  \n Min 2 (HA)  \n Max 16 | Min 1  \n Min 2 (HA)  \n Max 16 |
-| Storage cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom image) |
-| Compute cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom) |
-| Protocol nodes | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) | RHEL 8.8  \n (custom image) |
-| Client nodes | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 9.2  \n Cent 7.9(stock image) |
+| Protocol node count | Min 2  \n Max 32 | Min 2  \n Max 32 | Min 2  \n Max 32 |
+| Client node count | Min 2  \n Max 2000 | Min 2  \n Max 2000 | Min 2  \n Max 2000 |
+| AFM node count | Min 1  \n Max 16 | Min 1  \n Max 16 | Min 1  \n Max 16 |
+| Storage cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
+| Compute cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom) |
+| Protocol nodes | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) |
+| Client nodes | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) |
 | AFM cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) |  RHEL 8.8  \n (custom image) |
-| Storage Scale edition and version | Storage Scale Data Management Edition v5.2.0.1 | Storage Scale Data Management Edition v5.2.0.1 | Storage Scale Developer Edition v5.2.0.1 |
+| Storage Scale edition and version | Storage Scale Data Management Edition v5.2.1.0 | Storage Scale Data Management Edition v5.2.1.0 | Storage Scale Developer Edition v5.2.1.0 |
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
 {: row-headers}

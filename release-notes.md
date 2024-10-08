@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2024
 
-lastupdated: "2024-09-18"
+lastupdated: "2024-10-08"
 
 keywords: IBM Storage Scale release notes
 
@@ -22,6 +22,22 @@ content-type: release-note
 
 This release notes for {{site.data.keyword.scale_full}} describes the new changes added to the release.
 {: shortdesc}
+
+## October 2024
+{: #storage-scale-oct24}
+
+### 12 October 2024
+{: #storage-scale-oct1015}
+{: release-note}
+
+Updated RHEL stock image version
+:   The RHEL stock image version has been updated from RHEL 8.8 to RHEL 8.10.
+
+Updated Storage Scale software version
+:   The Storage Scale version used to configure the compute and storage clusters has been updated from version 5.2.0.1 to 5.2.1.1.
+
+Bare metal support for protocol nodes
+:   Dedicated protocol nodes can be deployed on bare metal servers.
 
 ## September 2024
 {: #storage-scale-sep24}

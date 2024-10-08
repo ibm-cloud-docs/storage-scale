@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-02"
+lastupdated: "2024-10-08"
 
 keywords: 
 
@@ -65,9 +65,9 @@ To enable the AFM feature on a Storage Scale cluster, the following variables ne
 
 |AFM Variable|	Description|	Example value|
 |-------------|------------|--------------|
-| `total_afm_cluster_instances`  | Total number of instances that you need to provision AFM nodes and enable AFM.	| 0  |
-| `afm_vsi_profile` | The virtual instance or bare metal server instance profile type name used to create the AFM gateway nodes. For more information, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui) and [bare metal server profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). | bx2-32x128 |
+| `afm_server_profile` | The virtual instance or bare metal server instance profile type name used to create the AFM gateway nodes. For more information, see [Instance profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui) and [Bare metal server profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui). | bx2-32x128 |
 | `afm_cos_config` | Provide details for the Cloud Object Storage (COS) instance, including information about the COS bucket, service credentials (HMAC key), AFM fileset, mode (such as Read-only (RO), Single writer (SW), Local updates (LU), and Independent writer (IW)), storage class (standard, vault, cold, or smart), and bucket type (single_site_location, region_location, cross_region_location). Note: The `afm_cos_config` can contain up to 5 entries. For more details on COS bucket locations, refer to [Endpoints and storage locations](https://cloud.ibm.com/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints) documentation. | [{cos_instance="", bucket_name="", bucket_region="us-south", cos_service_cred_key="", afm_fileset="fileset1", mode="iw", bucket_storage_class="smart", bucket_type="region_location"}] |
+| `total_afm_cluster_instances`  | Total number of instances that you need to provision AFM nodes and enable AFM.	| 0  |
 {: caption='AFM variables'}
 
 Following components are required for a successful scale deployment with AFM feature:
