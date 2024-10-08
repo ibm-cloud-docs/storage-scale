@@ -51,20 +51,17 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 |      | Scratch (default) | Persistent | Evaluation |
 | ---- | ----------------- | ---------- | ---------- |
 | Storage cluster nodes | Virtual server instances | Bare metal servers | Virtual server instances |
-| Compute cluster nodes | Virtual server instances | Virtual server instances | Virtual server instances |
-| Protocol nodes | Virtual server instances | Conditional  \n colocation = true (BMS)  \n colocation = false (VSI) | Virtual server instances |
-| Client nodes | Virtual server instances | Virtual server instances | Virtual server instances |
 | Storage cluster node count | Min 2  \n Max 64 | Min 2  \n Max 32 | Min 2  \n Max 64 |
 | Compute cluster node count | Min 3  \n Max 64 | Min 3  \n Max 64 | Min 3  \n Max 64 |
 | Protocol node count | Min 2  \n Max 32 | Min 2  \n Max 32 | Min 2  \n Max 32 |
 | Client node count | Min 2  \n Max 2000 | Min 2  \n Max 2000 | Min 2  \n Max 2000 |
 | AFM node count | Min 1  \n Max 16 | Min 1  \n Max 16 | Min 1  \n Max 16 |
 | Storage cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
-| Compute cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom) |
+| Compute cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
 | Protocol nodes | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) |
 | Client nodes | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) |
 | AFM cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) |  RHEL 8.8  \n (custom image) |
-| Storage Scale edition and version | Storage Scale Data Management Edition v5.2.1.0 | Storage Scale Data Management Edition v5.2.1.0 | Storage Scale Developer Edition v5.2.1.0 |
+| Storage Scale edition and version | Storage Scale Data Management Edition v5.2.1.1 | Storage Scale Data Management Edition v5.2.1.1 | Storage Scale Developer Edition v5.2.1.1 |
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
 {: row-headers}
