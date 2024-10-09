@@ -60,7 +60,6 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | Compute cluster OS support | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom or stock images) | RHEL 8.10  \n (custom image) |
 | Protocol nodes | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) | RHEL 8.10  \n (custom image) |
 | Client nodes | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) | RHEL 7.9, 8.8, 8.10, 9.2  \n Cent 7.9(stock image) |
-| AFM cluster OS support | RHEL 8.8  \n (custom or stock images) | RHEL 8.8  \n (custom or stock images) |  RHEL 8.8  \n (custom image) |
 | Storage Scale edition and version | Storage Scale Data Management Edition v5.2.1.1 | Storage Scale Data Management Edition v5.2.1.1 | Storage Scale Developer Edition v5.2.1.1 |
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
