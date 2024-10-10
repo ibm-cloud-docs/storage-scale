@@ -39,7 +39,7 @@ Similarly, if the profile of storage nodes has a Bandwidth of 64 Gbps or more, a
 Parallel vNIC feature is not supported for persistent storage type.
 {: note}
 
-![Architecture diagram.](images/install-config-spectrum-scale.png){: caption="Figure 1.  Install and Configure Storage Scale" caption-side="bottom"}
+![Architecture diagram.](images/install-config-spectrum-scale.png){: caption="Install and Configure Storage Scale" caption-side="bottom"}
 
 ## Benefits
 {: #benefits}
@@ -210,4 +210,3 @@ For the storage cluster, scaling is configured on both primary and secondary IPs
 On Storage Cluster:
 
 `subnets 10.241.1.0/scale-cluster.strgscale.com;scale-cluster.compscale.com`
-

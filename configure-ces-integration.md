@@ -33,7 +33,7 @@ Enabling colocation designates the subset of Storage server as protocol nodes. I
 
 The colocation feature avoids the need to provision extra virtual servers and improves the performance. It is also supported on Bare Metal servers.
 
-![Architecture diagram.](images/scale-ces.png){: caption="Figure 1.  CES node on Storage Scale" caption-side="bottom"}
+![Architecture diagram.](images/scale-ces.png){: caption="CES node on Storage Scale" caption-side="bottom"}
 
 ## Before you begin
 {: #beforeyoubegin-config-ces}

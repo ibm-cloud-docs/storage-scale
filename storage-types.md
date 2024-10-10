@@ -64,7 +64,7 @@ With evaluation storage, you can try out the {{site.data.keyword.scale_short}} s
 | IBM Customer Number required? | Yes | Yes | No |
 | Customer support available? | Yes | Yes | No |
 {: row-headers}
-{: caption="Table 1. Storage Scale storage types comparison" caption-side="bottom"}
+{: caption="Storage Scale storage types comparison" caption-side="bottom"}
 {: summary="The first row of the table describes a Storage Scale feature, and the first column describes the specifics of that feature as it pertains to scratch storage. The second column describes the specifics of persistent storage, and the third column describes the specifics of evaluation storage, which map to the Storage Scale feature in each row."}
 
 For more information about {{site.data.keyword.scale_short}} editions, see [{{site.data.keyword.scale_full_notm}} product editions](https://www.ibm.com/docs/en/storage-scale/5.1.5?topic=overview-spectrum-scale-product-editions){: external}.

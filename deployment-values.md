@@ -99,4 +99,4 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `vpc_storage_cluster_dns_domain` | {{site.data.keyword.dns_full_notm}} domain name to be used for the storage cluster. Note: If an existing DNS domain is already in use, a new domain must be specified as existing domains are not supported. | No | strgscale.com |
 | `vpc_storage_cluster_private_subnets_cidr_blocks` | The CIDR block that is required for the creation of the storage cluster private subnet. Modify the CIDR block if it has already been reserved or used for other applications within the VPC or conflicts with any on-premises CIDR blocks when using a hybrid environment. Provide only one CIDR block for the creation of the storage subnet. | No | 10.241.1.0/24 |
 | `vpc_storage_subnet` |  Name of an existing subnet for storage nodes. If no value is given, a new subnet is created.	 | Yes | Null| 
-{: caption="Table 1. Deployment values" caption-side="top"}
+{: caption="Deployment values" caption-side="top"}
