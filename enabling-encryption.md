@@ -33,7 +33,7 @@ The {{site.data.keyword.scale_short}} cluster file system can be encrypted by us
 
 The following diagram is an example of a {{site.data.keyword.scale_short}} deployment with encryption enabled. The deployment includes key servers that use the GKLM application.
 
-![Architecture diagram](images/Scale-With-SGKLM5.svg){: caption="Figure 1. {{site.data.keyword.scale_short}} deployment with encryption" caption-side="bottom"}
+![Architecture diagram](images/Scale-With-SGKLM5.svg){: caption="{{site.data.keyword.scale_short}} deployment with encryption" caption-side="bottom"}
 
 By setting the `scale_encryption_type` deployment value to `gklm`, the key servers are automatically deployed and configured for encryption during the deployment.
 
@@ -62,7 +62,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/sgklm/4.2){: external}. | `xxxxxxx` |
 | `scale_encryption_dns_domain` | Specify the IBM Cloud DNS Services domain name for the GKLM cluster when `scale_encryption_type` is set to `gklm`. Note: If an existing DNS domain is in use, a new domain must be provided, as existing domains are not supported. | `gklmscale.com` |
 | `scale_encryption_instance_key_pair` | Specify the name of the SSH key in your IBM Cloud account for connecting to the Scale Encryption keyserver nodes when `scale_encryption_type` is set to `gklm`. Ensure the SSH key is in the same resource group and region as the keyservers. Only one SSH key is supported for the keyserver nodes. If you do not have an SSH key in your {{site.data.keyword.cloud_notm}} account, create one by using the [SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) instructions. | `my-ssh-key` |
-{: caption="Table 1. Encryption variables and example values" caption-side="bottom"}
+{: caption="Encryption variables and example values" caption-side="bottom"}
 
 After a successful cluster creation, the following resources are automatically configured to encrypt the file system: 
 
@@ -161,7 +161,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | ------------------- | ----------- | ------------- |
 |`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | `key_protect` |
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/sgklm/4.2). | `xxxxxxx` |
-{: caption="Table 2. Encryption variables and example values" caption-side="bottom"}
+{: caption="Encryption variables and example values" caption-side="bottom"}
 
 ### Verifying encryption on the file system
 {: #verify-encryption-keyprotect}

@@ -57,12 +57,12 @@ If the files are not in the cache, the LSF data manager stages them and notifies
 *   Single-cluster implementation
     A typical single-cluster implementation of LSF Data Manager consists of a data source, an LSF management host, a data manager host, I/O hosts, and execution hosts. Each component works together to accomplish the task of staging data and submitting jobs with data requirements.
 
-    ![Single-cluster diagram.](images/lsf-single-cluster.jpg){: caption="Figure 1. Single-cluster" caption-side="bottom"}
+    ![Single-cluster diagram.](images/lsf-single-cluster.jpg){: caption="Single-cluster" caption-side="bottom"}
 
 *   LSF multicluster capability implementation
     A typical LSF multicluster capability implementation of LSF Data Manager has a queue configuration that is not a remote-only queue. Each component works together to accomplish the task of staging data and submitting jobs with data requirements.
 
-    ![Multiple-cluster diagram.](images/lsf-multiple-cluster.jpg){: caption="Figure 1. Multiple-cluster" caption-side="bottom"}
+    ![Multiple-cluster diagram.](images/lsf-multiple-cluster.jpg){: caption="Multiple-cluster" caption-side="bottom"}
 
 ### Pros 
 {: #pros-data-mgr}
@@ -406,12 +406,3 @@ Synchronize is a wrapper around rsync to make common tasks in your playbooks qui
 ```
 
 To learn more about the synchronize module, [click here](https://docs.ansible.com/archive/ansible/2.3/synchronize_module.html).
-
-
-
-
-
-
-
-
-

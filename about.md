@@ -36,9 +36,9 @@ The default VPC instance profile for the bootstrap node has been selected based 
 ### Architecture diagrams
 {: #architecture-diagram}
 
-![Architecture diagram](images/hpccluster_scale_scratch_architecture.svg){: caption="Figure 1. Architecture diagram of a {{site.data.keyword.scale_full_notm}} cluster using scratch storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Architecture diagram](images/hpccluster_scale_scratch_architecture.svg){: caption="Architecture diagram of a {{site.data.keyword.scale_full_notm}} cluster using scratch storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
-![Architecture diagram persistent](images/hpccluster_scale_persistent_architecture_05_26_22.svg){: caption="Figure 2. Architecture diagram of a {{site.data.keyword.scale_full_notm}} cluster using persistent storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
+![Architecture diagram persistent](images/hpccluster_scale_persistent_architecture_05_26_22.svg){: caption="Architecture diagram of a {{site.data.keyword.scale_full_notm}} cluster using persistent storage on {{site.data.keyword.cloud_notm}}" caption-side="bottom"}
 
 ## Storage types
 {: #scale-storage-types}
