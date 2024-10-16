@@ -119,6 +119,12 @@ Yes, the current version of the {{site.data.keyword.scale_short}} offering suppo
 
 Yes, you can provide the resource group of your choice for the deployment of your cluster's VPC resources. Due to the use of trusted profiles in this offering, you must ensure that all the `key_pair` values that are specified in the deployment values are created in the same resource group.
 
+## Which operating system versions are supported for the images used for the compute and storage nodes in Storage Scale?
+{: #os-compute-storage-nodes}
+{: faq}
+
+In {{site.data.keyword.scale_full_notm}}, either custom or stock images based on RHEL 8.10 version can be used for compute and storage nodes.
+
 ## Why does Storage Scale not allow use of the default value of 0.0.0.0/0 for security group creation?
 {: #default-value-security-group-creation}
 {: faq}
@@ -170,11 +176,6 @@ The solution is integrated with the {{site.data.keyword.cloud_notm}} cataided th
 {: #support-mrot-versions}
 
 Anything above {{site.data.keyword.scale_full_notm}} 5.1.5 supports the Multi-Rail over TCP (MROT) feature.
-
-## What version of OS does Scale support?
-{: #os-version-supported}
-
-With Storage Scale, you can use custom or stock images based on RHEL 8.10 version. For compute nodes, both RHEL 7.9 or 8.8 can be used. For storage nodes, only RHEL 8.8 is supported.
 
 ## Why does the 'mmlsconfg' command display 5.2.1.0 in the 'minReleaseLevel' parameter?
 {: #version-command}
