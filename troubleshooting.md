@@ -49,7 +49,7 @@ Do not provide a GitHub token, and check to see whether the GitHub token was pro
 {: troubleshoot}
 {: support}
 
-Schematics isn't able to create a workspace, and you are seeing the following error message: `You don't have the required to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
+Schematics is not able to create a workspace, and you are seeing the following error message: `You don't have the required to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
 {: tsSymptoms}
 
 You do not have the required access to create a workspace in any resource groups. You are assigned the manager role on the Schematics service for the resource group where you want to deploy the cluster resources.
@@ -69,7 +69,7 @@ Schematics isn't able to provision the cluster, and you are seeing the following
 You do not have the required access to get any VPC resources provisioned. 
 {: tsCauses}
 
-Contact your account administrator and get the required access permissions. For more information, see [Required permissions](/docs/vpc?topic=vpc-resource-authorizations-required-for-api-and-cli-calls).
+Contact your account administrator and get the required access permissions. For more information, see [Required permissions](https://cloud.ibm.com/docs/account?topic=account-userroles).
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with an error that the provided name is not unique? 
