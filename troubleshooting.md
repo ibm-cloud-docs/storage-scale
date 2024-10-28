@@ -49,7 +49,7 @@ Do not provide a GitHub token, and check to see whether the GitHub token was pro
 {: troubleshoot}
 {: support}
 
-Schematics is not able to create a workspace, and you are seeing the following error message: `You don't have the required to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
+Schematics is not able to create a workspace, and you are seeing the following error message: `You don't have the required access to create a workspace in any resource groups. You must be assigned the manager role on the Schematics service in at least one resource group. Contact your account administrator for access.`
 {: tsSymptoms}
 
 You do not have the required access to create a workspace in any resource groups. You are assigned the manager role on the Schematics service for the resource group where you want to deploy the cluster resources.
