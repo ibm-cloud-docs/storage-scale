@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2024
-lastupdated: "2024-10-14"
+lastupdated: "2024-11-05"
 
 keywords: 
 
@@ -59,6 +59,7 @@ The following deployment values can be used to configure the {{site.data.keyword
 | `ldap_vsi_osimage_name` | Image name to be used for provisioning the LDAP instances. Note: Debian- based OS are only supported for the LDAP feature.	|  No | ibm-ubuntu-22-04-3-minimal-amd64-1 |
 | `ldap_vsi_profile` | Profile to be used for LDAP virtual server instance.	| No  | cx2-2x4 |
 | `management_vsi_profile` | The virtual server instance profile type name is used to create the management node. For more information, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui).	| No  | bx2-8x32 |
+|`ldap_server_cert` |Provide the existing LDAP server certificate. This value is required if the `ldap_server` variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, refer to [Enabling OpenLDAP service](https://cloud.ibm.com/docs/storage-scale?topic=storage-scale-enable-openldap).| No  | null |
 | `protocol_server_profile` | The virtual instance or bare metal server instance profile type name to be used to create the protocol nodes. For more information, see [Instance Profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-profiles&interface=ui) and [bare metal server profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).	| No | cx2-32x64   |
 | `remote_cidr_blocks` | Comma-separated list of IP addresses that can access the {{site.data.keyword.scale_short}} cluster bastion node through SSH. For security purposes, provide the public IP addresses assigned to the devices that are authorized to establish SSH connections (for example, \"169.45.117.34\"). To fetch the IP address of the device, use https://ipv4.icanhazip.com/. | Yes | Null |
 | `resource_group` | Resource group name from your {{site.data.keyword.cloud_notm}} account where the VPC resources must be deployed. For more information, see [Managing resource groups](/docs/account?topic=account-rgs). | No | Default |

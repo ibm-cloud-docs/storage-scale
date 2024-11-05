@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-04-26"
+lastupdated: "2024-11-04"
 
 keywords: 
 
@@ -34,19 +34,54 @@ OpenLDAP is an open source implementation of the Lightweight Directory Access Pr
 
 Integrating OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster enables centralized user management, improved security, and simplified user authentication. The integration also allows you to use existing authentication credentials, reducing the need to remember multiple login credentials. Overall, the architecture provides a robust and efficient solution for user authentication and directory management in distributed computing environments.
 
-OpenLDAP server can be installed and configured on a Linux&reg; system; for example, an Ubuntu 22.04 as the host is supported.
+OpenLDAP server can be installed and configured on a Linux&reg; system; for example, an Ubuntu 22.04 is supported as the host.
 {: shortdesc}
 
-## Integrating an existing OpenLDAP server with your IBM Storage Scale cluster
+## Before you begin
+{: #beforeyoubegin-openladap}
+
+Before you begin, review the following information:
+
+1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
+2. Learn more about [OpenLDAP](https://www.openldap.org/doc/admin26/) configuration.
+
+## Integrating the OpenLDAP server with your IBM Storage Scale cluster
 {: #integrating-openldap}
 
-You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`,`ldap_basedns`, `ldap_server`, `ldap_admin_password`, `ldap_user_name`, and `ldap_user_password` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connects it to {{site.data.keyword.scale_full_notm}} cluster. If you have an existing LDAP server, you can provide LDAP information during the {{site.data.keyword.scale_full_notm}} cluster deployment.
+You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`,`ldap_basedns`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, and `ldap_instance_key_pair` deployment input values. If you do not have an existing LDAP server, the deployment process creates one for you and connects it to the {{site.data.keyword.scale_full_notm}} cluster.
+
+|LDAP Variable	|Description	|Example value |
+|----------|----------|----------|
+|`enable_ldap`|Set this option to true to enable LDAP for IBM Cloud HPC, with the default value set to false.|true |
+|`ldap_basedns`	|The dns domain name is used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name.|`ldapscale.com`| 
+|`ldap_admin_password`	|The LDAP administrative password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required. It is important to avoid including the username in the password for enhanced security.	|`xxxxxx`|
+|`ldap_user_name`	|Custom LDAP User for performing cluster operations. Note: Username should be between 4 to 32 characters, (any combination of lowercase and uppercase letters).[This value is ignored for an existing LDAP server]	|`scaleuser`|
+|`ldap_user_password`	|The LDAP user password should be 8 to 20 characters long, with a mix of at least three alphabetic characters, including one uppercase and one lowercase letter. It must also include two numerical digits and at least one special character from (~@_+:) are required.It is important to avoid including the username in the password for enhanced security.[This value is ignored for an existing LDAP server].|`xxxxxx`|
+|`ldap_instance_key_pair`|Set this option to true to enable LDAP for IBM Cloud HPC, with the default value set to false.|your-ssh-key|
+{: caption='LDAP variables'}
+
+## Integrating an existing OpenLDAP server with your IBM Storage Scale cluster
+{: #integrating-existing-openldap}
+
+You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`, `ldap_basedns`, `ldap_server`, and `ldap_server_cert` deployment input values. If you do not have an existing LDAP server and certificate, the deployment process creates one for you and connects it to the IBM Cloud HPC cluster.
 {: shortdesc}
 
-If you have an existing OpenLDAP server, you can use that with your {{site.data.keyword.scale_full_notm}} cluster. Before you deploy the {{site.data.keyword.scale_full_notm}} cluster with the LDAP input values, complete the following LDAP requirements:
+If you already have an existing LDAP server with a certificate, provide all the necessary LDAP information during the {{site.data.keyword.scale_full_notm}} cluster deployment. If your existing LDAP server does not have a certificate, follow the steps to create and configure.
+
+Before you deploy the IBM Storage Scale cluster with the LDAP input values, complete the following LDAP requirements:
+
 1. OpenLDAP version 2.4 or later is installed and configured.
 2. The OpenLDAP server can communicate with the {{site.data.keyword.scale_full_notm}} cluster nodes over the network. Configure the network settings on both the OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes.
 3. The OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes can communicate over port 389.
+4. Create and configure an LDAP certificate if not present.
+
+|LDAP Variable	|Description	|Example value |
+|----------|----------|----------|
+|`enable_ldap`|Set this option to true to enable LDAP for IBM Cloud HPC, with the default value set to false.|true |
+|`ldap_basedns`	|The dns domain name is used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name.|`ldapscale.com`| 
+|`ldap_server`	|Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created.|null|
+|`ldap_server_cert`|Provide the existing LDAP server certificate. This value is required if the `ldap_server` variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, refer [Enabling OpenLDAP service](https://cloud.ibm.com/docs/storage-scale?topic=storage-scale-enable-openldap).|null|
+{: caption='LDAP variables'}
 
 Also, always allow access to the CIDR ranges for the VPC that the {{site.data.keyword.scale_full_notm}} cluster deployment creates. Make sure that the security groups for the existing LDAP server are allowlisted with the VPC CIDR range of newly created VPC. This way, the new VPC can connect to the existing your existing OpenLDAP server and that all management and login nodes can access your LDAP server.
 
@@ -68,7 +103,7 @@ However, if the connection to the existing LDAP server is not established, you s
 │   on main.tf line 355, in resource "null_resource" "validate_ldap_server_connection":
 │  355:   provisioner "remote-exec" {
 │ 
-│ error executing "/tmp/terraform_888134906.sh": Process exited with status 1
+│  error executing "/tmp/terraform_888134906.sh": Process exited with status 1
 ```
 {: codeblock}
 
@@ -204,7 +239,7 @@ The directory services enable access to files through the NFS protocol.
 
 LDAP is an optional component for CES, allowing users to either use an existing LDAP server or set up a new LDAP node specifically for the CES cluster.
 
-By setting up the `ldap_basedns` deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES.
+By setting up the `enable_ldap`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, `ldap_instance_key_pair`, and `ldap_basedns` deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES.
 
 ### Before you begin
 {: #before-you-begin}
@@ -235,3 +270,134 @@ mmuserauth service check
 The command that is mentioned indicates that the authentication process is being carried out through LDAP.
 
 To know more about CES authentication click [CES User Authentication](/docs/storage-scale?topic=storage-scale-config-ces-integration-ldap-authentication&interface=cli#verify-ces).
+
+## Creating and Configuring an LDAP certificate with your LDAP server
+{: #create-configure-ldap-certificate}
+
+If you have an existing LDAP server configured without a certificate, follow these steps to create a certificate and configure it with the LDAP server.
+
+1. Configure SSH key into your existing LDAP server.
+
+2. Install the required software.
+   `apt install gnutls-bin ssl-cert -y`
+
+3. Generate the SSL certificate and configure with the OpenLDAP server.
+    ```text
+    certtool --generate-privkey --sec-param High --outfile 
+    /etc/ssl/private/ldap_cakey.pem
+    ```
+    {: codeblock}
+
+4. Create a CA template file.
+    ```text
+    cat <<EOF > /etc/ssl/ca.info
+    cn = IBM Research
+    ca
+    cert_signing_key
+    expiration_days = 3650
+    EOF
+    ```
+    {: codeblock}
+
+5. Generate a self-signed CA certificate.
+    ```text
+    certtool --generate-self-signed \
+    --load-privkey /etc/ssl/private/ldap_cakey.pem \
+    --template /etc/ssl/ca.info \
+    --outfile /usr/local/share/ca-certificates/ldap_cacert.pem
+    ```
+    {: codeblock}
+
+6. Update the CA certificates and copy the generated CA certificate to `/etc/ssl/certs/` path.
+    ```text
+    update-ca-certificates
+    cp /usr/local/share/ca-certificates/ldap_cacert.pem /etc/ssl/certs/
+    ```
+    {: codeblock}
+
+7. Generate a private key for the LDAP server.
+    ```text
+    certtool --generate-privkey --sec-param High --outfile 
+    /etc/ssl/private/ldapserver_slapd_key.pem
+    ```
+    {: codeblock}
+
+8. Create an LDAP server certificate template.
+    ```
+    cat <<EOF > /etc/ssl/ldapserver.info
+    organization = IBM Research
+    cn = localhost
+    tls_www_server
+    encryption_key
+    signing_key
+    expiration_days = 3650
+    EOF
+    ```
+    {: codeblock}
+
+9. Generate a certificate for the LDAP server signed by the CA.
+    ```
+    certtool --generate-certificate \
+    --load-privkey /etc/ssl/private/ldapserver_slapd_key.pem \
+    --load-ca-certificate /etc/ssl/certs/ldap_cacert.pem \
+    --load-ca-privkey /etc/ssl/private/ldap_cakey.pem \
+    --template /etc/ssl/ldapserver.info \
+    --outfile /etc/ssl/certs/ldapserver_slapd_cert.pem
+    ```
+    {: codeblock}
+
+10. Set proper permissions for the LDAP server private key.
+    ```
+    chgrp openldap /etc/ssl/private/ldapserver_slapd_key.pem
+    chmod 0640 /etc/ssl/private/ldapserver_slapd_key.pem
+    gpasswd -a openldap ssl-cert
+    ```
+    {: codeblock}
+
+11. Restart `slapd` service to apply the changes.
+    `systemctl restart slapd.service`
+
+12. Create an LDIF file for configuring TLS in LDAP server.
+    ```
+    cat <<EOF > /etc/ssl/certinfo.ldif
+    dn: cn=config
+    add: olcTLSCACertificateFile
+    olcTLSCACertificateFile: /etc/ssl/certs/ldap_cacert.pem
+
+    -
+
+    add: olcTLSCertificateFile
+    olcTLSCertificateFile: /etc/ssl/certs/ldapserver_slapd_cert.pem
+
+    -
+
+    add: olcTLSCertificateKeyFile
+    olcTLSCertificateKeyFile: /etc/ssl/private/ldapserver_slapd_key.pem
+    EOF
+    ```
+    {: codeblock}
+
+13. Apply TLS configuration using `ldapmodify` command.
+    ```
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f /etc/ssl/certinfo.ldif
+    ```
+
+14. Configure the `slapd` service to listen on both ldap:// and ldaps://"
+    ```
+    sed -i 's\SLAPD_SERVICES="ldap:/// ldapi:///"\SLAPD_SERVICES="ldap:/// ldapi:/// ldaps:///"\g' /etc/default/slapd
+    ```
+
+15. Update `/etc/ldap/ldap.conf` file.
+    ```
+    cat <<EOF >> /etc/ldap/ldap.conf
+    TLS_CACERT /etc/ssl/certs/ldap_cacert.pem
+    TLS_REQCERT allow
+    EOF
+    ```
+    {: codeblock}
+
+16. Restart `slapd` service to apply the changes.
+    `systemctl restart slapd.service`
+
+17. Copy the LDAP certificate content from "/etc/ssl/certs/ldap_cacert.pem" path as a single line and provide as input to the "ldap_server_cert" variable.
+    ` awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' /etc/ssl/certs/ldap_cacert.pem`
