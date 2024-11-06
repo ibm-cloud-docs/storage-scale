@@ -63,24 +63,24 @@ You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster 
 ## Integrating an existing OpenLDAP server with your IBM Storage Scale cluster
 {: #integrating-existing-openldap}
 
-You can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`, `ldap_basedns`, `ldap_server`, and `ldap_server_cert` deployment input values. If you do not have an existing LDAP server and certificate, the deployment process creates one for you and connects it to the IBM Cloud HPC cluster.
+If you already have an existing LDAP server with a certificate, then you can enable OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster [during deployment](/docs/storage-scale?topic=storage-scale-deployment-values) by setting the `enable_ldap`, `ldap_basedns`, `ldap_server`, and `ldap_server_cert` deployment input values. If you do not have an existing LDAP server and certificate, the deployment process creates one for you and connects it to the IBM Cloud HPC cluster.
 {: shortdesc}
 
-If you already have an existing LDAP server with a certificate, provide all the necessary LDAP information during the {{site.data.keyword.scale_full_notm}} cluster deployment. If your existing LDAP server does not have a certificate, follow the steps to create and configure.
+If your existing LDAP server does not have a certificate, follow the steps mentioned in [Creating and Configuring an LDAP certificate with your LDAP server](/docs/storage-scale?topic=storage-scale-enable-openldap#create-configure-ldap-certificate) section.
 
 Before you deploy the IBM Storage Scale cluster with the LDAP input values, complete the following LDAP requirements:
 
 1. OpenLDAP version 2.4 or later is installed and configured.
 2. The OpenLDAP server can communicate with the {{site.data.keyword.scale_full_notm}} cluster nodes over the network. Configure the network settings on both the OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes.
 3. The OpenLDAP server and the {{site.data.keyword.scale_full_notm}} cluster nodes can communicate over port 389.
-4. Create and configure an LDAP certificate if not present.
+4. [Create and configure an LDAP certificate](/docs/storage-scale?topic=storage-scale-enable-openldap#create-configure-ldap-certificate), if not present.
 
 |LDAP Variable	|Description	|Example value |
 |----------|----------|----------|
 |`enable_ldap`|Set this option to true to enable LDAP for IBM Cloud HPC, with the default value set to false.|true |
 |`ldap_basedns`	|The dns domain name is used for configuring the LDAP server. If an LDAP server is already in existence, ensure to provide the associated DNS domain name.|`ldapscale.com`| 
-|`ldap_server`	|Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created.|null|
-|`ldap_server_cert`|Provide the existing LDAP server certificate. This value is required if the `ldap_server` variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, refer [Enabling OpenLDAP service](https://cloud.ibm.com/docs/storage-scale?topic=storage-scale-enable-openldap).|null|
+|`ldap_server`	|Provide the IP address for the existing LDAP server. If no address is given, a new LDAP server will be created.|`xxxxxx`|
+|`ldap_server_cert`|Provide the existing LDAP server certificate. This value is required if the `ldap_server` variable is not set to null. If the certificate is not provided or is invalid, the LDAP configuration may fail. For more information on how to create or obtain the certificate, refer [Enabling OpenLDAP service](https://cloud.ibm.com/docs/storage-scale?topic=storage-scale-enable-openldap).|`xxxxxx`|
 {: caption='LDAP variables'}
 
 Also, always allow access to the CIDR ranges for the VPC that the {{site.data.keyword.scale_full_notm}} cluster deployment creates. Make sure that the security groups for the existing LDAP server are allowlisted with the VPC CIDR range of newly created VPC. This way, the new VPC can connect to the existing your existing OpenLDAP server and that all management and login nodes can access your LDAP server.
@@ -237,23 +237,8 @@ LDAP is an optional component for CES, allowing users to either use an existing 
 
 By setting up the `enable_ldap`, `ldap_admin_password`, `ldap_user_name`, `ldap_user_password`, `ldap_instance_key_pair`, and `ldap_basedns` deployment value to the required domain name during the deployment, the LDAP feature is integrated along with the Scale CES.
 
-### Before you begin
-{: #before-you-begin}
-
-Before you begin, make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
-
-|CES Variable	|Description	|Example value |
-|----------|----------|----------|
-|`ldap_basedns`|Base DNS of LDAP Server. If **none** is given then LDAP feature is not enabled.|`ldapscale.com` |
-|`ldap_server`	|IP of an existing LDAP server. If **none** is given, then a new ldap server is created.	|null| 
-|`ldap_admin_password`	|Password that is used for performing administrative operations for LDAP. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.	|`xxxxxx`  |
-|`ldap_user_name`	|Custom LDAP user for performing cluster operations. Note: Username must be at least 4 character, (any combination of lowercase and uppercase letters).	|`scaleuser`|
-|`ldap_user_password`	|LDAP user password that is used for performing operations on the cluster. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.|`xxxxxx`|
-|`enable_ldap`|Set this option to true to enable LDAP for {{site.data.keyword.cloud_notm}} HPC, with the default value set to false.|true|
-{: caption='CES variables'}
-
-### Verifying authentication
-{: #verify}
+## Verifying authentication
+{: #verify-authentication}
 
 Use the `mmuserauth` command to view the details on the type of authentication used for CES:
 
