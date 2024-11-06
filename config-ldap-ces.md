@@ -96,7 +96,6 @@ null_resource.validate_ldap_server_connection[0] (remote-exec): The connection t
 However, if the connection to the existing LDAP server is not established, you see a message similar to:
 
 ```text
-
 │ Error: remote-exec provisioner error
 │ with null_resource.validate_ldap_server_connection[0], on main.tf line 355, in resource "null_resource" "validate_ldap_server_connection":
 │ 355:   provisioner "remote-exec" {
@@ -241,14 +240,12 @@ By setting up the `enable_ldap`, `ldap_admin_password`, `ldap_user_name`, `ldap_
 ### Before you begin
 {: #before-you-begin}
 
-Before you begin, review the following task:
-
-Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
+Before you begin, make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
 
 |CES Variable	|Description	|Example value |
 |----------|----------|----------|
 |`ldap_basedns`|Base DNS of LDAP Server. If **none** is given then LDAP feature is not enabled.|`ldapscale.com` |
-|`ldap_server`	|IP of an existing LDAP server. If **none** is given, then a new ldap server is created.	|| 
+|`ldap_server`	|IP of an existing LDAP server. If **none** is given, then a new ldap server is created.	|null| 
 |`ldap_admin_password`	|Password that is used for performing administrative operations for LDAP. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.	|`xxxxxx`  |
 |`ldap_user_name`	|Custom LDAP user for performing cluster operations. Note: Username must be at least 4 character, (any combination of lowercase and uppercase letters).	|`scaleuser`|
 |`ldap_user_password`	|LDAP user password that is used for performing operations on the cluster. The password must contain at least 8 characters and at most 20 characters. For a strong password, at least three alphabetic characters are required, with at least one uppercase and one lowercase letter. Two numbers, and at least one special character from this set (~@_+:). Make sure that the password doesn't include the username.|`xxxxxx`|

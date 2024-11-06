@@ -31,7 +31,7 @@ This release notes for {{site.data.keyword.scale_full}} describes the new change
 {: release-note}
 
 Migrated OpenLDAP configuration to support SSSD
-:   Migrated OpenLDAP configuration to support SSSD
+:   The OpenLDAP SSSD configuration offers cross-platform compatibility, ensuring consistent authentication setup across various environments. Moving from a `nslcd` daemon system to a System Security Services Daemon (SSSD) OpenLDAP configuration enhances flexibility and facilitates seamless integration within diverse system landscapes.
 
 ## October 2024
 {: #storage-scale-oct24}
