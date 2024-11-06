@@ -1,0 +1,41 @@
+{
+    "version": 2,
+    "title": "IBM Storage Scale",
+    "introduction": "Find useful information to learn about IBM Storage Scale.",
+    "product_page": "https://www.ibm.com/products/storage-scale",
+    "section_topics": {
+      "links": [
+        {
+          "title": "Getting started with IBM Storage Scale",
+          "href": "/docs/storage-scale?topic=storage-scale-getting-started-tutorial"
+        },
+        {
+          "title": "About IBM Storage Scale",
+          "href": "/docs/storage-scale?topic=storage-scale-about-storage-scale"
+        },
+        {
+          "title": "Enabling Active File Management to Cloud Object Storage",
+          "href": "/docs/storage-scale?topic=storage-scale-config-afm-integration-cos"
+        },
+        {
+          "title": "Enabling OpenLDAP service",
+          "href": "/docs/storage-scale?topic=storage-scale-enable-openldap"
+        },
+        {
+          "title": "FAQs",
+          "href": "/docs/storage-scale?topic=storage-scale-storage-scale-faqs"
+        }
+      ]
+    },
+    "section_highlights": [
+      {
+        "title": "IBM Storage Scale",
+        "description": "IBM Storage Scale enables configuration for compute nodes and storage nodes to build a complete end to end working HPC cluster.",
+        "href": "https://test.cloud.ibm.com/docs/storage-scale?topic=storage-scale-about-storage-scale",
+        "type": "training"
+      }
+    ],
+    "section_updates": {
+      "view_more": "/docs/storage-scale?topic=storage-scale-release-notes"
+    }
+  }
