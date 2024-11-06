@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-04"
+lastupdated: "2024-11-06"
 
 keywords: 
 
@@ -96,14 +96,11 @@ null_resource.validate_ldap_server_connection[0] (remote-exec): The connection t
 However, if the connection to the existing LDAP server is not established, you see a message similar to:
 
 ```text
-╷
+
 │ Error: remote-exec provisioner error
-│ 
-│   with null_resource.validate_ldap_server_connection[0],
-│   on main.tf line 355, in resource "null_resource" "validate_ldap_server_connection":
-│  355:   provisioner "remote-exec" {
-│ 
-│  error executing "/tmp/terraform_888134906.sh": Process exited with status 1
+│ with null_resource.validate_ldap_server_connection[0], on main.tf line 355, in resource "null_resource" "validate_ldap_server_connection":
+│ 355:   provisioner "remote-exec" {
+│ error executing "/tmp/terraform_888134906.sh": Process exited with status 1
 ```
 {: codeblock}
 
@@ -278,7 +275,7 @@ If you have an existing LDAP server configured without a certificate, follow the
 
 1. Configure SSH key into your existing LDAP server.
 
-2. Install the required software.
+2. Install the required software
    `apt install gnutls-bin ssl-cert -y`
 
 3. Generate the SSL certificate and configure with the OpenLDAP server.
@@ -354,7 +351,7 @@ If you have an existing LDAP server configured without a certificate, follow the
     ```
     {: codeblock}
 
-11. Restart `slapd` service to apply the changes.
+11. Restart `slapd` service to apply the changes
     `systemctl restart slapd.service`
 
 12. Create an LDIF file for configuring TLS in LDAP server.
@@ -363,14 +360,10 @@ If you have an existing LDAP server configured without a certificate, follow the
     dn: cn=config
     add: olcTLSCACertificateFile
     olcTLSCACertificateFile: /etc/ssl/certs/ldap_cacert.pem
-
     -
-
     add: olcTLSCertificateFile
     olcTLSCertificateFile: /etc/ssl/certs/ldapserver_slapd_cert.pem
-
     -
-
     add: olcTLSCertificateKeyFile
     olcTLSCertificateKeyFile: /etc/ssl/private/ldapserver_slapd_key.pem
     EOF
@@ -400,4 +393,5 @@ If you have an existing LDAP server configured without a certificate, follow the
     `systemctl restart slapd.service`
 
 17. Copy the LDAP certificate content from "/etc/ssl/certs/ldap_cacert.pem" path as a single line and provide as input to the "ldap_server_cert" variable.
+
     ` awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' /etc/ssl/certs/ldap_cacert.pem`
