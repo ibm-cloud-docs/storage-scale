@@ -123,7 +123,7 @@ class HPCCEnvironmentValues:
 ## `config.json` template file
 {: #template-file}
 
-Use this template file in the public GitHub repository: [config.json](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics/tree/master/sample/configs){: external}
+Use this template file in the public GitHub repository: [config.json](https://github.com/IBM/ibm-spectrum-scale-ibm-cloud-schematics/tree/main/sample/configs){: external}
 
 
 ## Example Python response
@@ -141,4 +141,3 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "PUT /v1/wo
 INFO:root:Schematic Variable Update Completed
 ```
 {: screen}
-

@@ -43,7 +43,7 @@ By setting the `scale_encryption_type` deployment value to `gklm`, the key serve
 Before you begin, review the following tasks:
 
 1. Make sure to complete the steps for [Getting started with {{site.data.keyword.scale_full_notm}}](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
-2. Learn more about file system encryption by using [GKLM](https://www.ibm.com/docs/en/storage-scale/5.1.8?topic=environment-simplified-setup-using-sklm-self-signed-certificate#bl1adv_encryptionenv_simplified){: external}.
+2. Learn more about file system encryption by using [GKLM](https://www.ibm.com/docs/en/storage-scale/5.2.1?topic=environment-simplified-setup-using-sklm-self-signed-certificate){: external}.
 
 A minimum of two key servers are added to the cluster to avoid a single point of failure.
 {: note}
@@ -59,7 +59,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | `scale_encryption_vsi_osimage_name` | Specify the image name to create the GKLM server when `scale_encryption_type` is set to `gklm`. Only RHEL 8.8 stock images are supported. | `gklm-custom-image-name` |
 | `scale_encryption_vsi_profile` | Specify the virtual server instance profile type to create storage nodes when `scale_encryption_type` is set to `gklm`. For more information, see [Instance profiles](/docs/vpc?topic=vpc-profiles). | `bx2-2x8` |
 | `scale_encryption_server_count` | Specify the number of servers for a high-availability encryption setup when `scale_encryption_type` is set to `gklm`. A minimum of 2 servers and a maximum of 5 servers are allowed. | `3` |
-| `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/sgklm/4.2){: external}. | `xxxxxxx` |
+| `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/gklm/4.2.1){: external}. | `xxxxxxx` |
 | `scale_encryption_dns_domain` | Specify the IBM Cloud DNS Services domain name for the GKLM cluster when `scale_encryption_type` is set to `gklm`. Note: If an existing DNS domain is in use, a new domain must be provided, as existing domains are not supported. | `gklmscale.com` |
 | `scale_encryption_instance_key_pair` | Specify the name of the SSH key in your IBM Cloud account for connecting to the Scale Encryption keyserver nodes when `scale_encryption_type` is set to `gklm`. Ensure the SSH key is in the same resource group and region as the keyservers. Only one SSH key is supported for the keyserver nodes. If you do not have an SSH key in your {{site.data.keyword.cloud_notm}} account, create one by using the [SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) instructions. | `my-ssh-key` |
 {: caption="Encryption variables and example values" caption-side="bottom"}
@@ -160,7 +160,7 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | Encryption variable | Description | Example value |
 | ------------------- | ----------- | ------------- |
 |`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | `key_protect` |
-| `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/sgklm/4.2). | `xxxxxxx` |
+| `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/gklm/4.2.1). | `xxxxxxx` |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
 ### Verifying encryption on the file system
