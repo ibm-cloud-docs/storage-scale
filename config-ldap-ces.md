@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-08"
 
 keywords: 
 
@@ -253,7 +253,7 @@ To know more about CES authentication click [CES User Authentication](/docs/stor
 ## Creating and Configuring an LDAP certificate with your LDAP server
 {: #create-configure-ldap-certificate}
 
-If you have an existing LDAP server configured without a certificate, follow these steps to create a certificate and configure it with the LDAP server.
+If your existing LDAP server is configured without a certificate, follow these steps to create one and configure it with the LDAP server. If your LDAP server is already configured with a certificate, you can skip steps 1 through 16 and proceed directly to copying the certificate content [step 17].
 
 1. Configure SSH key into your existing LDAP server.
 
@@ -377,3 +377,4 @@ If you have an existing LDAP server configured without a certificate, follow the
 17. Copy the LDAP certificate content from "/etc/ssl/certs/ldap_cacert.pem" path as a single line and provide as input to the "ldap_server_cert" variable.
 
     ` awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' /etc/ssl/certs/ldap_cacert.pem`
+    Replace `/etc/ssl/certs/ldap_cacert.pem` with the path to your existing LDAP certificate if it differs.
