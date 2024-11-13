@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-10-08"
+lastupdated: "2024-11-13"
 
 keywords: 
 
@@ -56,7 +56,7 @@ Before you begin, review the following information:
 
 1. Make sure to complete the steps for [Getting started with IBM Storage Scale](/docs/storage-scale?topic=storage-scale-getting-started-tutorial).
 
-2. Learn more about active file management by using the link, [Introduction to AFM to cloud object storage](/docs/en/storage-scale/5.2.0?topic=overview-introduction-afm-cloud-object-storage).
+2. Learn more about active file management by using the link, [Introduction to AFM to cloud object storage](https://www.ibm.com/docs/en/storage-scale/5.2.1?topic=overview-introduction-afm-cloud-object-storage).
 
 ## Configuring AFM deployment
 {: #configure-afm-deployment}
