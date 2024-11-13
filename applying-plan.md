@@ -38,11 +38,11 @@ When you apply a plan, the {{site.data.keyword.cloud}} resources are deployed to
 
 For more information on viewing successful or failed cluster deployments, see [Retrieving apply plan logs](/docs/storage-scale?topic=storage-scale-retrieve-apply-plan-logs).
 
-## Next steps
+## Next steps (UI)
 {: #apply-plan-ui-next-steps}
 {: ui}
 
-After you've successfully applied a plan, you can begin [Accessing the GUI](/docs/storage-scale?topic=storage-scale-access-gui) to monitor the resources and status of the service for both the compute and storage clusters.
+After you have successfully applied a plan, you can begin [Accessing the GUI](/docs/storage-scale?topic=storage-scale-access-gui) to monitor the resources and status of the service for both the compute and storage clusters.
 
 ## Applying a plan using the CLI
 {: #apply-plan-cli}
@@ -78,7 +78,7 @@ After the plan is successfully applied, it generates an `ssh_command` in the _Ou
 
 For more information on viewing successful or failed cluster deployments, see [Retrieving apply plan logs](/docs/storage-scale?topic=storage-scale-retrieve-apply-plan-logs).
 
-## Next steps
+## Next steps (CLI)
 {: #apply-plan-cli-next-steps}
 {: cli}
 
@@ -168,10 +168,8 @@ INFO:root:Completed Applying Schematic Plan
 ```
 {: screen}
 
-## Next steps
+## Next steps (API)
 {: #apply-plan-api-next-steps}
 {: api}
 
 After you've successfully applied a plan, you can begin [Accessing the GUI](/docs/storage-scale?topic=storage-scale-access-gui) to monitor the resources and status of the service for both the compute and storage clusters.
-
-

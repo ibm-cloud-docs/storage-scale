@@ -36,7 +36,7 @@ After you've created your workspace, you need to generate a plan to validate all
 2. When you click **Generate plan**, a new log is generated that can be viewed in the Jobs tab by clicking **Jobs**. 
 3. Review the log file for any errors, fix the properties, and regenerate the plan by clicking **Generate plan** again.
 
-## Next steps
+## Next steps (UI)
 {: #next-steps-generate-ui}
 {: ui}
 
@@ -60,7 +60,7 @@ ibmcloud schematics logs --id <WORKSPACE_ID>
 ```
 {: pre}
 
-## Next steps
+## Next steps (CLI)
 {: #next-steps-generate-plan-cli}
 {: cli}
 
@@ -149,7 +149,7 @@ INFO:root:Completed Generating Schematic Plan
 ```
 {: screen}
 
-## Next steps
+## Next steps (API)
 {: #next-steps-generate-plan-api}
 {: api}
 
