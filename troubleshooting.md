@@ -358,41 +358,8 @@ To validate the software entitlement, the automation code uses a Marketplace API
 Open an issue with {{site.data.keyword.cloud_notm}} Support. This needs to be reported to the specific API team that provides this capability. Ask the IBM customer support team to pass this issue to the Marketplace API team.
 {: tsResolve}
 
-## Why do errors occur when resources are deleted after a bare metal server fails to provision?
-{: #troubleshooting-topic-21}
-{: troubleshoot}
-{: support}
-
-After a bare metal server fails to provision and you try to delete resources from the bootstrap node, you are receiving the following error after you apply the `mmcloudworkflows cluster destroy ibmcloud` command: `[ERROR] Error deleting security group target binding while deleting security group : The specified network interface is not attached to any other security groups..`
-{: tsSymptoms}
-
-If cluster provisioning fails, it is recommended to clean up all of the resources from the failed provision before you attempt to reprovision a cluster.
-
-During the destroy process, the bootstrap node tries to clean up all of the resources that were created during the provisioning phase (for example, compute node, bare metal server, security group, and so on). It is possible that if a bare metal server provisioning took longer than expected and then failed, then during a subsequent cleanup, the destroy process complains that the failed bare metal server is still attached to a security group it is attempting to destroy.
-{: tsCauses}
-
-Copy the cluster prefix name and complete the following steps:
-{: tsResolve}
-
-1. Go to the security group and access the `-storage-sg`.
-2. Go to the attached resources section for the security group.
-3. Click the attached bare metal server and copy the ID of the server.
-4. Run the following commands from the CLI to stop and delete the server:
-
-    ```
-    ibmcloud is bare-metal-server-stop $bare_metal_server_id
-    ```
-    {: pre}
-
-    ```
-    ibmcloud is bare-metal-server-delete $bare_metal_server_id
-    ```
-    {: pre}
-
-5. Deletion of the bare metal server takes a few seconds. After the bare metal node is deleted, access the bootstrap node and reapply the `mmcloudworkflows cluster destroy ibmcloud` command.
-
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with a passwordless SSH error?
-{: #troubleshoot-topic-22}
+{: #troubleshoot-topic-21}
 {: troubleshoot}
 {: support}
 
@@ -406,7 +373,7 @@ After a failed deployment, clean up all resources. During a subsequent attempt, 
 {: tsResolve}
 
 ## Why is IBM Cloud Schematics not able to provision the cluster and fails with an `Enabling the Custom resolver` error?
-{: #troubleshoot-topic-23}
+{: #troubleshoot-topic-22}
 {: troubleshoot}
 {: support}
 
@@ -454,7 +421,7 @@ type = "Generic"
 `/usr/lpp/mmfs/bin/mmhealth node show nfs --refresh -N cesNodes`
 
 ## Why do we see the `rkmconf_filenotfound_err` error on the compute nodes?
-{: #troubleshoot-topic-23}
+{: #troubleshoot-topic-24}
 {: troubleshoot}
 {: support}
 
