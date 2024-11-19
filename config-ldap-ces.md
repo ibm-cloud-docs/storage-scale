@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-19"
 
 keywords: 
 
@@ -25,16 +25,14 @@ subcollection: storage-scale
 # Enabling OpenLDAP service
 {: #enable-openldap}
 
-This document gives you the brief overview about the Open Lightweight Directory Access Protocol (OpenLDAP) and the integration of OpenLDAP with {{site.data.keyword.scale_full_notm}} cluster.
+OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
 
 ## About OpenLDAP with IBM Storage Scale
 {: #about-openldap}
 
-OpenLDAP is an open source implementation of the Lightweight Directory Access Protocol (LDAP) that provides centralized authentication and directory services.
-
 Integrating OpenLDAP with your {{site.data.keyword.scale_full_notm}} cluster enables centralized user management, improved security, and simplified user authentication. The integration also allows you to use existing authentication credentials, reducing the need to remember multiple login credentials. Overall, the architecture provides a robust and efficient solution for user authentication and directory management in distributed computing environments.
 
-OpenLDAP server can be installed and configured on a Linux&reg; system; for example, an Ubuntu 22.04 is supported as the host.
+OpenLDAP server can be installed and configured on a Linux&reg; system; for example, an Ubuntu 22.04.
 {: shortdesc}
 
 ## Before you begin
