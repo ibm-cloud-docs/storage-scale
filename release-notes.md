@@ -26,8 +26,8 @@ This release notes for {{site.data.keyword.scale_full}} describes the new change
 ## November 2024
 {: #storage-scale-nov24}
 
-### 08 November 2024
-{: #storage-scale-nov1108}
+### 21 November 2024
+{: #storage-scale-nov1121}
 {: release-note}
 
 Migrated OpenLDAP configuration to support SSSD
