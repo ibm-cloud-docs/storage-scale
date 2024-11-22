@@ -6,7 +6,7 @@ lastupdated: "2023-09-20"
 
 keywords: 
 
-subcollection: hpc-spectrum-scale
+subcollection: storage-scale
 
 ---
 

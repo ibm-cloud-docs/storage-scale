@@ -57,8 +57,8 @@ Before you deploy a cluster, it is important to make sure that the VPC resource 
 
 See the following minimum and maximum number of nodes that are supported in a cluster:
 * Compute nodes: For all storage clusters, a minimum of 3 and a maximum of 64 virtual server instance compute nodes are supported.
-* Scratch and evaluation cluster storage nodes: For a scratch and evaluation storage clusters, a minimum of 3 and a maximum of 18 virtual server instance storage nodes are supported.
-* Persistent cluster storage nodes: For a persistent storage cluster, a minimum of 3 and a maximum of 10 bare metal server storage nodes are supported.
+* Scratch and evaluation cluster storage nodes: For a scratch and evaluation storage clusters, a minimum of 2 and a maximum of 64 virtual server instance storage nodes are supported.
+* Persistent cluster storage nodes: For a persistent storage cluster, a minimum of 2 and a maximum of 32 bare metal server storage nodes are supported.
 
 For more information, see [Deployment values](/docs/storage-scale?topic=storage-scale-deployment-values).
 
@@ -111,7 +111,7 @@ The compute and storage clusters are created to not have the same passwordless S
 {: #multiple-key-pairs}
 {: faq}
 
-Yes, the current version of the {{site.data.keyword.scale_short}}offering supports multiple key_pair that provide access to all the nodes that are part of the cluster.
+Yes, the current version of the {{site.data.keyword.scale_short}} offering supports multiple key_pair that provide access to all the nodes that are part of the cluster.
 
 ## Can you use own resource group to configure the resources?
 {: #resource-group-configure-resources}
@@ -120,10 +120,10 @@ Yes, the current version of the {{site.data.keyword.scale_short}}offering suppor
 Yes, you can provide the resource group of your choice for the deployment of your cluster's VPC resources. Due to the use of trusted profiles in this offering, you must ensure that all the `key_pair` values that are specified in the deployment values are created in the same resource group.
 
 ## Which operating system versions are supported for the images used for the compute and storage nodes in Storage Scale?
-{: #supported-operating-systems}
+{: #os-compute-storage-nodes}
 {: faq}
 
-With {{site.data.keyword.scale_short}}, you can use custom or stock images based on RHEL 7.9 or RHEL 8.8. For compute nodes, both RHEL 7.9 or 8.8 can be used. For storage nodes, only RHEL 8.4 is supported.
+In {{site.data.keyword.scale_full_notm}}, either custom or stock images based on RHEL 8.10 version can be used for compute and storage nodes.
 
 ## Why does Storage Scale not allow use of the default value of 0.0.0.0/0 for security group creation?
 {: #default-value-security-group-creation}
@@ -139,12 +139,6 @@ An {{site.data.keyword.IBM_notm}} Customer Number (ICN) is the unique number tha
 
 If the `storage_type` deployment value is set as either "scratch" or "persistent", the ICN can't be set as an empty value. An empty value is accepted only if the `storage_type` is set as "evaluation".
 {: important}
-
-## Can you directly destroy all Storage Scale resources from the CLI?
-{: #destroy-resources-cli}
-{: faq}
-
-Do not destroy all of the resources from the CLI directly. The required resources that configure the {{site.data.keyword.scale_short}} cluster are created in two different phases of automation. To cleanly destroy a cluster, see [Destroying resources](/docs/storage-scale?topic=storage-scale-deleting-resources&interface=cli).
 
 ## What are trusted profiles and what permissions are required to set up the offering?
 {: #trusted-profiles-required-permissions}
@@ -183,21 +177,17 @@ The solution is integrated with the {{site.data.keyword.cloud_notm}} cataided th
 
 Anything above {{site.data.keyword.scale_full_notm}} 5.1.5 supports the Multi-Rail over TCP (MROT) feature.
 
-## What version of OS does Scale support?
-{: #os-version-supported}
-
-With Storage Scale, you can use custom or stock images based on RHEL 7.9 or RHEL 8.8. For compute nodes, both RHEL 7.9 or 8.8 can be used. For storage nodes, only RHEL 8.8 is supported.
-
-## Why does the 'mmlsconfg' command display 5.1.9.0 in the 'minReleaseLevel' parameter?
+## Why does the 'mmlsconfg' command display 5.2.1.0 in the 'minReleaseLevel' parameter?
 {: #version-command}
 
-After running the `mmlsconfg` command, the 'minReleaseLevel' parameter displays 5.1.9.0. This is because version 5.1.9.2 includes 'minReleaseLevel' set to 5.1.9.0. For verification of the actual version, run the `mmdiag --version` command.
+After running the `mmlsconfg` command, the 'minReleaseLevel' parameter displays 5.2.1.0. This is because version 5.2.1.1 includes 'minReleaseLevel' set to 5.2.1.0. For verification of the actual version, run the `mmdiag --version` command.
 
 ```
-[root@scale-3-strg-001 ~]# mmdiag --version
+[root@jay-tie-strg-002 ~]# mmdiag --version
 
 === mmdiag: version ===
-Current GPFS build: "5.1.9.2 ".
-Built on Jan 24 2024 at 13:45:43
-Running 2 hours 35 minutes 24 secs, pid 17580
+Current GPFS build: "5.2.1.1 ".
+Built on Sep 20 2024 at 12:35:51
+Running 2 days 2 hours 30 minutes 12 secs, pid 34239
+[root@jay-tie-strg-002 ~]#
 ```

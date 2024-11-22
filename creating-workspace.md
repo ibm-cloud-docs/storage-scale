@@ -46,7 +46,7 @@ With {{site.data.keyword.bplong}} workspaces, you can manage the Terraform-based
 7. Click Install. The {{site.data.keyword.bpshort}} workspace is created with the name specified. You can see the list of workspaces in _View the existing installations_. If the workspace creation is successful, the Apply Plan action is started to trigger the deployment of the respective {{site.data.keyword.vpc_short}} resources in your {{site.data.keyword.cloud_notm}} account.
 8. You can also review the status of your deployment process by identifying the workspace name in the _View the existing installations_ section. When you click a record in _View the existing installations_ section, you are taken to the {{site.data.keyword.bpshort}} workspace view. 
 
-## Next steps
+## Next steps (UI)
 {: #next-steps-create-ui}
 {: ui}
 
@@ -117,7 +117,7 @@ ibmcloud schematics workspace update --id WORKSPACE_ID --file FILE_NAME [--githu
 
 To provision or modify {{site.data.keyword.cloud_notm}} resources, you can run the command `ibmcloud schematics plan` command. For more information, see the [{{site.data.keyword.bplong_notm}} CLI](/docs/schematics?topic=schematics-schematics-cli-reference) reference.
 
-## Next steps
+## Next steps (CLI)
 {: #next-steps-create-cli}
 {: cli}
 
@@ -426,7 +426,7 @@ DEBUG:urllib3.connectionpool:https://us.schematics.cloud.ibm.com:443 "POST /v1/w
 ```
 {: screen}
 
-## Next steps
+## Next steps (API)
 {: #next-steps-create-api}
 {: api}
 

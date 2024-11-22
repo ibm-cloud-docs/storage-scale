@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2024
 
-lastupdated: "2024-10-15"
+lastupdated: "2024-11-22"
 
 keywords: IBM Storage Scale release notes
 
@@ -22,6 +22,16 @@ content-type: release-note
 
 This release notes for {{site.data.keyword.scale_full}} describes the new changes added to the release.
 {: shortdesc}
+
+## November 2024
+{: #storage-scale-nov24}
+
+### 22 November 2024
+{: #storage-scale-nov2224}
+{: release-note}
+
+Migrated OpenLDAP configuration to support SSSD
+:   The OpenLDAP SSSD configuration offers cross-platform compatibility, ensuring consistent authentication setup across various environments. Moving from a `nslcd` daemon system to a System Security Services Daemon (SSSD) OpenLDAP configuration enhances flexibility and facilitates seamless integration within diverse system landscapes.
 
 ## October 2024
 {: #storage-scale-oct24}

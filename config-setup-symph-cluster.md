@@ -324,7 +324,7 @@ Join a Symphony Cluster node that is hosted on RHEL 8.4 OS to an AD domain by us
     *  Starts the winbind service and enables the service to start when the system boots. 
 
 
-9.  (Optional) Set an alternative ID mapping back end or customized ID mapping settings in the /etc/samba/smb.conf file. For more information, see the [Understanding and configuring Samba ID mapping](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers). 
+9.  (Optional) Set an alternative ID mapping back end or customized ID mapping settings in the /etc/samba/smb.conf file. For more information, see the [Understanding and configuring Samba ID mapping](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/assembly_using-samba-as-a-server_deploying-different-types-of-servers){: external}
 
 10.  Edit the /etc/krb5.conf file and add this information: 
 
