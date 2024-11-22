@@ -3,7 +3,7 @@
 copyright:
   years: 2022, 2024
 
-lastupdated: "2024-11-06"
+lastupdated: "2024-11-22"
 
 keywords: IBM Storage Scale release notes
 
@@ -26,8 +26,8 @@ This release notes for {{site.data.keyword.scale_full}} describes the new change
 ## November 2024
 {: #storage-scale-nov24}
 
-### 21 November 2024
-{: #storage-scale-nov1121}
+### 22 November 2024
+{: #storage-scale-nov2224}
 {: release-note}
 
 Migrated OpenLDAP configuration to support SSSD
