@@ -23,6 +23,17 @@ content-type: release-note
 This release notes for {{site.data.keyword.scale_full}} describes the new changes added to the release.
 {: shortdesc}
 
+## February 2025
+{: #storage-scale-feb25}
+
+### 26 February 2025
+{: #storage-scale-feb2625}
+{: release-note}
+
+Bug Fixes
+:  The Storage Scale version is updated from 5.2.1.1 to 5.2.2.1
+:  The custom image version is updated due to bug found on the production related to OpenLDAP.
+
 ## November 2024
 {: #storage-scale-nov24}
 
@@ -31,7 +42,7 @@ This release notes for {{site.data.keyword.scale_full}} describes the new change
 {: release-note}
 
 Migrated OpenLDAP configuration to support SSSD
-:   The OpenLDAP SSSD configuration offers cross-platform compatibility, ensuring consistent authentication setup across various environments. Moving from a `nslcd` daemon system to a System Security Services Daemon (SSSD) OpenLDAP configuration enhances flexibility and facilitates seamless integration within diverse system landscapes.
+:  The OpenLDAP SSSD configuration offers cross-platform compatibility, ensuring consistent authentication setup across various environments. Moving from a `nslcd` daemon system to a System Security Services Daemon (SSSD) OpenLDAP configuration enhances flexibility and facilitates seamless integration within diverse system landscapes.
 
 ## October 2024
 {: #storage-scale-oct24}
@@ -41,13 +52,13 @@ Migrated OpenLDAP configuration to support SSSD
 {: release-note}
 
 Updated RHEL stock image version
-:   The RHEL stock image version has been updated from RHEL 8.8 to RHEL 8.10.
+:  The RHEL stock image version has been updated from RHEL 8.8 to RHEL 8.10.
 
 Updated Storage Scale software version
-:   The Storage Scale version used to configure the compute and storage clusters has been updated from version 5.2.0.1 to 5.2.1.1.
+:  The Storage Scale version used to configure the compute and storage clusters has been updated from version 5.2.0.1 to 5.2.1.1.
 
 Bare metal support for protocol nodes
-:   Dedicated protocol nodes can be deployed on bare metal servers.
+:  Dedicated protocol nodes can be deployed on bare metal servers.
 
 ## September 2024
 {: #storage-scale-sep24}
@@ -136,7 +147,7 @@ Updated Storage Scale software version
 {: release-note}
 
 Encryption with GKLM
-:   You can now encrypt your {{site.data.keyword.scale_short}} cluster file system by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM). If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling encryption by using GKLM](/docs/storage-scale?topic=storage-scale-enable-encryption). 
+:   You can now encrypt your {{site.data.keyword.scale_short}} cluster file system by using the IBM Security® Guardium® Key Lifecycle Manager (GKLM). If you want to enable encryption, you need to define the `scale_encryption_xxx` deployment values when you configure your workspace. For more information about enabling encryption and configuring these deployment values, see [Enabling encryption by using GKLM](/docs/storage-scale?topic=storage-scale-enable-encryption).
 
 Parallel vNIC (Virtual Network Interface Controller)
 :   Create a secondary vNIC for higher VSI profiles to separate the data and storage traffic across different vNICs for higher bandwidth and better performance.
