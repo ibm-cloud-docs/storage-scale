@@ -30,9 +30,11 @@ This release notes for {{site.data.keyword.scale_full}} describes the new change
 {: #storage-scale-feb2625}
 {: release-note}
 
-Bug Fixes
+Bug Fix
+:  OpenLDAP bug fix with new custom image version is updated.
+
+Enhancement
 :  The Storage Scale version is updated from 5.2.1.1 to 5.2.2.1
-:  The custom image version is updated due to bug found on the production related to OpenLDAP.
 
 ## November 2024
 {: #storage-scale-nov24}
