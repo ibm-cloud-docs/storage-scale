@@ -194,9 +194,9 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 
 IBM Storage Scale now supports both new and existing Key Protect instances for filesystem encryption.
 
-* If the `key_protect_instance_id` is not set, a new Key Protect instance will be created automatically.
+* If the `key_protect_instance_id` is not set, a new Key Protect instance will be created automatically through our automation.
 
-* If the `key_protect_instance_id` is provided, the existing Key Protect instance will be used for encryption.
+* If the `key_protect_instance_id` is provided, the existing Key Protect instance will be used for file system encryption and automation will create the key.
 
 * Ensure that the instance provided has the necessary permissions and is accessible to Storage Scale.
 
