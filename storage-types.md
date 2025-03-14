@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022, 2024
-lastupdated: "2024-10-14"
+  years: 2022, 2025
+lastupdated: "2025-03-14"
 
-keywords: 
+keywords:
 
 subcollection: storage-scale
 
@@ -25,7 +25,7 @@ subcollection: storage-scale
 # Storage types
 {: #storage-types}
 
-The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation. 
+The {{site.data.keyword.scale_short}} solution offers three different storage types: scratch, persistent, and evaluation.
 {: shortdesc}
 
 ## Scratch storage
@@ -37,6 +37,8 @@ A scratch configuration uses virtual server instances with instance storage. If 
 {: #persistent-storage}
 
 A persistent configuration uses bare metal servers with locally attached NVMe storage. In addition to higher resilience, persistent storage provides higher performance and capacity than scratch storage.
+
+{{site.data.keyword.scale_full_notm}} supports both Sapphire Rapids (x3 and x3d) profiles and Cascade Lake (x2 and x2d). For more information, see [x86-64 bare metal server profiles](https://cloud.ibm.com/docs/vpc?topic=vpc-bare-metal-servers-profile&interface=ui).
 
 ## Evaluation storage
 {: #evaluation-storage}
