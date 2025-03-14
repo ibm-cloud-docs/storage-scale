@@ -189,10 +189,10 @@ To enable encryption on a Storage Scale cluster, the following variables need to
     ```
     {: codeblock}
 
-## Existing Key Protect Instance
-{: #existing-keyprotect-instance}
+## Key Protect Instance
+{: #keyprotect-instance}
 
-IBM Storage Scale now supports both new and existing Key Protect instances for filesystem encryption. Users can use an existing Key Protect instance for encryption.
+IBM Storage Scale now supports both new and existing Key Protect instances for filesystem encryption.
 
 * If the `key_protect_instance_id` is not set, a new Key Protect instance will be created automatically.
 

@@ -36,15 +36,20 @@ For best practices, it is recommended to use separate and dedicated security gro
 When users opt for the existing security groups, they must ensure that all necessary groups are specified. Failure to provide the required security groups will result in automation failure.
 
 **Scenario 1**
+
 If the variable `enable_sg_validation` is set to `true` and the user provides only the `bastion_sg` and `bootstrap_sg`, omitting the `storage_sg`, then the terraform automation fails due to built-in validations designed to ensure all mandatory security groups are passed for cluster creation.
 
-  ```shell
-  ‘2025/03/12 10:30:01 Terraform plan | on input-validations.tf line 537, in locals: 2025/03/12 10:30:01 Terraform plan | 537: validate_strg_sg_chk = regex("^${local.strg_sg_msg}$", local.validate_strg_sg ? local.strg_sg_msg : "") 2025/03/12 10:30:01 Terraform plan | ├──────────────── 2025/03/12 10:30:01 Terraform plan | │ while calling regex(pattern, string) 2025/03/12 10:30:01 Terraform plan | │ local.strg_sg_msg is "Only new or existing security groups are supported. If any security group name is not null, then strg_sg_name must be an existing security group." 2025/03/12 10:30:01 Terraform plan | │ local.validate_strg_sg is false 2025/03/12 10:30:01 Terraform plan | 2025/03/12 10:30:01 Terraform plan | Call to function "regex" failed: pattern did not match any part of the given 2025/03/12 10:30:01 Terraform plan‘
-  ```
+```console
+`2025/03/12 10:30:01 Terraform plan | on input-validations.tf line 537, in locals: 2025/03/12 10:30:01 Terraform plan | 537: validate_strg_sg_chk = regex("^${local.strg_sg_msg}$", local.validate_strg_sg ? local.strg_sg_msg : "") 2025/03/12 10:30:01 Terraform plan | ├──────────────── 2025/03/12 10:30:01 Terraform plan | │ while calling regex(pattern, string) 2025/03/12 10:30:01 Terraform plan | │ local.strg_sg_msg is "Only new or existing security groups are supported. If any security group name is not null, then strg_sg_name must be an existing security group." 2025/03/12 10:30:01 Terraform plan | │ local.validate_strg_sg is false 2025/03/12 10:30:01 Terraform plan | 2025/03/12 10:30:01 Terraform plan | Call to function "regex" failed: pattern did not match any part of the given 2025/03/12 10:30:01 Terraform plan`
+```
+{: pre}
+
 **Scenario 2**
+
 If the variable `enable_sg_validation` is set to `false`, then the automation bypasses these validations. This allows the deployment to proceed without all security groups in place, it can lead to incomplete configurations and improper cluster functionality due to missing security group associations.
 
 **Scenario 3**
+
 If the variable `enable_sg_validation` is set to `true`, then the automation is capable of validating security group rules. For example, the `storage_sg` variable must include entries allowing communication from all other security groups associated with the deployment. If any of these entries are missing, then the deployment fails.
 
 On the other hand, when `enable_sg_validation` is set to `false`, then the validations are skipped increasing the risk of misconfigurations that could prevent the cluster from operating as expected.
@@ -65,10 +70,10 @@ Security group validation ensures that the specified security groups are properl
 
 | Variable	|Description	| Value |
 |----------|----------|----------|
-|`enable_sg_validation`| Enable or disable security group validation. Security group validation ensures that the specified security groups are properly assigned. | Null |
-|`strg_sg_name`| Existing storage security group name for storage nodes. | Null |
-|`comp_sg_name`| Existing compute security group name for compute nodes. | Null |
-|`gklm_sg_name`| Existing gklm security group name for gklm nodes. | Null |
-|`ldap_sg_name`| Existing ldap security group name for ldap nodes. | Null |
-|`bastion_sg_name`| Existing bastion security group name for bastion nodes. | Null |
-|`bootstrap_sg_name`| Existing bootstrap security group name for bootstrap nodes. | Null |
+|`enable_sg_validation`| If `enable_sg_validation` is set to true, the deployment confirms that the correct security groups are attached and allows the appropriate rules. When set to false, no validation is performed, and the deployment proceeds without verifying the security groups. | Null |
+|`strg_sg_name`| Provide the security group name to provision the storage nodes. If set to `null`, the solution automatically creates the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the storage nodes to function properly. | Null |
+|`comp_sg_name`| Provide the security group name to provision the compute nodes. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the compute nodes to function properly. | Null |
+|`gklm_sg_name`| Provide the security group name to provision the gklm nodes. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the gklm nodes to function properly. | Null |
+|`ldap_sg_name`| Provide the security group name to provision the ldap nodes. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the ldap nodes to function properly. | Null |
+|`bastion_sg_name`| Provide the security group name to provision the bastion node. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the bastion node to function properly. | Null |
+|`bootstrap_sg_name`| Provide the security group name to provision the bootstrap node. If set to `null`, the solution will automatically create the necessary security group and rules. If you choose to use an existing security group, ensure it has the appropriate rules configured for the bootstrap node to function properly. | Null |
