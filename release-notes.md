@@ -23,6 +23,22 @@ content-type: release-note
 This release notes for {{site.data.keyword.scale_full}} describes the new changes added to the release.
 {: shortdesc}
 
+## March 2025
+{: #storage-scale-mar25}
+
+### 17 March 2025
+{: #storage-scale-mar1725}
+{: release-note}
+
+Existing Security Group support
+:  {{site.data.keyword.scale_full_notm}} now supports the use of existing security groups, allowing for enhanced network access control and seamless integration with predefined security policies.
+
+Existing Key Protect Instance support
+:  {{site.data.keyword.scale_full_notm}} can now integrate with an existing Key Protect instance in the same region as the Scale cluster.
+
+Sapphire Rapids (x3 and x3d) support
+:  {{site.data.keyword.scale_full_notm}} now supports Sapphire Rapids (x3 and x3d) profiles.
+
 ## February 2025
 {: #storage-scale-feb25}
 
