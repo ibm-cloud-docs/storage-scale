@@ -198,7 +198,5 @@ IBM Storage Scale now supports both new and existing Key Protect instances for f
 
 * If the `key_protect_instance_id` is provided, the existing Key Protect instance will be used for file system encryption and automation will create the key.
 
-* Ensure that the instance provided has the necessary permissions and is accessible to Storage Scale.
-
 The existing Key Protect instance must be in the same region.
 {: note}
