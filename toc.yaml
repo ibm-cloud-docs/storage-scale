@@ -39,6 +39,7 @@ toc:
       - config-ldap-ces.md
       - config-setup-symph-cluster.md
       - vnic-info.md
+      - security-groups.md
   - navgroup:
       id: reference
       topics:

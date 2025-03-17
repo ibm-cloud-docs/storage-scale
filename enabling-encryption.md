@@ -4,7 +4,7 @@ copyright:
   years: 2023, 2024
 lastupdated: "2024-08-21"
 
-keywords: 
+keywords:
 
 subcollection: storage-scale
 
@@ -64,11 +64,11 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | `scale_encryption_instance_key_pair` | Specify the name of the SSH key in your IBM Cloud account for connecting to the Scale Encryption keyserver nodes when `scale_encryption_type` is set to `gklm`. Ensure the SSH key is in the same resource group and region as the keyservers. Only one SSH key is supported for the keyserver nodes. If you do not have an SSH key in your {{site.data.keyword.cloud_notm}} account, create one by using the [SSH keys](/docs/vpc?topic=vpc-ssh-keys&interface=ui) instructions. | `my-ssh-key` |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
-After a successful cluster creation, the following resources are automatically configured to encrypt the file system: 
+After a successful cluster creation, the following resources are automatically configured to encrypt the file system:
 
 * The key servers are deployed along with the Storage Scale cluster.
 * The admin password is updated for the GKLM application.
-* An SSL certificate is created on the key server. 
+* An SSL certificate is created on the key server.
 * Replication occurs between the primary and clone key servers.
 * The key servers are added to each cluster (storage and compute).
 * Tenants and clients are created on each cluster.
@@ -80,7 +80,7 @@ The storage and compute clusters have access to the encrypted file system, and a
 ### Verifying encryption on the file system
 {: #verify-encryption-gklm}
 
-1. Log in to any of the clusters (storage or compute nodes) by running the following SSH command: 
+1. Log in to any of the clusters (storage or compute nodes) by running the following SSH command:
 
     ```ssh
     ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE
@@ -161,12 +161,13 @@ To enable encryption on a Storage Scale cluster, the following variables need to
 | ------------------- | ----------- | ------------- |
 |`scale_encryption_type` | To enable filesystem encryption, specify either `key_protect` or `gklm`. If neither is specified, the default value will be 'null' and encryption is disabled. | `key_protect` |
 | `scale_encryption_admin_password` | The password for administrative operations in KeyProtect or GKLM must be between 8 and 20 characters long. It must include at least three alphabetic characters (one uppercase and one lowercase), two numbers, and one special character from the set (~@_+:). The password should not contain the username. For more information, see [GKLM password policy](https://www.ibm.com/docs/en/gklm/4.2.1). | `xxxxxxx` |
+|`key_protect_instance_id`| An existing Key Protect instance used for filesystem encryption.| Null |
 {: caption="Encryption variables and example values" caption-side="bottom"}
 
 ### Verifying encryption on the file system
 {: #verify-encryption-keyprotect}
 
-1. Log in to any of the clusters (storage or compute nodes) by running the following SSH command and switch to the `root` user: 
+1. Log in to any of the clusters (storage or compute nodes) by running the following SSH command and switch to the `root` user:
 
     ```ssh
     ssh -J root@BASTION_SERVER vpcuser@STORAGE_NODE
@@ -187,3 +188,17 @@ To enable encryption on a Storage Scale cluster, the following variables need to
     mmlsattr -n gpfs.Encryption FILE_NAME
     ```
     {: codeblock}
+
+## Key Protect Instance
+{: #keyprotect-instance}
+
+IBM Storage Scale now supports both new and existing Key Protect instances for filesystem encryption.
+
+* If the `key_protect_instance_id` is not set, a new Key Protect instance will be created automatically through our automation.
+
+* If the `key_protect_instance_id` is provided, the existing Key Protect instance will be used for file system encryption and automation will create the key.
+
+* Ensure that the instance provided has the necessary permissions and is accessible to Storage Scale.
+
+The existing Key Protect instance must be in the same region.
+{: note}
