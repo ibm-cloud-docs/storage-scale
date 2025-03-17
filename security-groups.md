@@ -63,12 +63,9 @@ This validation is applicable on all security groups.
 ```
 {: pre}
 
-![Security groups and its rules](images/four-security-groups.png){: caption="Security Groups" caption-side="bottom"}
+![Security groups and its rules](images/four-security-groups.png){: caption="Security groups and its rules" caption-side="bottom"}
 
-The bastion security group does not contain all the rules in the above screenshot.
-{: note}
-
-In the bootstrap security group, the public IP address provided is assigned to the devices that are authorized to establish the SSH.
+In the bootstrap security group, the ICMP rule should allow traffic from the public IP address assigned to the devices. To fetch the IP address of the device, use https://ipv4.icanhazip.com/.
 {: note}
 
 **Scenario 2**
